@@ -1,0 +1,25 @@
+body{
+    max-width: 1024px;
+    margin: auto;
+}
+p {
+    margin: 0;
+}
+p.hola {
+    font-style: italic;
+}
+p#verd{
+    color: olive;
+}
+#bloque{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1em 0;
+}
+/* #bloque {
+    margin: .5em 0;
+} */
+.code{
+    background-color: rgb(255, 207, 190);
+    width: fit-content;
+    padding: 1em 40px 1em 0;
+}

@@ -1,0 +1,49 @@
+body{
+    width: 1024px;
+    margin: auto;
+    background-color: #ffe4c4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding-top: 200px;
+}
+h1{
+    font-weight: 500;
+    letter-spacing: .2em;
+}
+ul.nav{
+    list-style: none;
+    padding: 0;
+}
+ul.nav li{
+    display: inline-block;
+}
+ul.nav li a{
+    display: inline-block;
+    padding: 1em;
+    background-color: #deb887;
+    color: white;
+    text-decoration: none;
+}
+p{
+    padding-top: 20px;
+    text-align: left;
+    line-height: 1.5em;
+}
+p.first{
+    padding-top: 50px;
+}
+span.highlight{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: burlywood;
+}
+span.quote{
+    font-variant: small-caps;
+    font-size: 1.1em;
+}
+img{
+    float: right;
+    padding-top: 50px;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}

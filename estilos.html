@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            max-width: 1200px;
+            margin: auto;
+            background: grey url("./img/border.png");
+            background-attachment: fixed;
+        }
+        .grad{
+            height: 140px;
+            width: 180px;
+            margin: auto;
+            background-color: pink;
+            padding: 30px 10px;
+            margin: 15px 5px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .border{
+            border: solid black 2px;
+        }
+        .border-png0{
+            margin: auto;
+            background-color: pink;
+            padding: 30px 10px;
+            margin: 15px 5px;
+            display: inline-block;
+            vertical-align: top;
+
+            width: 140px;
+            height: 100px;
+            border: solid 20px transparent;
+            border-image: url("./img/border-image.png");
+        }
+        .border-png1{
+            margin: auto;
+            background-color: pink;
+            padding: 30px 10px;
+            margin: 15px 5px;
+            display: inline-block;
+            vertical-align: top;
+
+            width: 140px;
+            height: 100px;
+            border: solid 20px transparent;
+            border-image: url("./img/border-image.png") 40 round;
+            /* border-image-outset: 20px; */
+        }
+        .border-png2{
+            margin: auto;
+            background-color: pink;
+            padding: 30px 10px;
+            margin: 15px 5px;
+            display: inline-block;
+            vertical-align: top;
+
+            width: 140px;
+            height: 100px;
+            border: solid 20px transparent;
+            border-image: url("./img/border-image.png") 40 stretch;
+        }
+        .grad p{
+            background-color: rgba(18, 153, 13,.2); /* el canal alpha va entre 0 i 1 */
+            text-align: right;
+        }
+        .uno{
+            border: 3px solid salmon;
+            height: 134px;
+            width: 174px;
+        }
+        .dos{
+            border: 3px solid salmon;
+            height: 134px;
+            width: 174px;
+        }
+        .trans{
+            opacity: .7;
+        }
+        .trans p{
+            opacity: 1;
+        }
+        .img{
+            background-image: url('http://placekitten.com/200/200');
+        }
+        .trans2{
+            background-color: black;
+            opacity: .7;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="grad uno"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, veniam.</p></div>
+        <div class="grad dos"><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, fuga.</p></div>
+        <div class="grad"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="grad"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="grad"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+    </div>
+
+    <div>
+        <div class="grad trans"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="grad trans"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="grad trans"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="grad trans"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="grad img"><div class="trans2"></div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+    </div>
+
+    <div>
+        <div class="grad border"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="border-png1"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="border-png2"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="border-png0"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+        <div class="grad"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, eveniet!</p></div>
+    </div>
+</body>
+</html>

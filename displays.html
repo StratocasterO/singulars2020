@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            padding-top: 200px;
+        }
+        .cont{
+            width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+        }
+        .cont h2{
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+        .window{
+            font-size: 0;   /* per fer desaparèixer l'espai entre elements amb inline-block */
+            width: 400px;
+            height: 300px;
+            border: black 1px solid;
+        }
+        .red{
+            background-color: red;
+            width: 50px;
+            height: 300px;
+        }
+        .green{
+            background-color: green;
+            width: 50px;
+            height: 300px;
+        }
+        .yellow{
+            background-color: yellow;
+            width: 300px;
+            height: 50px;
+        }
+        .blue{
+            background-color: blue;
+            width: 300px;
+            height: 200px;
+        }
+        .purple{
+            background-color: purple;
+            width: 300px;
+            height: 50px;
+        }
+        .center{
+            width: 300px;
+            height: 300px;
+        }
+        .ib{
+            display: inline-block;
+        }
+        .flex{
+            display: flex;
+            flex-direction: column;     /* si estan en fila cal el contenidor "centre". Si estan en columna, no cal */
+            flex-wrap: wrap;
+        }
+        .float{
+            float: left;    /* amb float es posen un a continuació de l'altre */
+        }
+        .link:hover{
+            opacity: .5;;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <h2>Display: block</h2>
+        <h2>Display: flex</h2>
+        <h2>Float</h2>
+    </div>
+    <div class="cont">
+        <div class="window">
+            <a href="#"><div class="link red ib"></div></a>
+            <div class="center ib">
+                <a href="#"><div class="link yellow"></div></a>
+                <a href="#"><div class="link blue"></div></a>
+                <a href="#"><div class="link purple"></div></a>
+            </div>
+            <a href="#"><div class="link green ib"></div></a>
+        </div>
+
+        <div class="window flex">
+            <div class="red"></div>
+            <div class="yellow"></div>
+            <div class="blue"></div>
+            <div class="purple"></div>
+            <div class="green"></div>
+        </div>
+
+        <div class="window">
+            <div class="red float"></div>
+            <div class="center float">
+                <div class="yellow"></div>
+                <div class="blue"></div>
+                <div class="purple"></div>
+            </div>
+            <div class="green float"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>     <!-- Si escrius ! + TAB el document es genera sol -->
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hola.css">
+    <link rel="shortcut icon" href="https://www.kindpng.com/picc/m/116-1166468_black-cat-clipart-4-left-black-cat-easy.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/73151b44f6.js" crossorigin="anonymous"></script> <!-- per usar Font Awesome -->
+    <title>Pàgina de prova</title>
+
+    <style>
+        .menu:hover{
+            background-color: aqua; 
+        }
+        .menu{
+            text-decoration: none; 
+            background-color: cadetblue; 
+            color: white;
+        }
+
+        .tocar:hover .oculto{     /* el simbol + sel·lecciona el següent "germà" */
+            display: block;
+        }
+        .oculto{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pàgina de proves HTML5</h1>
+    
+    <ul style="list-style: none;">
+        <li style="display: inline-block;"><a class="menu" href="#">Menu 1</a></li>
+        <li style="display: inline-block;"><a class="menu" href="#">Menu 2</a></li>
+        <li style="display: inline-block;"><a class="menu" href="#">Menu 3</a></li>
+        <li style="display: inline-block;"><a class="menu" href="#">Menu 4</a></li>
+    </ul>
+    
+    <h2>Proves d'<a href="https://www.w3schools.com/tags/att_style.asp" target="blank">estil en linia</a></h2>
+    
+    <p id="inici"><a href="#end">A baix de tot</a></p>
+    
+    <p class="hola" style="margin-top: 2em; color: aqua;"> Hello world :) </p> 
+    <!-- "p" és una etiqueta (tag), "style" és un atribut (attribute) -->
+    
+    <p class="hola" id="verd" style="background-color: blanchedalmond;"> Hola mundo en català :) </p>
+    
+    <p><a href="https://www.w3schools.com/html/default.asp" target="blank">Això és un enllaç al curs d'HTML de w3schools</a></p>
+    
+    <h2>Proves d'<a href="https://www.w3schools.com/tags/default.asp" target="blank">etiquetes</a></h2>
+    
+    <pre>   Hola
+        Això és     un
+        &lt;pre&gt;
+            y   mola   mucho
+    </pre>
+    
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quaerat mollitia voluptas fugiat eos. Repellat iure unde animi veritatis ratione, nihil commodi, quis aliquid suscipit blanditiis laboriosam fuga architecto laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi placeat dolorum temporibus aspernatur dolor, architecto ipsa delectus neque perferendis voluptate obcaecati hic magni provident error labore atque, numquam nam, minima natus autem esse. Itaque rerum voluptates architecto aut eos repudiandae, atque esse culpa temporibus eaque debitis labore? Magni laudantium praesentium unde voluptas maxime vero officia sapiente repellendus eligendi quae labore sit iste alias, dignissimos ullam asperiores distinctio laboriosam deleniti nulla explicabo corporis quos! Quod, sint. Expedita laborum obcaecati, cum explicabo alias tempore? Ea culpa hic ducimus ipsa corporis similique voluptatibus quia, impedit tenetur optio esse itaque, nemo provident dignissimos quo?
+    </p>
+    
+    <h3 class="hola">Llista desordenada</h3>
+    <ul style="list-style-type: circle; ">
+        <li><i>Laia</i></li>
+        <li><b>Julián</b></li>
+        <li><u>Óscar</u></li>
+    </ul>
+    
+    <h3>Llista ordenada</h3>
+    <ol>
+        <li><p style="margin: 0;"> Eva </p></li>
+        <li>Joselyn</li>
+        <li>Alex</li>
+    </ol>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <span style="font-weight: bold;">Quidem aperiam ab dolorum quas eveniet pariatur ipsam</span>, laudantium veniam commodi, alias aliquam corporis natus dolor odit laborum! Hic quisquam praesentium molestias deserunt expedita, aliquam sequi! Rem cum fugit esse labore ea totam ipsa nisi inventore enim, <span style="font-family: Arial, Helvetica, sans-serif; font-style: italic;">fugiat ullam at sunt</span>, quo, alias voluptatum deleniti laudantium itaque! <span style="font-size: 1.4em;">Ratione modi tempore illo perferendis enim consectetur cum natus.</span> Aperiam fuga accusantium quae cumque error nostrum facere eveniet quos accusamus mollitia consequuntur eos at voluptatem modi optio exercitationem maxime sit fugit est, itaque dolore repudiandae! Aperiam temporibus maxime mollitia eveniet eligendi dolorem natus iste quasi.
+    </p>
+
+    <!-- <table style="border: 1px;margin-top: 1em;float:right">
+        <caption>Título de la tabla</caption>
+            <colgroup span="3"></colgroup>
+            <colgroup style="background-color:green"></colgroup>
+    
+            <thead>
+                <tr>
+                    <th>Elementos</th><th>de</th><th>la</th><th>cabecera</th>
+                </tr>
+            </thead>
+    
+            <tfoot>
+                <tr>
+                    <th>Y</th><th>elementos</th><th>del</th><th>pie</th>
+                </tr>
+            </tfoot>
+    
+            <tbody>
+                <tr>
+                    <td>1</td><td>bla bla</td>
+                    <td>blep</td><td>blep</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>bla bla</td><td>bla</td><td>bla</td>
+                </tr>
+                <tr>
+                    <td>3</td><td>bura bura</td><td>bla</td><td>bura bura</td>
+                </tr>
+            </tbody>
+    
+            <tbody>
+                <tr>
+                    <td>4</td><td>blep blep</td><td>Ok</td><td>Ok</td>
+            </tr>
+            <tr>
+                <td>5</td><td>blip blip</td><td>Ok</td><td>Ok</td>
+            </tr>
+            </tbody>
+    </table> -->
+    
+    <div id="bloque">
+        <p>Estructura HTML:</p>
+
+        <div class="code">
+            <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Document&lt;/title&gt;
+        &lt;style&gt; /* aquí va el estilo CSS */ &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</pre>
+        </div>
+
+        <p>Las cosas del HTML.</p>
+        <p>Los comentarios de HTML son &lt;!-- así --&gt;. Los comentarios de CSS son /* así */.
+        </p>
+    </div>
+
+    <div>
+        <img src='https://placehold.it/500x300?text=aqui%20va%20un%20barco' alt=''/>
+        
+        <a href="https://web.gencat.cat/es/inici/"><img src='http://placekitten.com/500/300' alt=''/></a>
+    </div>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <iframe title="Wikipedia page for Avocados" width="400" height="315"  src="https://en.wikipedia.org/wiki/Avocado"></iframe>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d54873.257958079426!2d2.2581142732577715!3d41.92670377664945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1604663607854!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+    <blockquote class="twitter-tweet"><p lang="es" dir="ltr">is it bandcamp friday? YES!! Hoy todas nuestras referencias digitales por Name your price. Apoya tus artistas y sellos locales. <a href="https://t.co/JYMxBGJxOw">https://t.co/JYMxBGJxOw</a> <a href="https://t.co/5hcunvn9Vp">pic.twitter.com/5hcunvn9Vp</a></p>&mdash; Galleta Records (@galletarecords) <a href="https://twitter.com/galletarecords/status/1324634027891085313?ref_src=twsrc%5Etfw">November 6, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <div><img src='http://fakeimg.pl/150x150?text=float%3A%20left&font=museo' style="float: left;" alt=''/><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est labore maxime deserunt dolorum incidunt aspernatur saepe, necessitatibus, expedita aliquid, reiciendis pariatur asperiores et sapiente quam accusantium. Excepturi autem expedita fugit beatae, dolorem sunt, recusandae sapiente reprehenderit repellat soluta minima obcaecati, nesciunt dicta deleniti! Error unde, reiciendis sit saepe facere quis voluptatum possimus sed, ducimus quos labore cum reprehenderit itaque vero odio dolor quae vel nostrum quidem deserunt corporis? Aliquam neque dolores esse error veniam fuga ullam laudantium autem nisi unde recusandae dicta non ipsam modi eum vel cum obcaecati ab molestiae natus, aperiam culpa sed! Quod ipsa non temporibus exercitationem?</p>
+    </div>
+
+    <br><br><br><hr>
+
+    <div class="tocar">
+        <p>Tócame</p>
+        <img class="oculto" src='http://placekitten.com/400/100' alt=''/>
+    </div>
+    <br>
+
+    <p style="font-size: 50px;">
+        <a href="http://twitter.com"><i class="fab fa-twitter-square"></i></a> <a href="http://facebook.com"><i class="fab fa-facebook-square"></i></a> <a href="http://instagram.com"><i class="fab fa-instagram-square"></i></a>
+    </p>
+
+    <p id="end"><a href="#inici">A dalt de tot</a></p><br>
+</body>
+</html>
