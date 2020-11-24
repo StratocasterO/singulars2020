@@ -1,0 +1,14 @@
+body{
+
+}
+.basic{
+    display: inline-block;
+    vertical-align: top;
+}
+.text{
+    width: 900px;
+}
+.sticky{
+    position: sticky;
+    top: 0;
+}

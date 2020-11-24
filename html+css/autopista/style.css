@@ -1,0 +1,115 @@
+@font-face{
+    font-family: roboto;
+    src: url(./res/Roboto-Thin.ttf)
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+    background-image: url(./img/header.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: rgb(56, 56, 56);
+}
+nav{
+    background-color: rgba(0, 0, 0,.2);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+nav ul{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    width: 1024px;
+}
+nav ul li{
+    display: block;
+}
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1.8em;
+    overflow: visible;
+}
+nav ul li:not(:last-child) a{
+    border-right: solid white 1px;
+}
+main{
+    background-color: white;
+    margin-top: 540px;
+    width: 100%;
+}
+.title,.subtitle{
+    width: 1024px;
+    text-align: center;
+}
+main .title{
+    margin: auto;
+    padding: 1em 0
+}
+main .subtitle{
+    padding-bottom: 1.5em;
+    margin: auto;
+    margin-bottom: 1.2em;
+    border-bottom: rgb(56, 56, 56) solid 1px;
+}
+.cols3{
+    width: 1024px;
+    margin: auto;
+    display: flex;
+}
+.col3{
+    width: 33%;
+    display: block;
+    text-align: center;
+    padding: 2em;
+}
+.col3 a{
+    display: block;
+    text-decoration: none;
+    width: 80%;
+    padding: .8em;
+    color: white;
+    background-color: rgb(52, 122, 93);
+    margin: auto;
+}
+.cols2{
+    width: 1024px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2.5em 0;
+}
+.col2{
+    width: 48%;
+}
+.col2 img{
+    width: 100%;
+}
+.col2 h2{
+    margin: .2em;
+}
+.quote{
+    color: white;
+    width: 1024px;
+    font-size: 1.5em;
+    padding: 1.5em;
+    text-align: center;
+    margin: auto;
+}
+footer{
+    color: white;
+    background-color: rgb(56, 56, 56);
+    padding: 1.5em;
+}
+footer h2, footer p{
+    margin: 0 auto;
+    width: 1024px;
+    text-align: center;
+}
+footer p{
+    padding-top: 2.5em;
+}

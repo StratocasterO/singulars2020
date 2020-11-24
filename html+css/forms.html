@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularis</title>
+
+    <style>
+        form label{
+            width: 150px;
+            height: 40px;
+            display: inline-block;
+        }
+        form input:not([type="checkbox"]){
+            width: 200px;
+        }
+        form textarea{
+            width: 200px;
+            height: 5em;
+        }
+        form fieldset{
+            width: 500px;
+            margin: 20px;
+        }
+        form input[type="submit"]{
+            margin: 10px 40px;
+        }
+        .flex{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .flex label+input{
+            width: 200px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Formulari 1</h2>
+
+        <form>
+            <fieldset>
+                <legend>Part 1</legend>
+                
+                <label for="entrega">Data d'entrega</label>
+                <input type="date" name="entrega"><br>
+    
+                <label for="exercici">Nom de l'exercici</label>
+                <input type="text" name="exercici" placeholder="Escriu el nom"><br>
+    
+                <label for="desc">Descripció de l'exercici</label>
+                <textarea name="desc" placeholder="Descriu l'exercici aquí"></textarea><br>
+            </fieldset>
+
+            <fieldset class="flex">
+                <legend>Part 2</legend>
+
+                <label for="completat">Exercici completat</label>
+                <input type="checkbox" name="completat">
+    
+                <label for="color">Color preferit</label>
+                <input type="color" name="color" id="">
+    
+                <label for="nota">Nota</label>
+                <select name="nota" id="">
+                    <option value="0">Suficient</option>
+                    <option value="1">Bé</option>
+                    <option value="2" selected>Notable</option>
+                    <option value="3">Excel·lent</option>
+                </select>
+            </fieldset>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
