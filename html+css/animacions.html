@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @keyframes round{
+            0%{ 
+                transform: translate(0);
+            }
+            50%{ 
+                transform: translateX(600px) rotateZ(360deg)
+            }
+            100%{
+                transform: translateX(0) rotateZ(0deg)
+            }
+        }
+        @keyframes rainbow {
+            0%{
+                background-color: red;
+            }
+            15%{
+                background-color: orange;
+            }
+            30%{
+                background-color: yellow;
+            }
+            45%{
+                background-color: green;
+            }
+            60%{
+                background-color: aqua;
+            }
+            75%{
+                background-color: blue;
+            }
+            90%{
+                background-color: purple;
+            }
+            100%{
+                background-color: red;
+            }
+        }
+        @keyframes bounce {
+            0%{
+                bottom: 600px;
+            }
+            5%{
+                bottom: 550px;
+            }
+            11%{
+                bottom: 450px;
+            }
+            18%{
+                bottom: 300px;
+            }
+            33%{
+                bottom: 0;
+                width: 150px;
+                height: 150px;
+                left: 200px;
+            }
+            34%{
+                width: 170px;   /* afegeix 20px a l'amplada */
+                height: 130px;
+                left: 190px;    /* mou 10px cap a l'esquerra */
+            }
+            50%{
+                width: 130px;
+                height: 170px;
+                left: 210px;
+                bottom: 0;
+            }
+            65%{
+                width: 150px;
+                height: 150px;
+                left: 200px;
+                bottom: 70px;
+            }
+            80%{
+                bottom: 0;
+            }
+            90%{
+                bottom: 20px;
+            }
+            100%{
+                bottom: 0;
+            }
+        }
+
+        div{
+            width: 150px;
+            height: 150px;
+            background-color: coral;
+            margin-top: 10px;
+            transition: 2s;
+        }
+        .move:hover{
+            margin-left: 50px;
+        }
+        h1{
+            display: inline-block;
+            margin: 0;
+            transition: 2s;
+        }
+        .text{
+            display: inline-block;
+        }
+        .text:hover + h1{
+            font-size: 5em;
+        }
+        .rotate:hover{
+            transform: rotateY(180deg);
+        }
+        .color:hover{
+            background-color: cornflowerblue;
+        }
+        .width:hover{
+            width: 300px;
+        }
+        .disappear:hover{
+            opacity: 0;
+        }
+        .round:hover{
+            transform:  translateX(600px) rotateZ(360deg);
+        }
+        .omar{
+            background-image: url("https://pbs.twimg.com/profile_images/781499153872515072/jkaubG3G_400x400.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position-y: 150px;
+        }
+        .omar:hover{
+            background-position-y: 0;
+        }
+        .wheel{
+            display: inline-block;
+        }
+        .wheel + div{
+            background-color: transparent;
+            vertical-align: top;
+            display: inline-flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .wheel + div p{
+            display: block;
+            width: 75px;
+            height: 75px;
+            margin: 0;
+            position: absolute;
+            transition: 2s;
+        }
+        .wheel + div p:nth-child(1){
+            top: 0;
+            left: 0;
+        }
+        .wheel + div p:nth-child(2){
+            top: 0;
+            right: 0;
+        }
+        .wheel + div p:nth-child(3){
+            bottom: 0;
+            right: 0;
+        }
+        .wheel + div p:nth-child(4){
+            bottom: 0;
+            left: 0;
+        }
+        .wheel:hover + div p:nth-child(1){
+            transform: translateX(75px);
+        }
+        .wheel:hover + div p:nth-child(2){
+            transform: translateY(75px);
+        }
+        .wheel:hover + div p:nth-child(3){
+            transform: translateX(-75px);
+        }
+        .wheel:hover + div p:nth-child(4){
+            transform: translateY(-75px);
+        }
+        .explode{
+            display: flex;
+            flex-wrap: wrap;
+            background-color: transparent;
+        }
+        .explode div{
+            width: 75px;
+            height: 75px;
+            background-color: coral;
+            margin: 0;
+            transition: 3s ease-out;
+        }
+        .explode div:nth-child(1){
+            transform: rotateZ(-90deg);
+        }
+        .explode div:nth-child(3){
+            transform: rotateZ(180deg);
+        }
+        .explode div:nth-child(4){
+            transform: rotateZ(90deg);
+        }
+        .explode:hover div{
+            transform: rotateZ(1deg) translate(2000px,-2000px) rotateY(600deg);
+            background-color: transparent;
+        }
+        .round_key:hover{
+            animation: round linear 3s 3;
+        }
+        .rainbow{
+            animation: rainbow linear 5s infinite; 
+        }
+        input{
+            display: none;
+        }
+        input[type="checkbox"]:checked + div{
+            animation: bounce ease-in-out 1.5s;
+            animation-fill-mode: forwards;
+        }
+        label div{
+            display: inline-block;
+        }
+        .bounce{
+            position: relative;
+            left: 200px;
+            bottom: 600px;
+            display: inline-block;
+            transition: none;
+        }
+        .button{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="move"></div>
+    <div class="text"></div><h1>Omar</h1>
+    <div class="rotate"><img src='http://placeskull.com/150/150' alt=''/></div>
+    <div class="color"></div>
+    <div class="width"></div>
+    <div class="disappear"></div>
+    <div class="round"></div>
+    <div class="omar"></div>
+    <div class="wheel"></div><div><p>1</p><p>2</p><p>3</p><p>4</p></div>
+    <div class="explode"><div></div><div></div><div></div><div></div></div>
+    <div class="round_key"></div>
+    <div class="rainbow"></div>
+
+    <label for="animacio"><div class="button"></div></label>
+    <input type="checkbox" name="" id="animacio">
+    <div class="bounce"></div>
+</body>
+</html>
