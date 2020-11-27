@@ -6,12 +6,12 @@
     <title>Formularis</title>
 
     <style>
-        form label{
+        form fieldset label{
             width: 150px;
             height: 40px;
             display: inline-block;
         }
-        form input:not([type="checkbox"]){
+        form fieldset input{
             width: 200px;
         }
         form textarea{
@@ -22,8 +22,9 @@
             width: 500px;
             margin: 20px;
         }
-        form input[type="submit"]{
+        form input[type="submit"],form input[type="button"], button{
             margin: 10px 40px;
+            width: 150px;
         }
         .flex{
             display: flex;
@@ -32,6 +33,13 @@
         .flex label+input{
             width: 200px;
             display: block;
+        }
+        .radio{
+            margin-left: 150px;
+            width: 13px;
+        }
+        .radio:first-of-type{
+            margin-left: 0;
         }
     </style>
 </head>
@@ -71,7 +79,18 @@
                 </select>
             </fieldset>
 
-            <input type="submit" value="Enviar">
+            <fieldset>
+                <legend>Part 3:</legend>
+
+                <label for="">Gender</label>
+                <input class="radio" type="radio" name="gender" id="masc"><label for="masc">Masculine</label><br>
+                <input class="radio" type="radio" name="gender" id="fem"><label for="fem">Femenine</label><br>
+                <input class="radio" type="radio" name="gender" id="other"><label for="other">Other</label>
+            </fieldset>
+
+            <input type="submit" value="Enviar"><br>
+            <input type="button" value="Enviar sin recargar">🠠 este es el bueno<br>
+            <button>Enviar otra vez</button>
         </form>
     </div>
 </body>
