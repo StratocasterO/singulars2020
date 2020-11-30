@@ -6,8 +6,8 @@
     <title>Document</title>
     
     <style>
-        div{
-            height: 200px;
+        .prova{
+            height: 100px;
             background-color: rgb(185, 179, 178);
             margin: 5px auto;
         }
@@ -19,6 +19,15 @@
         }
         .min{
             min-width: 800px;
+        }
+        .cont{
+            background-color: transparent;
+            border: solid 1px black;
+            padding: 5px;
+        }
+        .cont div{
+            background-color: rgb(185, 179, 178);
+            margin: 5px auto;
         }
         
         /* Extra small devices (phones, 600px and down) */
@@ -58,28 +67,35 @@
     </style>
 </head>
 <body>
-    <div class="fixed">
+    <div class="prova fixed">
         <p>fixed dimensions</p>
         
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
     </div>
     
-    <div class="max">
+    <div class="prova max">
         <p>max-width</p>
         
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
     </div>
     
-    <div class="min">
+    <div class="prova min">
         <p>min-width</p>
         
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
     </div>
     
-    <div class="res">
+    <div class="prova res">
         <p>responsive</p>
         
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
+    </div>
+
+    <div class="cont">
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, atque ea, repellat nihil maiores necessitatibus consectetur iure velit modi omnis mollitia temporibus quidem quod, illo quia! Officia libero culpa deserunt.</div>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, atque ea, repellat nihil maiores necessitatibus consectetur iure velit modi omnis mollitia temporibus quidem quod, illo quia! Officia libero culpa deserunt.</div>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, atque ea, repellat nihil maiores necessitatibus consectetur iure velit modi omnis mollitia temporibus quidem quod, illo quia! Officia libero culpa deserunt.</div>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, atque ea, repellat nihil maiores necessitatibus consectetur iure velit modi omnis mollitia temporibus quidem quod, illo quia! Officia libero culpa deserunt.</div>
     </div>
 </body>
 </html>
