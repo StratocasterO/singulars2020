@@ -1,0 +1,6 @@
+#media{
+    background-color: rgb(146, 86, 86);
+}
+#media p:nth-child(2){
+    display: none;
+}

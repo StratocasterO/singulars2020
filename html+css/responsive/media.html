@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries</title>
+
+    <link rel="stylesheet" media="screen" href="styleM.css"> <!-- CSS Mobile -->
+    <link rel="stylesheet" media="screen and (min-width:800px)" href="styleD.css"> <!-- CSS Desktop -->
+
+    <style>
+        #media,#media2,#media3{
+            width: 200px;
+            height: 200px;
+        }
+
+        #media2{
+            background-color: rgb(130, 170, 90); /* desktop first */
+        }
+
+        #media3{
+            background-color: rgb(126, 61, 37); /* mobile first */
+        }
+
+        @media only screen and (max-width: 800px){ /* es carrega amb pantalles més petites de 800px */
+            #media2{
+                background-color: rgb(202, 116, 85);
+            }
+        }
+
+        @media only screen and (min-width: 800px){ /* es carrega amb pantalles més grans de 800px */
+            #media3{
+                background-color: rgb(30, 107, 94) ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="media">
+        <p>Esta es la página mobile.</p> <!-- 1st child -->
+        <p>Esta es la página desktop.</p> <!-- 2nd child -->
+
+        <p>Este div se estila con dos hojas de estilo externas que se cargan en función del tamañó de la pantalla.</p>
+    </div>
+
+    <div id="media2">
+        <p>Este div se estila con una media query <i>desktop first</i>.</p>
+    </div>
+
+    <div id="media3">
+        <p>Este div se estila con una media query <i>mobile first</i>.</p>
+    </div>
+</body>
+</html>

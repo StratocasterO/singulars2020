@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        div{
+            height: 200px;
+            background-color: rgb(185, 179, 178);
+            margin: 5px auto;
+        }
+        .fixed{
+            width: 800px;
+        }
+        .max{
+            max-width: 800px;
+        }
+        .min{
+            min-width: 800px;
+        }
+        
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            .res{
+                max-width: 600px;
+            }
+        }
+        
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (min-width: 600px) {
+            .res{
+                width: 600px;
+            }
+        }
+        
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+            .res{
+                width: 768px;
+            }
+        }
+        
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 992px) {
+            .res{
+                width: 992px;
+            }
+        }
+        
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        @media only screen and (min-width: 1200px) {
+            .res{
+                width: 1200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fixed">
+        <p>fixed dimensions</p>
+        
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
+    </div>
+    
+    <div class="max">
+        <p>max-width</p>
+        
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
+    </div>
+    
+    <div class="min">
+        <p>min-width</p>
+        
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
+    </div>
+    
+    <div class="res">
+        <p>responsive</p>
+        
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus veniam ullam commodi non doloribus minus vero nulla cumque odit nemo. Quam quaerat deleniti accusantium natus odio omnis deserunt. Harum, quibusdam?</p>
+    </div>
+</body>
+</html>

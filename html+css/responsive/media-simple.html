@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {                                           /* es carrega per sota de 600px */
+            width: 200px;
+            height: 200px;
+            background-color: darkkhaki;
+        }
+
+        @media only screen and (min-width: 600px) {     /* es carrega a partir de 600px */
+            div {
+                background-color: rgb(167, 161, 81);
+            }
+        }
+
+        @media only screen and (min-width: 800px) {     /* es carrega a partir de 800px */
+            div {
+                background-color: rgb(131, 125, 49);
+            }
+        }
+
+        @media only screen and (min-width: 1000px) {     /* es carrega a partir de 1000px */
+            div {
+                background-color: rgb(107, 102, 30);
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {    /* es carrega a partir de 1200px */
+            div {
+                background-color:rgb(77, 72, 16);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto fugit tempore, quia veritatis, dolorem in nihil doloribus sapiente autem molestias doloremque eligendi deleniti! Quos suscipit, quae natus quis in aperiam!</div>
+</body>
+</html>

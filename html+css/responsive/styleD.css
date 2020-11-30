@@ -1,0 +1,9 @@
+#media{
+    background-color: rgb(102, 88, 153);
+}
+#media p:nth-child(1){
+    display: none;
+}
+#media p:nth-child(2){
+    display: block;
+}
