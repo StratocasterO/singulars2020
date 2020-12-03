@@ -3,3 +3,6 @@ body{
     margin: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+span.red{
+    color: red;
+}
