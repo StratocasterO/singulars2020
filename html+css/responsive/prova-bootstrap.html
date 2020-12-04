@@ -17,9 +17,6 @@
         .marro{
             background-color: burlywood;
         }
-        .font-blanc{
-            color: white;
-        }
         .border-custom{
             border-radius: 4px;
             border: 1px solid brown;
@@ -28,19 +25,63 @@
             width: 600px;
             margin: 8px auto;
         }
+        h1{
+            font-size: 1.5em;
+        }
+        .llista{
+            list-style: none;
+            padding: 0;
+        }
+        .llista li a{
+            background-color: brown;
+            color: burlywood;
+            display: block;
+            width: 100%;
+            padding: .5em;
+            border-radius: 2px;
+            margin: 3px;
+        }
+        .llista li a:hover{
+            color: brown;
+            background-color: burlywood;
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid marro">
-        <div class="container font-blanc">
-            <h1 class="col-lg-8 m-0">Això és Bootstrap</h1>
-        </div>
+        <nav class="container navbar navbar-expand-sm navbar-light sticky-top">
+            <a class="navbar-brand" href="#"><h1>Això és Bootstrap</h1></a>
+    
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-stretch" id="collapsibleNavId">
+                <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inici <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre nosaltres</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Altres</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="#">Menu 1</a>
+                            <a class="dropdown-item" href="#">Menu 2</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
+
     <div class="container-fluid beige">
-        <div class="container pt-2">
+        <div class="container pt-4 pb-4">
             <div class="row">
                 <div class="col-lg-2">
-                    <ul>
+                    <ul class="llista">
                         <li><a href="#">Enllaç</a></li>
                         <li><a href="#">Enllaç</a></li>
                         <li><a href="#">Enllaç</a></li>
@@ -49,11 +90,12 @@
                 </div>
                 
                 <div class="col-lg">
+                    <img class="float-right ml-4" src='http://placekitten.com/400/200' alt=''/>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid reiciendis neque, tenetur magnam sapiente unde adipisci ex a aspernatur praesentium ratione rem, repellat laborum quisquam quod, libero dignissimos! Illum quam ipsam delectus dolore accusantium, eius aliquid nihil totam laborum. Voluptatibus, deserunt atque esse dolor in temporibus unde reiciendis, beatae minus quos ullam odit porro provident voluptatem deleniti impedit ipsam nobis? Maxime, ex ratione. Error voluptas numquam quo, modi maiores tempore totam nihil quae quis itaque aspernatur libero, a, magni in nostrum nesciunt suscipit distinctio impedit esse laboriosam consectetur dolor? Modi quo, velit ipsam repudiandae ipsa, rem eum voluptatum suscipit nisi vero quos reiciendis, nemo dolores error voluptatem neque illo sit ipsum accusamus nulla quis quod sunt beatae? Ipsam harum vel vitae aliquid sapiente. Repellendus voluptates ea, id soluta qui quisquam officiis, praesentium porro amet blanditiis repellat ipsum ex laudantium dignissimos aspernatur sint? Nesciunt minima exercitationem aut iste sunt dolorum adipisci quae inventore mollitia sequi necessitatibus quam facere voluptate, ipsam sint odit sapiente itaque repellat aspernatur a? Maxime veritatis debitis quis modi dolorum aliquam, qui vel, libero amet laboriosam nemo hic impedit ea at ipsam quidem, soluta tempora doloremque.
                     </p>
                     
-                    <div class="row mb-2">
+                    <div class="row mb-1 mt-4">
                         <div class="m-1 col-md col border-custom">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illo officiis numquam, omnis nam aliquid ut, rerum nihil impedit aspernatur, dicta esse! Laboriosam veritatis eligendi culpa hic quasi maxime quidem!</div>
                         <div class="m-1 col-md col border-custom">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illo officiis numquam, omnis nam aliquid ut, rerum nihil impedit aspernatur, dicta esse! Laboriosam veritatis eligendi culpa hic quasi maxime quidem!</div>
                         <div class="m-1 col-md border-custom">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illo officiis numquam, omnis nam aliquid ut, rerum nihil impedit aspernatur, dicta esse! Laboriosam veritatis eligendi culpa hic quasi maxime quidem!</div>
@@ -65,7 +107,7 @@
                         <div class="m-1 col-md border-custom">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium illo officiis numquam, omnis nam aliquid ut, rerum nihil impedit aspernatur, dicta esse! Laboriosam veritatis eligendi culpa hic quasi maxime quidem!</div>
                     </div>
                     
-                    <div class="omar-car">
+                    <div class="omar-car mt-4">
                         <div id="carouselId" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carouselId" data-slide-to="0" class="active"></li>
@@ -106,8 +148,8 @@
         </div>
     </div>
     <div class="container-fluid marro">
-        <div class="container font-blanc">
-            <p>&copy; Arxiu de proves de Bootstrap - Omar Olmedo 2020</p>
+        <div class="container text-center p-3">
+            <p class="m-0">&copy; Arxiu de proves de Bootstrap - Omar Olmedo 2020</p>
         </div>
     </div>
     
