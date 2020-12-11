@@ -6,14 +6,223 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        temp = 20; // temperatura en ºC
-
-        // tu código aquí
+    <h2>Arxiu de proves de JavaScript ES6</h2>
+    <p>Prem F12 i fes clic a la pestanya <i>Console</i> per accedir a les respostes de la consola</p>   
+    <br>
+    <br>
     
-        console.log("La temperatura és de " + temp + " ºF")
-    </script>
+    <script>
+        console.log("Aquest script s'ha carregat des del body");
+        
+        console.log('-----------------------------');
+        
+        /* ------------------------------------------------------------------------------------------------------------
+        això és un comentari multilínia  */
+        
+        temp = 24; // temperatura en ºC
+        
+        temp = temp * 9/5 + 32;
+        
+        temp = temp + " ºF";
+        
+        console.log('La temperatura és de ' + temp);       
+        console.log("La temperatura és de " + temp);       
+        console.log(`La temperatura és de ${temp}`);       
+        // el simbol ${} fa que s'agafi el valor de la variable quan està dins de `` (no funciona amb cometes tipus "" ni '')
+        
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var nom, dia, mascota;  // declara variables
+        
+        nom = "Laia";           // assigna valors a les variables
+        dia = "dijous";
+        mascota = "el teu gat";
+        
+        console.log(`Hola, ${nom}. Com estàs en aquest meravellós ${dia}? Què tal està ${mascota}?`);
+        
+        nom = "Eva";
+        dia = "\"juernes\""; // s'utilitzen les contrabarres "\" per escapar caràcters interpretables
+        mascota = "el teu company de pis";
+        
+        console.log(`Hola, ${nom}. Com estàs en aquest meravellós ${dia}? Què tal està ${mascota}?`);
+        
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        document.write("<h3>Això escriu al cos del HTML</h3>");
+        // OUTPUTS: console.log(), innerHTML, document.write(), window.alert() y window.print()
+        
+        // window.alert('Hola!'); // això mostra una alerta que pausa el programa i el continua quan cliques OK
+        
+        // window.print() no serveix per mostrar informació, només obre el menú per imprimir la pàgina
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        const dies = 3;
+        segons = dies * 24 * 3600;
+        console.log("Hi ha " + segons + " segons en " + dies + " dies");
+        
+        const euros = 7;
+        dolares = euros * 1.21;
+        console.log(euros + " euros són " + dolares + " dòlars");
+        
+        const precio = 100;
+        con_iva = precio * 1.21;
+        console.log("El que costa " + precio + " euros sense IVA, costa " + con_iva + " amb IVA (del 21%)");
+        
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        const alto = 4;
+        const ancho = 8;
+        per = 2 * (alto + ancho);
+        area = alto * ancho;
+        console.log("un rectángulo de alto " + alto + " y ancho " + ancho + " tiene un perímetro de " + per + " y un área de " + area);
+        
+        const grados_f = 451;
+        grados_c = (grados_f - 32) * 5/9;
+        console.log(grados_f + " grados Fahrenheit son " + grados_c.toFixed(1) + " grados Celsius") // toFixed() fija los decimales
+        
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var nombre, material, size, comment;
+        nombre = "Ester";
+        material = "sushi";
+        size = "gigante";
+        comment = "Salmó a tope!"
+        
+        console.log(`${nombre} ha pedido una caja de ${material} ${size}. ${comment}`);
+        
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        radi = 3;
+        PI = 3.14159265;
+        area = PI * radi ** 2; // l'operador ** és per exponenciar
+        console.log("L'àrea d'un cercle de radi " + radi + " és " + area);
+        
+        const chuches = 17;
+        const alumnos = 5;
+        console.log("Si somos " + alumnos + " alumons y repartimos " + chuches + " chuches, el Omar se come " + chuches%alumnos + " chuches");
+        // l'operador % (mòdul) retorna la resta de la divisió de dos números
+        
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        console.log("Aquesta frase \nestà en \ntres linies"); // el "\n" insereix un salt de linia
+        
+        console.log(`        Aquesta frase
+        està en
+        tres linies`); // dins dels accents `` s'interpreten els salts de linia i les tabulacions, com en un <pre> de HTML
+            
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // condicional if
+        
+        var condicio = false; // variable booleana amb valor true (1)
+        
+        var edat = 8;
+        
+        if (edat < 7){
+            console.log("Pots jugar a jocs amb PEGI AP");
+        } else if (edat < 13){
+            console.log("Pots jugar a jocs amb PEGI 7");
+        } else if (edat < 18){
+            console.log("Pots jugar a jocs amb PEGI 13");
+        } else {
+            console.log("Pots jugar a jocs amb PEGI 18");
+        }
+        
+        console.log('-----------------------------');
+        debugger;
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var nota = prompt("Quina és la teva nota?");    // agafa la nota d'un diàleg
+        var nota_n = parseFloat(nota);
+        console.log([nota, nota_n]);
+        
+        if(isNaN(nota_n) || nota_n > 10 || nota_n < 0){
+            console.log(nota + " no és una nota vàlida!")
+        } else {
+            if (nota_n > 5 & nota_n != 10){
+                console.log('Aprobado');
+            } else if (nota_n == 5){
+                console.log('Aprobado por los pelos');
+            } else if (nota_n == 10){
+                console.log('Debes de ser Omar');
+            } else {
+                console.log('Suspenso');
+            }
+        }
+        
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var num = 100; // integer
+        
+        if (num > 0) console.log("El número es positivo");
+        else if (num < 0) console.log("El número es negativo");
+        else console.log("El número no tiene signo definido");
 
-    <script src="./prueba.js"></script>
-</body>
-</html>
+        if (num % 2 == 0) console.log("El número es par");
+        else console.log("El número es impar");
+
+        if (num % 5 == 0) console.log("El número es múltiplo de 5");
+        else console.log("El número no es múltiplo de 5");
+        
+        // num_s = String(num).substr(-1);
+        // if (num_s == 0) console.log("El número es múltiplo de 10");
+        // else console.log("El número no es múltiplo de 10");
+
+        if (num % 10 == 0) console.log("El número es múltiplo de 10");
+        else console.log("El número no es múltiplo de 10");
+
+        if (num > 100) console.log("El número es mayor que 100");
+        else if (num < 100) console.log("El número es menor que 100");
+        
+        console.log('-----------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // debugger; ⚠️
+        
+        // debug with VSC ⚠️
+
+        // condicional switch
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // bucle for
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // bucle while,
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // funcions "antigues", let
+
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // funcions "arrow"
+
+        // ------------------------------------------------------------------------------------------------------------
+
+        // temps d'execució
+            
+        </script>
+        
+        <script src="./prueba.js"></script>
+    </body>
+    </html>
