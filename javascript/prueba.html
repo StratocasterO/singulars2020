@@ -14,7 +14,7 @@
     <script>
         console.log("Aquest script s'ha carregat des del body");
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         /* ------------------------------------------------------------------------------------------------------------
         això és un comentari multilínia  */
@@ -30,7 +30,7 @@
         console.log(`La temperatura és de ${temp}`);       
         // el simbol ${} fa que s'agafi el valor de la variable quan està dins de `` (no funciona amb cometes tipus "" ni '')
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
@@ -48,7 +48,7 @@
         
         console.log(`Hola, ${nom}. Com estàs en aquest meravellós ${dia}? Què tal està ${mascota}?`);
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
@@ -73,7 +73,7 @@
         con_iva = precio * 1.21;
         console.log("El que costa " + precio + " euros sense IVA, costa " + con_iva + " amb IVA (del 21%)");
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
@@ -87,7 +87,6 @@
         grados_c = (grados_f - 32) * 5/9;
         console.log(grados_f + " grados Fahrenheit son " + grados_c.toFixed(1) + " grados Celsius") // toFixed() fija los decimales
         
-        
         // ------------------------------------------------------------------------------------------------------------
         
         var nombre, material, size, comment;
@@ -98,7 +97,7 @@
         
         console.log(`${nombre} ha pedido una caja de ${material} ${size}. ${comment}`);
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
@@ -112,7 +111,7 @@
         console.log("Si somos " + alumnos + " alumons y repartimos " + chuches + " chuches, el Omar se come " + chuches%alumnos + " chuches");
         // l'operador % (mòdul) retorna la resta de la divisió de dos números
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
@@ -122,7 +121,7 @@
         està en
         tres linies`); // dins dels accents `` s'interpreten els salts de linia i les tabulacions, com en un <pre> de HTML
             
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
@@ -142,17 +141,19 @@
             console.log("Pots jugar a jocs amb PEGI 18");
         }
         
-        console.log('-----------------------------');
-        debugger;
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
         var nota = prompt("Quina és la teva nota?");    // agafa la nota d'un diàleg
         var nota_n = parseFloat(nota);
-        console.log([nota, nota_n]);
-        
-        if(isNaN(nota_n) || nota_n > 10 || nota_n < 0){
-            console.log(nota + " no és una nota vàlida!")
+        console.log({"nota": nota, "nota_n": nota_n});
+
+        if(nota == ""){
+            console.log('%cNo has introduit cap nota!', 'color: red; font-weight: bold'); 
+            // el %c serveix per afegir CSS als missatges de la consola
+        } else if (isNaN(nota_n) || nota_n > 10 || nota_n < 0){
+            console.log(`%c${nota} no és una nota vàlida!`, 'color: red; font-weight: bold');
         } else {
             if (nota_n > 5 & nota_n != 10){
                 console.log('Aprobado');
@@ -165,7 +166,7 @@
             }
         }
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
         
@@ -181,6 +182,8 @@
         if (num % 5 == 0) console.log("El número es múltiplo de 5");
         else console.log("El número no es múltiplo de 5");
         
+        // versión que comprueba si el numero acaba en cero 0 para saber si es multiplo de 10
+
         // num_s = String(num).substr(-1);
         // if (num_s == 0) console.log("El número es múltiplo de 10");
         // else console.log("El número no es múltiplo de 10");
@@ -191,13 +194,21 @@
         if (num > 100) console.log("El número es mayor que 100");
         else if (num < 100) console.log("El número es menor que 100");
         
-        console.log('-----------------------------');
+        console.log('-----------------------------------------------');
         
         // ------------------------------------------------------------------------------------------------------------
-        
-        // debugger; ⚠️
-        
-        // debug with VSC ⚠️
+
+        // colors in console: %c per indicar que comença el text amb estil, estil CSS en un altre argument
+
+        console.log("%cAixò és un missatge blau","color: blue");
+        console.log("%cAixò és un missatge gran", "font-family: Arial; font-size: 2em; font-style: italic");
+        console.log("%c★", "background-color: black; color: red; padding: .5em .7em; font-size: 2em");
+
+        console.log("%cL%cG%cB%cT%cI%cQ", "color: red", "color: orange", "color: yellow", "color: green", "color: blue", "color: purple");
+
+        console.log('-----------------------------------------------');
+
+        // ------------------------------------------------------------------------------------------------------------
 
         // condicional switch
         
