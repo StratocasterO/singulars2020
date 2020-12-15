@@ -210,20 +210,56 @@
 
         // ------------------------------------------------------------------------------------------------------------
 
-        // condicional switch
-        
-        // ------------------------------------------------------------------------------------------------------------
-        
-        // bucle for
-        
-        // ------------------------------------------------------------------------------------------------------------
-        
-        // bucle while,
-        
-        // ------------------------------------------------------------------------------------------------------------
-        
-        // funcions "antigues", let
+        var color = 42;
 
+        switch (color){
+            case "vermell":
+                console.log("El foc és vermell");
+                break;
+            case "blau":
+                console.log("El cel és blau");
+                break;
+            case 42:
+                console.log("The answer to univers, life and everything");
+                break;
+            default:
+                console.log("Cap dels anteriors");
+        }
+
+        console.log('-----------------------------------------------');
+
+        var data = new Date();          // això és un objecte
+        //var data2 = Date();           // això és una cadena de caràcters
+
+        var dia = data.getDay();        // això agafa el dia de la setmana de l'objecte data (que és una instància de Date())
+        // var dia2 = data2.getDay();   // això no funciona perquè data 2 no és un objecte amb el mètode .getDay()
+
+        var dia_set = numToDay(dia);
+
+        console.log(`Avui és ${dia_set}`);
+
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+
+        diaSemana();  // llamo a la función para que muestre qué dia es
+
+        console.log('-----------------------------------------------');
+
+        // ------------------------------------------------------------------------------------------------------------
+
+        console.log(`El meu cumple és el ` + numToDay(3));  // llamada a una función desde dentro de otra función
+
+        console.log('-----------------------------------------------');
+
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // bucle for, let
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        // bucle while
+        
         // ------------------------------------------------------------------------------------------------------------
         
         // funcions "arrow"
@@ -231,6 +267,49 @@
         // ------------------------------------------------------------------------------------------------------------
 
         // temps d'execució
+
+        // ------------------------------------------------------------------------------------------------------------
+
+        // Funciones definidas: 
+
+        function numToDay(num) {
+            let dia;
+
+            switch (num) {
+                case 0:
+                    dia = "diumenge";
+                    break;
+                case 1:
+                    dia = "dilluns";
+                    break;
+                case 2:
+                    dia = "dimarts";
+                    break;
+                case 3:
+                    dia = "dimecres";
+                    break;
+                case 4:
+                    dia = "dijous";
+                    break;
+                case 5:
+                    dia = "divendres";
+                    break;
+                case 6:
+                    dia = "dissabte";
+                    break;
+                default:
+            }
+
+            return dia;
+        }
+
+        function diaSemana() {
+            let data = new Date();
+            let dia = data.getDay();
+            let dia_set = numToDay(dia);
+
+            console.log(`Avui és ${dia_set} (des de una funció)`);
+        }
             
         </script>
         
