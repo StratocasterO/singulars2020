@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // condicional if
+        
+        var condicio = false; // variable booleana amb valor true (1)
+        
+        var edat = 8;
+        
+        if (edat < 7){
+            console.log("Pots jugar a jocs amb PEGI AP");
+        } else if (edat < 13){
+            console.log("Pots jugar a jocs amb PEGI 7");
+        } else if (edat < 18){
+            console.log("Pots jugar a jocs amb PEGI 13");
+        } else {
+            console.log("Pots jugar a jocs amb PEGI 18");
+        }
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var nota = prompt("Quina és la teva nota?");    // agafa la nota d'un diàleg
+        var nota_n = parseFloat(nota);
+        console.log({"nota": nota, "nota_n": nota_n});
+
+        if(nota == ""){
+            console.log('%cNo has introduit cap nota!', 'color: red; font-weight: bold'); 
+            // el %c serveix per afegir CSS als missatges de la consola
+        } else if (isNaN(nota_n) || nota_n > 10 || nota_n < 0){
+            console.log(`%c${nota} no és una nota vàlida!`, 'color: red; font-weight: bold');
+        } else {
+            if (nota_n > 5 & nota_n != 10){
+                console.log('Aprobado');
+            } else if (nota_n == 5){
+                console.log('Aprobado por los pelos');
+            } else if (nota_n == 10){
+                console.log('Debes de ser Omar');
+            } else {
+                console.log('Suspenso');
+            }
+        }
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var num = 100; // integer
+        
+        if (num > 0) console.log("El número es positivo");
+        else if (num < 0) console.log("El número es negativo");
+        else console.log("El número no tiene signo definido");
+
+        if (num % 2 == 0) console.log("El número es par");
+        else console.log("El número es impar");
+
+        if (num % 5 == 0) console.log("El número es múltiplo de 5");
+        else console.log("El número no es múltiplo de 5");
+        
+        // versión que comprueba si el numero acaba en cero 0 para saber si es multiplo de 10
+
+        // num_s = String(num).substr(-1);
+        // if (num_s == 0) console.log("El número es múltiplo de 10");
+        // else console.log("El número no es múltiplo de 10");
+
+        if (num % 10 == 0) console.log("El número es múltiplo de 10");
+        else console.log("El número no es múltiplo de 10");
+
+        if (num > 100) console.log("El número es mayor que 100");
+        else if (num < 100) console.log("El número es menor que 100");
+        
+        console.log('-----------------------------------------------');
+        
+    </script>
+</body>
+</html>

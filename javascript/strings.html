@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nom, dia, mascota;  // declara variables
+        
+        nom = "Laia";           // assigna valors a les variables
+        dia = "dijous";
+        mascota = "el teu gat";
+        
+        console.log(`Hola, ${nom}. Com estàs en aquest meravellós ${dia}? Què tal està ${mascota}?`);
+        
+        nom = "Eva";
+        dia = "\"juernes\""; // s'utilitzen les contrabarres "\" per escapar caràcters interpretables
+        mascota = "el teu company de pis";
+        
+        console.log(`Hola, ${nom}. Com estàs en aquest meravellós ${dia}? Què tal està ${mascota}?`);
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        document.write("<h3>Això escriu al cos del HTML</h3>");
+        // OUTPUTS: console.log(), innerHTML, document.write(), window.alert() y window.print()
+        
+        window.alert('Hola!'); // això mostra una alerta que pausa el programa i el continua quan cliques OK
+        
+        // window.print() no serveix per mostrar informació, només obre el menú per imprimir la pàgina
+        
+        // ------------------------------------------------------------------------------------------------------------
+
+        var nombre, material, size, comment;
+        nombre = "Ester";
+        material = "sushi";
+        size = "gigante";
+        comment = "Salmó a tope!"
+        
+        console.log(`${nombre} ha pedido una caja de ${material} ${size}. ${comment}`);
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+
+        
+        console.log("Aquesta frase \nestà en \ntres linies"); // el "\n" insereix un salt de linia
+        
+        console.log(`        Aquesta frase
+        està en
+        tres linies`); // dins dels accents `` s'interpreten els salts de linia i les tabulacions, com en un <pre> de HTML
+            
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+
+        // colors in console: %c per indicar que comença el text amb estil, estil CSS en un altre argument
+
+        console.log("%cAixò és un missatge blau","color: blue");
+        console.log("%cAixò és un missatge gran", "font-family: Arial; font-size: 2em; font-style: italic");
+        console.log("%c★", "background-color: black; color: red; padding: .5em .7em; font-size: 2em");
+
+        console.log("%cL%cG%cB%cT%cI%cQ", "color: red", "color: orange", "color: yellow", "color: green", "color: blue", "color: purple");
+
+        console.log('-----------------------------------------------');
+    </script>
+</body>
+</html>

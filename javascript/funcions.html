@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.time("program");
+
+        var data = new Date();          // això és un objecte
+        //var data2 = Date();           // això és una cadena de caràcters
+        
+        var dia = data.getDay();        // això agafa el dia de la setmana de l'objecte data (que és una instància de Date())
+        // var dia2 = data2.getDay();   // això no funciona perquè data 2 no és un objecte amb el mètode .getDay()
+        
+        var dia_set = numToDay(dia);
+        
+        console.log(`Avui és ${dia_set}`);
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        diaSemana();  // llamo a la función para que muestre qué dia es
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        console.log(`El meu cumple és el ` + numToDay(3));  // llamada a una función desde dentro de otra función
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var t_c = 24;
+        
+        console.log(t_c + " ºC són " + celToFahr(t_c) + " ºF")  // la funció celToFahr() passa de graus Celsius a Fahrenheit
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+        
+        var nom, dia, mascota;
+
+        nom = "Maria";
+        dia = "dijous";
+        mascota = "el teu gat";
+        
+        var sal = saludo(nom, dia, mascota);    // la funció retorna el valor de la variable
+        console.log(sal + " (Estic fora d'una funció)"); 
+        
+        saludar(nom, dia, mascota);             // la funció executa el console.log()
+        
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+
+        var temp_c = 20;
+        var temp_f = 80;
+
+        console.time('ex1');        // inicia un crono
+        console.log(temp_c + " ºC són " + convertTemp(temp_c,"C") + " ºF"); // Una funció amb un paràmetre "selector"
+        console.log(temp_f + " ºF són " + convertTemp(temp_f,"F") + " ºC");
+        console.timeEnd('ex1');     // para el crono
+
+        console.log('');
+
+        console.time('ex2');
+        console.log(temp_c + " ºC són " + convertTemp2(temp_c,"C") + " ºF");
+        console.log(temp_f + " ºF són " + convertTemp2(temp_f,"F") + " ºC");
+        console.timeEnd('ex2');
+
+        console.log('');
+
+        console.time('ex3');
+        console.log(temp_c + " ºC són " + convertTemp3(temp_c,"C") + " ºF");
+        console.log(temp_f + " ºF són " + convertTemp3(temp_f,"F") + " ºC");
+        console.timeEnd('ex3');
+
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+
+        var x, y, sym;          // x i y són números, sym és un símbol d'aquests (+, -, *, /, **, %)
+
+        calculadora(x,y,sym);   // ha de dir "2 elevat a 3 és 8"
+
+        console.log('-----------------------------------------------');
+        
+        // ------------------------------------------------------------------------------------------------------------
+
+        // Funciones definidas: 
+        
+        function numToDay(num) {
+            let dia;
+            
+            switch (num) {
+                case 0:
+                dia = "diumenge";
+                break;
+                case 1:
+                dia = "dilluns";
+                break;
+                case 2:
+                dia = "dimarts";
+                break;
+                case 3:
+                dia = "dimecres";
+                break;
+                case 4:
+                dia = "dijous";
+                break;
+                case 5:
+                dia = "divendres";
+                break;
+                case 6:
+                dia = "dissabte";
+                break;
+                default:
+            }
+            
+            return dia; // el return finalitza la funció i retorna el valor indicat
+        }
+        
+        function diaSemana() {
+            let data = new Date();
+            let dia = data.getDay();
+            let dia_set = numToDay(dia);
+            
+            console.log(`Avui és ${dia_set} (des de una funció)`); // aquesta funció no té return
+        }
+        
+        function celToFahr(c) {
+            return c * 9/5 + 32;
+        }
+
+        function fahrToCel(f) {
+            return (f - 32) * 5/9;
+        }
+
+        function saludo(n,d,m) {
+            missatge = `Hola, ${n}. Avui és ${d}. Com està ${m}?`;
+            return missatge;
+        }
+
+        function saludar(n,d,m) {
+            missatge = `Hola, ${n}. Avui és ${d}. Com està ${m}?`
+            console.log(missatge + " (Estic dins d'una funció)");
+        }
+
+        function convertTemp(temp, mode) {
+            var temperatura = temp; // guarda la temperatura
+            var temperaturaT;       // inicialitza la temperatura transformada
+
+            // comprova quin és el mode
+            if (mode == "C") {
+                // si estem en mode C
+                temperaturaT = temperatura * 9/5 + 32;
+
+            }   else if (mode == "F") {
+                // si estem en mode F
+                temperaturaT = (temperatura - 32) * 5/9;
+            }
+
+            return temperaturaT.toFixed(1);
+        }
+
+        function convertTemp2(temp, mode) {
+            if (mode == "C") {
+                return celToFahr(temp).toFixed(1);  // crida una funció dins d'una altra funció
+
+            }   else if (mode == "F") {
+                return fahrToCel(temp).toFixed(1);
+
+            }
+        }
+
+        function convertTemp3(temp, mode) {
+            switch (mode){
+                case "C":
+                    return (temp * 9/5 + 32).toFixed(1);
+
+                case "F": 
+                    return ((temp - 32) * 5/9).toFixed(1);
+                    
+                default:
+                    return "error";
+            }
+        }
+
+        function calculadora(a,b,s) {
+            
+        }
+        
+        console.timeEnd("program");
+    </script>
+</body>
+</html>
