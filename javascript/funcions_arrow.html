@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function devolver() {           //
+            return 10;                  //
+        }                               //
+                                        //  Això són funcions equivalents SENSE paràmentres
+        const devolver2 = () => 10;     //
+                                        //
+        const devolver3 = _ => 10;      //
+
+        console.log({"funció antiga": devolver(), "funció arrow amb ()": devolver2(), "funció arrow amb _": devolver3()});
+
+
+        function mult(a,b) {            //
+            return a*b;                 //
+        }                               //
+                                        //  Això són funcions equivalents AMB paràmentres
+        const mult2 = (a,b) => a*b;     //
+                                        //
+        const mult3 = (a,b) => {        //
+            return a*b;                 //
+        }                               //
+
+        console.log({"funció antiga": mult(3,4), "funció arrow amb ()": mult2(3,4), "funció arrow amb _": mult3(3,4)});
+
+        // ------------------------------------------------------------------------------------------------------------------
+
+        // les funcions arrow s'han de definir abans de ser utilitzades ⚠️
+        const cubo = (a) => {
+            console.log(`${a} elevat al cub és ${a*a*a}`);
+        }
+
+        const velocidad = (v) => {
+            console.log(`${v} km/h són ${(v/3.6).toFixed(1)} m/s`);
+        }
+
+        const triangulo = (base,altura) => {
+            console.log(`Un triangle de base ${base} i altura ${altura} té un àrea de ${base*altura/2}`);
+        }
+
+        const circulo = (radi) => {
+            console.log(`Un cercle de radi ${radi} té un perímetre de 
+            ${(2*Math.PI*radi).toFixed(1)} i un àrea de ${(Math.PI*radi**2).toFixed(1)}`);
+        }
+
+        cubo(3);            // eleva al cub
+        velocidad(300);     // transforma km/h en m/s
+        triangulo(5,18);    // area d'un triangle
+        circulo(4);         // calcula l'area i el perímetre d'un cercle (el valor de pi es pot obtenir amb Math.PI)
+
+        // ------------------------------------------------------------------------------------------------------------------
+
+        // cubo1() és una funció que agafa un paràmetre i em retorna per la consola la frase amb el seu cub
+        const cubo1 = (a) => {
+            console.log(`${a} elevat al cub és ${a*a*a}`);
+        }
+
+        cubo1(3); // això mostra un console.log() perquè el fa la funció
+
+        // ------------------------------------------------------------------------------------------------------------------
+
+        // cubo2() és una funció que agafa un paràmetre i em retorna el valor del seu cub
+        const cubo2 = (a) => {
+            return a*a*a;
+        }
+
+        x = cubo2(3);                            // això no fa cap console.log()
+        console.log(`3 elevat al cub és ${x}`);  // he de fer el console.log() després amb el valor que retorna la funció
+    </script>
+</body>
+</html>

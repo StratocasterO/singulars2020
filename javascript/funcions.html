@@ -86,7 +86,20 @@
 
         var x, y, sym;          // x i y són números, sym és un símbol d'aquests (+, -, *, /, **, %)
 
-        calculadora(x,y,sym);   // ha de dir "2 elevat a 3 és 8"
+        x = parseFloat(prompt("Introdueix el primer número"));  // convertim en números perque no concateni Strings
+        sym = prompt("Introdueix el símbol de la operació");
+
+        symbols = ["+", "-", "*", "/", "**", "%"];  // array amb els simbols possibles
+
+        if (symbols.includes(sym)){  // comprova si el simbol està entre els possibles
+            y = parseFloat(prompt("Introdueix el segon número"));
+
+            calculadora(x,y,sym);   
+        } else {
+            console.log(`%c"${sym}" no és una operació vàlida`, `color: red; font-weight: bold`);
+        }
+
+        calculadora(2,3,"**");  // ha de dir "2 elevat a 3 és 8"
 
         console.log('-----------------------------------------------');
         
@@ -152,8 +165,8 @@
         }
 
         function convertTemp(temp, mode) {
-            var temperatura = temp; // guarda la temperatura
-            var temperaturaT;       // inicialitza la temperatura transformada
+            var temperatura = temp;     // guarda la temperatura
+            var temperaturaT;           // inicialitza la temperatura transformada
 
             // comprova quin és el mode
             if (mode == "C") {
@@ -185,14 +198,39 @@
 
                 case "F": 
                     return ((temp - 32) * 5/9).toFixed(1);
-                    
+
                 default:
                     return "error";
             }
         }
 
-        function calculadora(a,b,s) {
-            
+        function calculadora(a,b,s) {   // a i b són números, s és un símbol d'aquests (+, -, *, /, **, %)
+            if (s == "+") {
+                console.log(`${a} més ${b} és ${a+b}`); 
+
+            } else if (s == "-") {
+                console.log(`${a} menys ${b} és ${a-b}`);
+
+            } else if (s == "*") {
+                console.log(`${a} multiplicat per ${b} és ${a*b}`);
+
+            } else if (s == "/" && b != 0) {
+                console.log(`${a} dividit per ${b} és ${a/b}`);
+
+            } else if (s == "/" && b == 0) {
+                // excepció dividir per zero
+                console.log(`%cNo es pot dividir per zero!`, `color: red; font-weight: bold`); 
+
+            } else if (s == "**") {
+                console.log(`${a} elevat a ${b} és ${a**b}`);
+
+            } else if (s == "%") {
+                console.log(`La resta de dividir ${a} per ${b} és ${a%b}`);
+
+            } else {
+                // simbols que no siguin (+, -, *, /, **, %)
+                console.log(`%c"${s}" no és una operació vàlida`, `color: red; font-weight: bold`);
+            }
         }
         
         console.timeEnd("program");

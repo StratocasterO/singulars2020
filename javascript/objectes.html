@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Objectes
+        
+        var elMeuPrimerObjecte = {  alumnesAmbCamera: 1, 
+                                    alumnesSenseCamera: 3, 
+                                    numAlumnes: 0,
+                                    calcNumAlumnes: () => {
+                                        this.numAlumnes = this.alumnesAmbCamera + this.alumnesSenseCamera;
+                                        }
+                                 };
+        
+        elMeuPrimerObjecte.calcNumAlumnes();            // ejecuta el método que suma los alumnos
+        
+        console.log(elMeuPrimerObjecte.numAlumnes);     // muestra el valor de la propiedad
+
+        // -----------------------------------------------------------------------------------------------
+
+        var car = {}    // declara car como un objeto vacío
+        
+        car.name = "Fiat"
+        car.model = "500"
+        car.weight = "850kg"
+        car.color = "white"	
+        car.start = () => {}
+        car.drive = () => {}
+        car.brake = () => {}
+        car.stop = () => {}
+
+        console.log(car);
+
+    </script>
+</body>
+</html>
