@@ -69,3 +69,51 @@ console.log(lastSpace)
 nombre2 = nombre.slice(12)
 
 console.log(nombre2);
+
+// -----------------------------------------------------------------------------------
+
+// Exercici nom i cognoms. S'introdueix una string de tres paraules i les torna per separat 
+// amb la primera lletra en majúscules
+
+var nom1, nom2, nom3;
+var nom = "Un coche rojo" //prompt("Introdueix el nom i els cognoms separats per espais");
+
+// Usant el mètode split
+// arr = nom.split(" ");
+// nom1 = arr[0];
+// nom2 = arr[1];
+// nom3 = arr[2];
+
+var primerEspai = nom.indexOf(" ");
+nom1 = nom.substring(0,primerEspai);
+var segonEspai = nom.indexOf(" ", primerEspai + 1);
+nom2 = nom.substring(primerEspai + 1, segonEspai);
+nom3 = nom.substring(segonEspai + 1);
+
+nom1 = capitalize(nom1);
+nom2 = capitalize(nom2);
+nom3 = capitalize(nom3);
+
+console.log({"nom": nom1, "primer cognom": nom2, "segon cognom": nom3});
+
+function capitalize(word) {
+    return word[0].toUpperCase() + word.substring(1);
+}
+
+// -----------------------------------------------------------------------------------
+
+nom = nom.replace("rojo", "azul"); // canvia una paraula per una altra
+
+console.log(nom);
+
+// -----------------------------------------------------------------------------------
+
+console.log(nom1 + " " + nom2 + " " + nom3);
+
+console.log(nom1.concat(" ", nom2, " ", nom3)); // concatena els arguments a la string original
+
+var string1 = "paraula";
+
+console.log(string1.charAt(3)); // retorna el caràcter a la posició 3
+
+console.log(string1.charCodeAt(3)); // retorna el codi UFT del caràcter a la posició 3
