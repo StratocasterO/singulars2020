@@ -20,6 +20,16 @@
         // -------------------------------------------------------------------------------------
 
         // recorre números y muestra el seleccionado (con un prompt) de manera diferente (con CSS) en la consola
+        var num = parseInt(prompt("Escull un número de l'1 al 20"));
+
+        i = 0;
+
+        while (i <= 20) {
+            if (i == num) console.log(`%c${i}`, "color: orange");
+            else console.log(i);
+
+            i++;
+        }
 
         console.log("------------------------------------");
 
@@ -27,12 +37,35 @@
 
         // Tablas de multiplicar separadas (del 1 al 9)
 
-        console.log("------------------------------------");
+        i = 1; // inicialitzo la taula al principi
+
+        while (i <= 9) {   
+            j = 1;          // inicialitzo el primer valor de cada taula                        
+            while (j <= 10) {                            
+                console.log(`${i} multiplicat per ${j} és ${j*i}`);
+                j++;
+            }
+            i++;
+            console.log("------------------------------------");
+        }
 
         // -------------------------------------------------------------------------------------
 
         // muestra los números pares del 0 al 20
+        console.log("Passant per tots:")
+        i = 0;
+        while (i <= 20) {
+            if (i % 2 == 0) console.log(i);
+            i++;
+        }
 
+        console.log("Passant només pels parells:")
+        i = 0;
+        while (i <= 20) {
+            console.log(i);
+            i += 2;
+        }
+        
     </script>
 </body>
 </html>
