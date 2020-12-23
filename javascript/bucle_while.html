@@ -65,6 +65,83 @@
             console.log(i);
             i += 2;
         }
+
+        console.log("------------------------------------");
+
+        // -------------------------------------------------------------------------------------
+
+        // calcular potències (sense usar ** ni Math.pow())           Pista: 3**5 = 3*3*3*3*3
+
+        var a = 3;
+        var b = 5;
+
+        console.log(`${a} elevat a ${b} és ${potencia(a,b)}`);
+
+        function potencia(base, exp) {
+            var cont = 0;   // cont és un contador que guarda les vegades que hem passat pel bucle
+            var res = 1;    // resultat inicialitzat a 1 perquè qualsevol número elevat a 0 és 1
+
+            while (cont < exp) {
+                res *= base;
+                cont++;
+            }
+
+            return res;
+        }
+
+        console.log("------------------------------------");
+
+        // -------------------------------------------------------------------------------------
+
+        // calcular factorial (N!)                            Pista: 5 factorial és 5*4*3*2*1
+
+        var c = 7;
+
+        console.log(`${c} factorial (${c}!) és ${factorial(c)}`);
+
+        console.log(`${c} factorial (${c}!) és ${factorial2(c)}`);
+
+        console.log(`${c} factorial (${c}!) és ${factorial3(c)}`);
+
+        function factorial(n) {
+            var cont = 0;   // contador 
+            var res = 1;    // acumulador
+            var curr = n;   // el número actual pel que estem multiplicant
+
+            while (cont < n) {
+                res *= curr;
+                curr--;
+                cont++;
+            }
+
+            return res;
+        }
+
+        function factorial2(n) {
+            var cont = 0;
+            var res = 1;
+            var curr = 1;
+
+            while (cont < n) {
+                res *= curr;
+                curr++;
+                cont++;
+            }
+
+            return res;
+        }
+
+        function factorial3(n) {
+            var cont = 1;   // el contador és alhora el número pel que multipliquem
+            var res = 1;
+
+            while (cont <= n) {
+                res *= cont;
+                cont++;
+            }
+
+            return res;
+        }
         
     </script>
 </body>

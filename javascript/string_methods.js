@@ -24,13 +24,17 @@ console.log(nombre[12]) // retorna el caràcter a la posició 12
 
 // -----------------------------------------------------------------------------------
 
-var NOMBRE = nombre.toUpperCase();
+var NOMBRE = nombre.toUpperCase(); // passa a majúscules
 
 console.log(NOMBRE)
 
-var nombrecito = nombre.toLowerCase()
+var nombrecito = nombre.toLowerCase();  // passa a mínúscules
 
 console.log(nombrecito);
+
+var nomAmbEspais = "   Pepe   ";
+
+console.log(nomAmbEspais.trim());   // elimina espais al principi i al final
 
 // -----------------------------------------------------------------------------------
 
@@ -66,9 +70,13 @@ console.log(lastSpace)
 
 // -----------------------------------------------------------------------------------
 
-nombre2 = nombre.slice(12)
+nombre2 = nombre.slice(12)  // retorna la cadena a partir del caràcter indicat
 
 console.log(nombre2);
+
+var elements = nombre.split(" ");   // retorna un array amb cadenes separades pel separador indicat
+
+console.log(elements)
 
 // -----------------------------------------------------------------------------------
 

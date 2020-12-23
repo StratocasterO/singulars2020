@@ -72,7 +72,7 @@ elMeuTercerArray.sort();
 console.log(elMeuTercerArray);
 
 // perquè funcioni li definim una funció anònima (amb funcions arrow) per fer la comparació
-elMeuTercerArray.sort((a,b) => a - b);
+elMeuTercerArray.sort((a,b) => a - b);      // "(a,b) => a - b" és la definició de la funció anònima amb paràmetres a i b que retorna a - b
 
 console.log(elMeuTercerArray);
 
@@ -84,7 +84,7 @@ console.log("----------------------------------------------");
 
 var alumnes = "";
 
-for (alumne of elMeuPrimerArray){
+for (alumne of elMeuPrimerArray){   // i = 0; i < 10; i++
     alumnes += alumne + " ";
     console.log("Hola, " + alumne);
 }
@@ -93,13 +93,12 @@ console.log(alumnes)
 
 console.log("----------------------------------------------");
 
-
 // -----------------------------------------------------------------------------------
 
 // Exercici llista de la compra:
 
 // agafa els productes en un diàleg
-var productes = prompt("Introdueix els productes separats per comes ","");
+var productes = prompt("Introdueix els productes separats per comes ','");
 
 // separa els productes en elements d'un array
 productes = productes.split(",");
@@ -109,7 +108,7 @@ console.log(productes);
 // elimina els espais al principi i al final d'un string
 // (uso el for amb un índex perque vull reescriure cada element de l'array)
 for (i = 0; i < productes.length; i++) {
-    productes[i] = productes[i].trim() 
+    productes[i] = productes[i].trim();
 }
 
 // ordena els prodcutes alfabèticament
