@@ -6,7 +6,7 @@ console.log("Aquí començen els exercicis:")
 
 
 
-// ------------------------ Variables --------------------------
+//* ------------------------ Variables --------------------------
 
 // exercici 1: intercanvi de variables
 
@@ -16,19 +16,19 @@ primer = 1;
 
 segon = 2;
 
-/* aquí el teu codi */
+// TODO: aquí el teu codi
 
 console.log(primer,segon);  // ha de mostrar 2 1
 
 
 
-// ------------------------- Funcions --------------------------
+//* ------------------------- Funcions --------------------------
 
 // exercici 2: definició de funcions
 
 // (A) defineix una funció psicologo() que et pregunti "Com estàs?" al executar-la
 
-/* aquí la definició de psicolog() */
+// TODO: aquí la definició de psicolog() 
 
 psicologo();
 
@@ -36,7 +36,7 @@ psicologo();
 // (B) defineix una funció pregunta() que et pregunti "T'agrada la pizza?"
 // quan li introduim com a paràmentre "la pizza"
 
-/* aquí la definició de pregunta() */
+// TODO: aquí la definició de pregunta() 
 
 pregunta("la pizza");
 
@@ -44,7 +44,7 @@ pregunta("la pizza");
 // (C) defineix una funció pregunta2() que et retorni "T'agrada la pizza"
 // quan li introduim com a paràmentre "la pizza"
 
-/* aquí la definició de pregunta2() */
+// TODO: aquí la definició de pregunta2() 
 
 console.log(pregunta("la pizza") + " amb piña?");
 
@@ -54,7 +54,7 @@ console.log(pregunta("la pizza") + " amb piña?");
 
 var m3 = 8;
 
-/* aquí les definicions de metresCubicsALitres() i mostrarSolució() */
+// TODO: aquí les definicions de metresCubicsALitres() i mostrarSolució() 
 
 mostrarSolució();
 
@@ -64,7 +64,7 @@ mostrarSolució();
 
 var diners = 0;
 
-/* definició de afegirDiners() i gastarDiners() */
+// TODO: definició de afegirDiners() i gastarDiners() 
 
 afegirDiners(20);
 gastarDiners(15);
