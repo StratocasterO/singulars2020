@@ -2,7 +2,7 @@ console.log("JavaScript carregat des d'un document .js dins el <body>");
 
 document.write("<p>Això escriu dins el body (.js extern)</p>");
 
-console.log("Aquí començen els exercicis:")
+console.log("Aquí començen els exercicis:");
 
 
 
@@ -44,7 +44,7 @@ pregunta("la pizza");
 
 // TODO: aquí la definició de pregunta2() 
 
-console.log(pregunta("la pizza") + " amb piña?");
+console.log(pregunta2("la pizza") + " amb piña?");
 
 
 // exercici 5: defineix una funció metresCubicsALitres() que passi metres cúbics a litres i retorni el resultat
@@ -119,6 +119,7 @@ console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla
 
 //* ---------------------------- Mètodes numbers -------------------------------
 
+// 
 
 
 //* ---------------------------- Mètodes strings -------------------------------
