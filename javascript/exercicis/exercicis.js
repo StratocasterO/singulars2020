@@ -24,16 +24,14 @@ console.log(primer,segon);  // ha de mostrar 2 1
 
 //* ------------------------- Funcions --------------------------
 
-// exercici 2: definició de funcions
-
-// (A) defineix una funció psicologo() que et pregunti "Com estàs?" al executar-la
+// exercici 2: defineix una funció psicologo() que et pregunti "Com estàs?" al executar-la
 
 // TODO: aquí la definició de psicolog() 
 
 psicologo();
 
 
-// (B) defineix una funció pregunta() que et pregunti "T'agrada la pizza?"
+// exercici 3: defineix una funció pregunta() que et pregunti "T'agrada la pizza?"
 // quan li introduim com a paràmentre "la pizza"
 
 // TODO: aquí la definició de pregunta() 
@@ -41,7 +39,7 @@ psicologo();
 pregunta("la pizza");
 
 
-// (C) defineix una funció pregunta2() que et retorni "T'agrada la pizza"
+// exercici 4: defineix una funció pregunta2() que et retorni "T'agrada la pizza"
 // quan li introduim com a paràmentre "la pizza"
 
 // TODO: aquí la definició de pregunta2() 
@@ -49,7 +47,7 @@ pregunta("la pizza");
 console.log(pregunta("la pizza") + " amb piña?");
 
 
-// (D) defineix una funció metresCubicsALitres() que passi metres cúbics a litres i retorni el resultat
+// exercici 5: defineix una funció metresCubicsALitres() que passi metres cúbics a litres i retorni el resultat
 // i una altra mostrarSolució() que usi la primera per mostrar per la consola "X metres cúbics són Y litres"
 
 var m3 = 8;
@@ -59,7 +57,7 @@ var m3 = 8;
 mostrarSolució();
 
 
-// (E) defineix dues funcions afegirDiners() i gastarDiners() que sumi/resti a una variable externa el valor
+// exercici 5: defineix dues funcions afegirDiners() i gastarDiners() que sumi/resti a una variable externa el valor
 // indicat al paràmetre i mostri a la consola la quantitat actual de diners
 
 var diners = 0;
@@ -73,3 +71,32 @@ gastarDiners(25);
 
 console.log(diners); // això retornarà 20
 
+
+
+//* ------------------------------ Condicionals --------------------------------
+
+
+
+//* ---------------------------- Mètodes numbers -------------------------------
+
+
+
+//* ---------------------------- Mètodes strings -------------------------------
+
+// separar paraules
+
+// lletra aleatoria
+
+// paraula aleatoria
+
+
+
+//* ---------------------------- Bucle for ------------------------------------
+
+
+
+//* ----------------------------- Bucle while -----------------------------------
+
+
+
+//* ---------------------------- Mètodes arrays ---------------------------------
