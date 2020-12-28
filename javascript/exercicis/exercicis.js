@@ -57,7 +57,7 @@ var m3 = 8;
 mostrarSolució();
 
 
-// exercici 5: defineix dues funcions afegirDiners() i gastarDiners() que sumi/resti a una variable externa el valor
+// exercici 6: defineix dues funcions afegirDiners() i gastarDiners() que sumi/resti a una variable externa el valor
 // indicat al paràmetre i mostri a la consola la quantitat actual de diners
 
 var diners = 0;
@@ -75,7 +75,7 @@ console.log(diners); // això retornarà 20
 
 //* ------------------------------ Condicionals --------------------------------
 
-// exercici 6: fes un diàleg que et demani la talla de samarreta que vols comprar (S, M, L, XL) i et digui per la consola
+// exercici 7: fes un diàleg que et demani la talla de samarreta que vols comprar (S, M, L, XL) i et digui per la consola
 // quina talla has sel·leccionat i t'avisi si sel·lecciones una talla que no és vàlida
 
 var talla = prompt("Aquí el missatge del prompt")  // TODO: editar el missatge del prompt()
@@ -83,7 +83,7 @@ var talla = prompt("Aquí el missatge del prompt")  // TODO: editar el missatge 
 // TODO: estructura condicional que digui per la consola la talla escollida
 
 
-// exercici 7: defineix una funció amb modes que pugui calcular l'area o el perímetre d'un cercle i et faci console.log()
+// exercici 8: defineix una funció amb modes que pugui calcular l'area o el perímetre d'un cercle i et faci console.log()
 // de la cosa calculada
 
 var radi = 5;
@@ -94,7 +94,7 @@ var mode = "P"; // "P" pel perímentre o "A" per l'àrea
 cercle(radi, mode);
 
 
-// exercici 8: defineix una funció que calculi l'àrea i el perímetre d'un polígon regular de N costats (3, 4, 5, 6...)
+// exercici 9: defineix una funció que calculi l'àrea i el perímetre d'un polígon regular de N costats (3, 4, 5, 6...)
 
 var costat = 3;
 var costats = 5;
@@ -104,7 +104,7 @@ var costats = 5;
 poligon(costat, costats);
 
 
-// exercici 9: defineix una funció que et pregunti per prompt() quin item vols (samarreta, pantaló i barret), si és barret
+// exercici 10: defineix una funció que et pregunti per prompt() quin item vols (samarreta, pantaló i barret), si és barret
 // que et faci sel·leccionar el tipus (copa, pirata, gorra, llana), si és samarreta o pantaló que et faci sel·leccionar el color
 // (pel color no hi ha opcions, és lliure) i et faci sel·leccionar la talla (S, M, L, XL). La funció retorna una cadena
 // amb tota la informació per pintar-la en un console.log()
