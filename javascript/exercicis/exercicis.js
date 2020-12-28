@@ -119,16 +119,63 @@ console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla
 
 //* ---------------------------- Mètodes numbers -------------------------------
 
-// 
+// exercici 11: defineix una funció calculadora que agafi com a paràmentres una operació i un o dos números 
+// (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, potència, arrels quadrades i qúbiques)
+
+// TODO: defineix la funció calculadora() (reutilitza la que vam fer a classe fa uns dies)
+
+calculadora();
+
+
+// exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle
+
+var c1, c2, c3;
+
+c1 = 3;
+c2 = 4;
+c3 = 5;
+
+console.log(triangleRectangle(c1,c2,c3));  // ha de tornar true
+
+c1 = 4;
+c2 = 5;
+c3 = 6;
+
+console.log(triangleRectangle(c1,c2,c3));  // ha de tornar false
+
+// TODO: defineix la funció triangleRectangle()
+
+
+// exercici 13: a partir de dos catets, calcula la hipotenusa i els angles d'un triangle rectangle
+
+c1 = 30;
+c2 = 40;
+
+// TODO: defineix la funció calculaHipotenusa()
+
+// TODO: defineix la funció calculaAngles()
+
+console.log(calculaHipotenusa(c1,c2));  // ha de donar 50
+
+console.log(calculaAngles(c1,c2));      // ha de donar 30º i 60º
+
 
 
 //* ---------------------------- Mètodes strings -------------------------------
+
+// recrear parseInt
+
+// recrear parseFloat
+
+// recrear abs
 
 // separar paraules
 
 // lletra aleatoria
 
 // paraula aleatoria
+
+// horòscop
 
 
 

@@ -319,9 +319,119 @@ else /* aquesta línia s'executa si condicio == condicio2 == false */ ;
 
 //* ---------------------------- Mètodes numbers -------------------------------
 
+var any, hora, millis, date;
+
+any = 1990;                       // número entero (Int)
+hora = 11.75;                     // número decimal (Float)
+millis = new Date().getTime();    // número entero (milisegons passats des de 1970 fins ara)
+
+console.log([any, hora, millis]);
+
+// Passar un número a String:
+
+var numero;
+
+numero = any === "1990";             // compara un número amb una string amb el mateix valor
+numero = "" + any === "1990";        // converteix el número en string concatenant una string buida ""
+numero = any.toString() === "1990";  // converteix el número en string amb el mètode toString()
+
+console.log(numero);
+
+var decimal = 3.14159264;
+
+// Diferents maneres de passar de decimal a sencer:
+
+var sencer = parseInt(decimal);     // agafa els números fins a la coma
+var sencer2 = Math.floor(decimal);  // arrodoneix cap a baix amb zero decimals (trunca)
+var sencer3 = Math.ceil(decimal);   // arrodoneix cap a dalt amb zero decimals
+var sencer4 = Math.round(decimal);  // arrodoneix amb zero decimals
+
+console.log([sencer, sencer2, sencer3, sencer4]);
+
+// Passar de String a número sencer:
+
+var tallaSabata = "42";
+tallaSabata = parseInt(tallaSabata);    // transforma una string en un número
+tallaSabata2 = tallaSabata + 2;         // això concatena strings si no he fet el parseInt() abans
+
+console.log(tallaSabata2);
+
+// Passar de String a número decimal:
+
+var alturaEnMetres, pesEnKg, IMC;
+
+alturaEnMetres = "1.82";
+pesEnKg = 95;
+alturaEnMetres = parseFloat(alturaEnMetres);    // passa l'altura a número decimal
+IMC = pesEnKg / alturaEnMetres**2;              // això donaria problemes si fos una suma (que es pot interpretar com a concatenació)
+
+console.log(IMC);
+
+// Ajustar la quantitat de decimals d'un número:
+
+IMC = parseFloat(IMC.toPrecision(6));   // toPrecision(6) torna una string formada pel número amb 6 xifres significatives (6 dígits)
+
+console.log(IMC);
+
+IMC = parseFloat(IMC.toFixed(2));       // toFixed(2) torna una string formada pel número amb 2 decimals
+
+console.log(IMC);
+
+// Notació científica (exponencials)
+
+var bigNum = 8927489423000000;
+var smallNum = 0.000000274395;
+
+console.log([bigNum.toExponential(), smallNum.toExponential()]);
+
+console.log([bigNum.toExponential(3), smallNum.toExponential(2)]);  // podem especificar la quantitat de decimals
+
+// L'objecte Math (mètodes i constants matemàtiques)
+
+console.log(Math);
+
+var sqrt2 = Math.pow(2, 1/2);   // calcula l'arrel quadrada de 2 (= 2**(1/2))
+var pi = Math.PI;               // constant PI definida dins l'objecte Math
+
+console.log([sqrt2, pi]);
+
+// Números aleatoris
+
+var randomNum, dado20, dado100;
+
+randomNum = Math.random();             // genera un número aleatori entre 0 i 1
+dado20 = Math.ceil(randomNum*20);      // genera un dau de 20 cares (1-20)
+dado100 = Math.ceil(randomNum*100);    // genera un dau de 100 cares (1-100)
+
+random5_15 = random(5, 15);
+
+console.log([randomNum, dado20, dado100, random5_15]);
+
+function random(min, max) {                                 // funció que torna un sencer entre min i max (inclosos)
+    return Math.ceil(min + Math.random() * (max - min))
+}
+
 
 
 //* ---------------------------- Mètodes strings -------------------------------
+
+// concat i +
+
+// lenght
+
+// index
+
+// mayus minus
+
+// trim
+
+// substring
+
+// includes
+
+// search
+
+// replace
 
 
 
