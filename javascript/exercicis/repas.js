@@ -415,23 +415,70 @@ function random(min, max) {                                 // funció que torna
 
 //* ---------------------------- Mètodes strings -------------------------------
 
-// concat i +
+// Concatenació de strings
 
-// lenght
+var str, str1, str2, str3;
 
-// index
+str1 = "Hola, ";
+str2 = "què";
+str3 = "tal?";
 
-// mayus minus
+str = str1 + ("Arnau, ").concat(str2, " ", str3);  // podem concatenar (unir) strings amb el símbol + o amb el mètode .concat()
+str = `${str1}Arnau, ${str2} ${str3}`;       // concatenació usant template literals
 
-// trim
+console.log(str);
 
-// substring
+// Propietat lenght
 
-// includes
+console.log(str.length);     // podem obtenir la longitud de qualsevol string amb la propietat "length"
 
-// search
+// Ús d'index dins una string
 
-// replace
+console.log(str[6]);         // puc sel·leccionar un caràcter concret amb l'índex de la seva posició
+
+// Majúscules i minúscules
+
+console.log([str.toUpperCase(), str.toLowerCase()]);    // mètodes per posar una string en majúscules o minúscules
+
+// Sel·leccionar un tros d'una string
+
+var nom = str.substring(6, 11);     // retorna els caràcters des del 6 fins al 11 (no inclòs)
+
+console.log(nom);
+
+// Comprovar si hi ha una string dins una altra
+
+console.log(str.includes("què"));   // retorna true o false en funció de si la cadena inclou o no la cadena de l'argument
+
+// Buscar una cadena dins una altra (admet expressions regulars RegEx)
+
+console.log(str.search("Arnau"));   // retorna l'index del primer caràcter de la cadena buscada
+console.log(str.search("Arnu"));   // retorna -1 si la cadena no inclou la cadena buscada
+
+// Obtenir l'index d'una subcadena
+
+console.log(str.indexOf(","));       // retorna l'index del primer caràcter de la primera aparició de la cadena buscada
+console.log(str.lastIndexOf(","));   // retorna l'index del primer caràcter de la darrera aparició de la cadena buscada
+
+console.log(str.indexOf(",,"));       // tornen -1 si no existeix la cadena
+console.log(str.lastIndexOf(",,"));   //
+
+// Substituir una subcadena dins una cadena
+
+console.log(str.replace("Arnau", "Maria"));
+
+// Obtenir un tros de la cadena (fins al final)
+
+console.log(str.slice(6, -10));     // retorna la cadena des del caràcter 6 fins a 10 abans del final
+console.log(str.slice(-8));         // retorna la cadena des del 8 abans del final fins al final
+console.log(str.slice(6));          // retorna la cadena des del 6 fins al final
+console.log(str.slice(6, 11));      // retorna la cadena des del 6 fins a l'11
+
+// Separar trossos de cadena amb un separador
+
+console.log(str.split(""));                             // retorna un array amb les lletres individuals (no hi ha separador)
+console.log(str.split(" "));                            // retorna un array amb les paraules que estan separades per espais " "
+console.log(("patates,naps,cols,préssecs").split(",")); // retorna un array amb les paraules que estan separades per comes ","
 
 
 

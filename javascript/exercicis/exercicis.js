@@ -163,19 +163,74 @@ console.log(calculaAngles(c1,c2));      // ha de donar 30º i 60º
 
 //* ---------------------------- Mètodes strings -------------------------------
 
-// recrear parseInt
+//! ⚠️ en aquests exercicis no s'hi val usar el mètode .split() a no ser que s'indiqui el contrari ⚠️
 
-// recrear parseFloat
+// exercici 14: recrea la funció parseInt() de manera que agafi els números encara que hi hagi lletres abans
+// p.e: "hola89234" ha de tornar "89234", "43'35465adeu" ha de tornar "43", "amor45.9odi" ha de tornar "45"
 
-// recrear abs
+// TODO: defineix la funció convertirEnEnter()
 
-// separar paraules
+console.log(convertirEnEnter("hola89234"));     // ha de tornar 89234
+console.log(convertirEnEnter("43.35465adeu"));  // ha de tornar 43
+console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
 
-// lletra aleatoria
 
-// paraula aleatoria
+// exercici 15: recrea la funció parseFloat() de manera que agafi els números encara que hi hagi lletres abans
+// i accepti com a separador decimal els símbols ",", "." i "'"
+// p.e: "hola89'234" ha de tornar "89.234", "43'35adeu" ha de tornar "43.35", "amor45.9odi" ha de tornar "45.9"
 
-// horòscop
+// TODO: defineix la funció convertirEnDecimal()
+
+console.log(convertirEnEnter("hola89'234"));     // ha de tornar 89.234
+console.log(convertirEnEnter("43'35adeu"));      // ha de tornar 43.35
+console.log(convertirEnEnter("amor45.9odi"));    // ha de tornar 45.9
+
+
+// exercici 16: recrea la funció "valor absolut", que torna el mateix número si és positiu i el mateix número
+// canviat de signe si és negatiu (2 -> 2; -3.4 -> 3.4). No s'hi val usar Math.abs()
+
+// TODO: defineix la funció valorAbsolut()
+
+console.log(valorAbsolut(-3.14));        // ha de tornar 3.14
+console.log(valorAbsolut(0));            // ha de tornar 0
+console.log(valorAbsolut(1234.5678));    // ha de tornar 1234.5678
+console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
+
+
+// exercici 17: crea una funció que agafi un string i que torni una lletra aleatoria (sense contar espais i signes 
+// de puntuació)
+
+var lletres = "abcdef";
+
+console.log(lletraRandom(lletres));     // torna una lletra entre la a i la f
+
+// TODO defineix la funció lletraRandom()
+
+
+// exercici 18: crea una funció que agafi un text i li'n separi les paraules (sense signes de puntuació) i les torni
+// en un nou string separades per espais
+
+var text = "En un lugar de La Mancha de cuyo nombre no quiero acordarme. Què tal, Manel?   Patata"
+
+var paraules = separarParaules(text);
+
+// TODO: defineix la funció separarParaules()
+
+console.log(paraules);
+
+
+// exercici 19: crea una funció que agafi un string i que torni una paraula aleatòria continguda en ella (podeu cridar
+// la funció separarParaules() dins d'aquesta funció)
+
+console.log(paraulaRandom(text));
+
+// TODO defineix la funció paraulaRandom()
+
+
+// exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
+// predicció del que et passarà durant el dia
+
+// TODO deifineix la funció horoscop()
 
 
 
