@@ -140,6 +140,8 @@ saludarNomCognoms("Genís", "Batllori");
 
 //* ------------------------- Funcions arrow --------------------------
 
+console.log("-------------------- Funcions arrow --------------------");
+
 const funcioSenseParam = () => {
     return "valor retornat de la funció arrow";    //! ⚠️ la declaració return finalitza l'execució de la funció ⚠️
     console.log("Funció executada");               // si vull fer un console.log() per debugar a dins una funcio, sempre abans del return
@@ -194,6 +196,8 @@ console.log(mayusMinus("Omar", "M"));
 
 
 //* ---------------------------- Condicionals ----------------------------------
+
+console.log("--------------------- Condicionals ---------------------");
 
 var condicio, condicio2, x;
 
@@ -319,6 +323,8 @@ else /* aquesta línia s'executa si condicio == condicio2 == false */ ;
 
 //* ---------------------------- Mètodes numbers -------------------------------
 
+console.log("------------------ Mètodes numbers ------------------");
+
 var any, hora, millis, date;
 
 any = 1990;                       // número entero (Int)
@@ -415,6 +421,8 @@ function random(min, max) {                                 // funció que torna
 
 //* ---------------------------- Mètodes strings -------------------------------
 
+console.log("------------------ Mètodes strings ------------------");
+
 // Concatenació de strings
 
 var str, str1, str2, str3;
@@ -480,20 +488,157 @@ console.log(str.split(""));                             // retorna un array amb 
 console.log(str.split(" "));                            // retorna un array amb les paraules que estan separades per espais " "
 console.log(("patates,naps,cols,préssecs").split(",")); // retorna un array amb les paraules que estan separades per comes ","
 
+// Eliminar espais al principi i al final
 
+var a, b;
+a = "   flight         ";
+b = "delayed";
 
-//* ---------------------------- Bucle for ------------------------------------
-
-
-
-//* ----------------------------- Bucle while -----------------------------------
-
-
-
-//* ---------------------------- Mètodes arrays ---------------------------------
+console.log([a, a + b, a.trim() + " " + b]);
 
 
 
+//* --------------------------- Bucle for ---------------------------------
+
+console.log("--------------------- Bucle for ---------------------");
+
+// Paràmentres del bucle for:
+// declaració i inicialització de l'index; condició per seguir; canvi en l'index a cada repetició
+
+for (let index = 0; index < 10; index++) {      // va de 0 a 9
+    console.log(index);
+}
+
+// -------------------------------
+
+for (let index = 10; index > 0; index--) {      // va de 10 a 1
+    console.log(index);
+}
+
+// -------------------------------
+
+for (let index = 0; index < 10; index += 2) {   // va de 0 a 8 passant només pels parells
+    console.log(index);
+}
+
+// -------------------------------
+
+for (let index = 0; index < 5; index++) {       // podem usar funcions dins de bucles
+    funcióSenseReturn("Alumne " + (index + 1)); // saluda als alumnes del 1 al 5 (fent index + 1 perquè comença en 0)
+}
+
+// -------------------------------
+
+for (let index = 0; index < 10000; index++) {   // podem usar condicionals dins de bucles
+    if (index == 5) break;
+
+    console.log("Hola, persona " + (index + 1));
+}
+
+// -------------------------------
+
+for (let i = 0; i < 100 ; i++) {    // pinta els números d'un color o un altre en funció de si són divisibles o no
+    if (i % 2 == 0) console.log(`%c${i}`, "color: green");
+    else if (i % 3 == 0) console.log(`%c${i}`, "color: purple");
+    else if (i % 5 == 0) console.log(`%c${i}`, "color: red");
+    else console.log(`%c${i}`, "color: black");
+}
+
+// -------------------------------
+
+for (let i = 1; i < 101 ; i++) {    // fa una llista dels números de l'1 al 100 amb alguns dels seus divisors entre parèntesis
+    var str = `${i} ( `
+
+    if (i % 2 == 0) str += "2 ";
+    if (i % 3 == 0) str += "3 ";
+    if (i % 5 == 0) str += "5 ";
+
+    str += ")";
+
+    console.log(str);
+}
+
+// -------------------------------
+
+var i = 0;
+
+function iterativa() {  // funció iterativa equivalent a un bucle
+    i++;
+    
+    if (i < 10) {
+        iterativa();
+    }
+}
+
+iterativa();
+
+console.log(i);
+
+
+
+//* -------------------------- Bucle while --------------------------------
+
+console.log("-------------------- Bucle while --------------------");
+
+// és equivalent al bucle for però hem de posar l'iterador i les condicions "a mà"
+
+var n = 0;
+
+while (n < 10) {
+    n++;
+}
+
+console.log(n);
+
+// -------------------------
+
+var word = "Af3fhhj4**'das??3asdFds";
+var w = "";
+var other = "";
+
+function lletres() {
+    if ((/[a-zA-Z]/).test(word[0])) {
+        w += word[0];
+    } else {
+        other += word[0];
+    }
+    word = word.slice(1);
+}
+
+while (word.length > 0) {
+    lletres();
+}
+
+console.log([w, other]);
+
+// podem usar do/while si volem que el codi s'executi al menys un cop
+
+var x = 0                       //
+                                //
+do {                            //  Aquest bucle s'executa per primera vegada perquè la condició
+    console.log("Hola");        //  està darrere del bloc de codi
+    x++;                        //
+} while (x != 0 && x < 5);      //
+
+
+var x = 0                       //
+                                //  
+while (x != 0 && x < 5) {       //  Aquest bucle no s'executa mai perquè la condició
+    console.log("Hola");        //  es comprova abans que entri al bloc de codi
+    x++;                        //
+}                               //
+
+
+
+//* ------------------------- Mètodes arrays ------------------------------
+
+console.log("-------------------- Mètodes arrays --------------------");
+
+
+
+//* ------------------------------ Objectes -------------------------------------
+
+console.log("--------------------- Objectes ---------------------");
 
 
 
@@ -509,5 +654,4 @@ console.log(("patates,naps,cols,préssecs").split(",")); // retorna un array amb
 
 
 
-
-console.log("----------------------------------------");
+console.log("-------------------- FI DEL REPÀS --------------------");
