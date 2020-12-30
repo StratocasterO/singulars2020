@@ -1,0 +1,35 @@
+// * {
+//     margin: 0;
+//     padding: 0;
+// }
+body {
+    background-color:#ffc6e3;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+.cont{
+    max-width: 1024px;
+    margin: auto;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px 100px;
+    background-color: rgba($color: #ffffff, $alpha: .1);
+
+    & h2{
+        font-size: 50px;
+        margin: 0;
+        color: #CF649A;
+    }
+
+    & img{
+        height: 50px;
+    }
+}
+main{
+    background-color: rgba($color: #ffffff, $alpha: .3);
+    padding: 20px;
+    color: #9b3a6b;
+}

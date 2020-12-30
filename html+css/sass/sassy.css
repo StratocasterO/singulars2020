@@ -1,0 +1,41 @@
+body {
+  background-color: #ffc6e3;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+}
+
+.cont {
+  max-width: 1024px;
+  margin: auto;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 20px 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+header h2 {
+  font-size: 50px;
+  margin: 0;
+  color: #CF649A;
+}
+
+header img {
+  height: 50px;
+}
+
+main {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  color: #9b3a6b;
+}
+/*# sourceMappingURL=sassy.css.map */
