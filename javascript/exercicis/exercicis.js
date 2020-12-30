@@ -231,19 +231,41 @@ console.log(paraulaRandom(text));
 // exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
 // predicció del que et passarà durant el dia
 
-// TODO deifineix la funció horoscop()
+// TODO defineix la funció horoscop()
 
 
 
 //* ------------------------------ Bucle for ------------------------------------
 
-// compra (prompt en bucle)
+// exercici 21: fes un bucle que escrigui 10 vegades a la consola alternant un color i un altre
+
+// TODO el codi aquí
+
+
+// exercici 22: fes un bucle que escrigui 20 números i escrigui al seu costat: "hola" si és múltiple de 2, "adeu" si
+// és múltiple de 3 i "què tal? si és múltiple de 5"
+
+// TODO el codi aquí
+
+
+// exercici 23: fes un buscador de números primers. Li fixarem un límit (p.e. 100) i agafarà cada número i el dividirà
+// per tots els anteriors; si alguna de les divisions dona zero, llavors no és primer; si cap dona zero, l'escriurà a la
+// consola
+
+// TODO el codi aquí
 
 
 
 //* ----------------------------- Bucle while -----------------------------------
 
-// do while
+// exercici 24: llista de la compra. Fes que un prompt es repeteixi fins que l'usuari introdueixi una paraula clau; fins
+// llavors, cada paraula introduida serà un item de la llista de la compra, que s'escriurà després de que l'usuari l'aturi
+// amb el format:       Llista de la compra:
+//                       - Pa
+//                       - Mantega
+//                       - Aigua
+
+// TODO aquí el codi
 
 
 
@@ -251,11 +273,14 @@ console.log(paraulaRandom(text));
 
 // replicar split
 
+// paradoxa aniversari
+
 
 
 //* ------------------------------ Objectes -------------------------------------
 
 // funció amb "this"
+
 
 
 console.log("-------------------- FI DELS EXERCICIS --------------------");

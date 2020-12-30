@@ -39,23 +39,18 @@ console.log(nomAmbEspais.trim());   // elimina espais al principi i al final
 // -----------------------------------------------------------------------------------
 
 var espais = nombre.indexOf("r")    // retorna l'index de la primera aparició del caràcter "r"
-
 console.log(espais)
 
 espais = nombre.indexOf("r", espais+1)    // retorna l'index de la primera aparició del caràcter "r" a partir del caràcter número espais+1
-
 console.log(espais)
 
 espais = nombre.indexOf("r", espais+1)
-
 console.log(espais)
 
 espais = nombre.indexOf("r", espais+1)
-
 console.log(espais)
 
 espais = nombre.indexOf("r", espais+1)
-
 console.log(espais)   // quan retorna -1 ja no hi ha més aparicions
 
 // -----------------------------------------------------------------------------------

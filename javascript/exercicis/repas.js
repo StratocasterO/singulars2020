@@ -566,7 +566,7 @@ function iterativa() {  // funció iterativa equivalent a un bucle
     i++;
     
     if (i < 10) {
-        iterativa();
+        iterativa();    //! ⚠️ compte perquè es poden fer bucles infinits ⚠️
     }
 }
 
@@ -582,10 +582,10 @@ console.log("-------------------- Bucle while --------------------");
 
 // és equivalent al bucle for però hem de posar l'iterador i les condicions "a mà"
 
-var n = 0;
+var n = 0;          // declaració i inicialització de l'index
 
-while (n < 10) {
-    n++;
+while (n < 10) {    // condició per seguir
+    n++;            //canvi en l'index a cada repetició
 }
 
 console.log(n);
