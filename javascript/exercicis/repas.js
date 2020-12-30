@@ -530,9 +530,17 @@ for (let index = 0; index < 5; index++) {       // podem usar funcions dins de b
 // -------------------------------
 
 for (let index = 0; index < 10000; index++) {   // podem usar condicionals dins de bucles
-    if (index == 5) break;
+    if (index == 5) break;                      // la paraula clau break atura el bucle
 
     console.log("Hola, persona " + (index + 1));
+}
+
+// -------------------------------
+
+for (let i = 0; i < 100; i++) { 
+    if (i % 5 == 0) continue;               // la paraula clau continue fa que s'ignori la resta de codi i salti al i++
+
+    console.log(i)
 }
 
 // -------------------------------
@@ -573,6 +581,50 @@ function iterativa() {  // funció iterativa equivalent a un bucle
 iterativa();
 
 console.log(i);
+
+
+// Bucle for/of per recòrrer elements d'un array o caràcters d'un string
+
+var faces = ["🥰","😃","😌","😂"];
+
+for (face of faces) {
+    console.log(face);
+}
+
+// ---------------------------------
+
+var alumnes = ["Ricardo", "Ester", "Eva", "David"];
+
+for (alumne of alumnes) {
+    console.log(`Hola, ${alumne}`);
+}
+
+// ---------------------------------
+
+var paraula = "persona";
+
+for (lletra of paraula) {
+    console.log(lletra);
+}
+
+
+// Bucle for/in per recòrrer les propietats d'un objecte
+
+var animal = {  especie: "cavall",
+                mida: "gran",
+                alimentació: "herba",
+                pes: 300,
+                muntar: function() {
+                    console.log("🐎");
+                }
+};
+
+for (propietat in animal) {
+    console.log(`${propietat} -> ${animal[propietat]}`)
+}
+
+console.log(animal["mida"]);    // accedir a la propietat amb el nom de la propietat en string
+console.log(animal.mida);       // accedir a la propietat com si fos una variable
 
 
 
@@ -627,6 +679,7 @@ while (x != 0 && x < 5) {       //  Aquest bucle no s'executa mai perquè la con
     console.log("Hola");        //  es comprova abans que entri al bloc de codi
     x++;                        //
 }                               //
+
 
 
 

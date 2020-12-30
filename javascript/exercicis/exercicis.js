@@ -248,17 +248,37 @@ console.log(paraulaRandom(text));
 // TODO el codi aquí
 
 
-// exercici 23: fes un buscador de números primers. Li fixarem un límit (p.e. 100) i agafarà cada número i el dividirà
+// exercici 23: fes un contador que mostri a la consola els números de l'1 al número que introdueixis com a paràmentre
+// (fins a 1000 com a màxim)  PISTA: usa la paraula clau "break"
+
+var max = prompt("Fins quin número vols contar (1-1000)?");
+
+// TODO defineix aquí la funció contar()
+
+contar(max); // això ha de mostrar a la consola els números de l'1 al número introduit
+
+
+// exercici 24: fes un buscador de números primers. Li fixarem un límit (p.e. 100) i agafarà cada número i el dividirà
 // per tots els anteriors; si alguna de les divisions dona zero, llavors no és primer; si cap dona zero, l'escriurà a la
 // consola
 
 // TODO el codi aquí
 
 
+// exercici 25: fes un contador que només mostri els números que tinguin un dígit contingut a la string predefinida fins a 100
+// PISTA: usa la paraula clau "continue"
+
+var digits = prompt("Quins digits vols mostrar (1-9)?");
+
+// TODO defineix la funció mostrarDigits()
+
+mostrarDigits(digits);      // si dígits és 234, això mostrarà "2, 3, 4, 12, 13, 14, 20, 21, 22, 23..."
+
+
 
 //* ----------------------------- Bucle while -----------------------------------
 
-// exercici 24: llista de la compra. Fes que un prompt es repeteixi fins que l'usuari introdueixi una paraula clau; fins
+// exercici 26: llista de la compra. Fes que un prompt es repeteixi fins que l'usuari introdueixi una paraula clau; fins
 // llavors, cada paraula introduida serà un item de la llista de la compra, que s'escriurà després de que l'usuari l'aturi
 // amb el format:       Llista de la compra:
 //                       - Pa
