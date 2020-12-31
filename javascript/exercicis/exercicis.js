@@ -384,10 +384,10 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 // d'objectes amb els noms de les columnes com a propietats
 //// PISTA: necessitareu ajuda. Demaneu-la
 
-var csv = `Year,Make,Model,Description,Price
-           1997,Ford,E350,ac abs moon,3000.00
-           1999,Chevy,Venture "Extended Edition",,4900.00
-           1999,Chevy,Venture "Extended Edition XL",,5000.00
+var csv = `Year,Make,Model,Description,Price\n
+           1997,Ford,E350,ac abs moon,3000.00\n
+           1999,Chevy,Venture "Extended Edition",,4900.00\n
+           1999,Chevy,Venture "Extended Edition XL",,5000.00\n
            1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
 
 // TODO gestionar el csv perquè acabi sent una cosa com la de sota
