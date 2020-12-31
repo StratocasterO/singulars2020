@@ -309,7 +309,7 @@ var dies = ["dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte",
 // TODO aquí el codi
 
 
-// exercici 27: replicar split(). Defineix una funció que separi una cadena de caràcters amb el separador escollit
+// exercici 28: replicar split(). Defineix una funció que separi una cadena de caràcters amb el separador escollit
 
 var cadena = "blaucacavermellcacagroccacamarrócacaverd"
 
@@ -318,7 +318,7 @@ var cadena = "blaucacavermellcacagroccacamarrócacaverd"
 console.log(separar(cadena, "caca"));   // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
-// exercici 28: defineix una funció que agafi els elements d'un array i els mogui N elements cap a la dreta
+// exercici 29: defineix una funció que agafi els elements d'un array i els mogui N elements cap a la dreta
 
 var array = ["primer", "segon", "tercer", "quart", "cinquè"]
 
@@ -327,13 +327,13 @@ var array = ["primer", "segon", "tercer", "quart", "cinquè"]
 console.log(moure(array, 2));       // ha de mostrar ["quart", "cinquè", "primer", "segon", "tercer"]
 
 
-// exercici 29: adapta l'exercici de la llista de la compra (ex. 26) perquè fiqui els elements en un array i
+// exercici 30: adapta l'exercici de la llista de la compra (ex. 26) perquè fiqui els elements en un array i
 // els ordeni alfabèticament
 
 // TODO aquí el codi
 
 
-// exercici 30: paradoxa de l'aniversari. Genera N dates d'aniversari aleatòries (1-365) en un array i comprova
+// exercici 31: paradoxa de l'aniversari. Genera N dates d'aniversari aleatòries (1-365) en un array i comprova
 // si hi ha alguna repetida. Fes això per N = 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 i mostra a la consola per quins
 // hi ha hagut coincidències d'aniversari
 
@@ -343,7 +343,7 @@ console.log(moure(array, 2));       // ha de mostrar ["quart", "cinquè", "prime
 
 //* ------------------------------ Objectes -------------------------------------
 
-// exercici 31: crea un objecte que tingui les propietats "nom", "any" i "edat" i un mètode calcularEdat()
+// exercici 32: crea un objecte que tingui les propietats "nom", "any" i "edat" i un mètode calcularEdat()
 // que calculi l'edat en funció de l'any de neixement i la guardi a la propietat "edat"
 //// PISTA: useu Date()
 
@@ -355,7 +355,7 @@ persona.calcularEdat();
 // TODO console.log() que digui "La Maria va nèixer el 1995 i té 25 anys" agafant les propietats de l'objecte
 
 
-// exercici 31: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
+// exercici 32: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
 var frase = { string = "blaucacavermellcacagroccacamarrócacaverd",
@@ -367,7 +367,7 @@ var fraseSeparada = frase.separar("caca");
 console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
-// exercici 32: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
+// exercici 33: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
 // separats per seccions (carnisseria, fruita i verdura, làctics, forn de pa) i ordenats alfabèticament. El console.log
 // haurà de mostrar els productes classificats per seccions:           Llista de la compra:
 //                                                                        - Carnisseria
@@ -382,7 +382,7 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 // TODO: aqui el codi
 
 
-// exercici 33: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
+// exercici 34: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
 // d'objectes amb els noms de les columnes com a propietats
 //// PISTA: necessitareu ajuda. Demaneu-la
 
