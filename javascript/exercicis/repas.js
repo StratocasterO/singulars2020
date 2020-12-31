@@ -612,9 +612,9 @@ for (lletra of paraula) {
 
 var animal = {  especie: "cavall",
                 mida: "gran",
-                alimentació: "herba",
+                alimentacio: "herba",
                 pes: 300,
-                muntar: function() {
+                foto: function() {
                     console.log("🐎");
                 }
 };
@@ -644,13 +644,13 @@ console.log(n);
 
 // -------------------------
 
-var word = "Af3fhhj4**'das??3asdFds";
+var word = "Af3fhhj4**'das??3asdFds";       // volem agafar aquesta cadena i separar lletres de coses que no són lletres
 var w = "";
 var other = "";
 
 function lletres() {
-    if ((/[a-zA-Z]/).test(word[0])) {
-        w += word[0];
+    if ((/[a-zA-Z]/).test(word[0])) {       // filtre per saber si el caràcter és una lletra
+        w += word[0];                       // Una altra manera: word[0].toLowerCase() != word[0].toUpperCase()
     } else {
         other += word[0];
     }
@@ -685,7 +685,200 @@ while (x != 0 && x < 5) {       //  Aquest bucle no s'executa mai perquè la con
 
 //* ------------------------- Mètodes arrays ------------------------------
 
-console.log("-------------------- Mètodes arrays --------------------");
+console.log("------------------- Mètodes arrays --------------------");
+
+// Un array és una llista ordenada d'elements, que poden ser numeros, strings, arrays, objectes, literals, variables...
+
+var arr1, arr2, arr3, arr4;     // declaro variables
+var arr3 = [];                  // declaro i assigno un array buit         
+
+arr1 = ["🐶","🐱","🐭","🐰"];   // assigno un array a la variable
+arr2 = ["🥰","😃","😌","😂"];
+
+// Accedir a un element d'un array
+
+var gos = arr1[0];   // puc accedir a un element d'un array amb el seu index entre parèntesis cuadrats
+var gat = arr1[1];
+
+arr1[2] = "🦊";     // puc sobreesciure un element d'un array amb una declaració d'assignació 
+
+console.log(arr1);
+
+// Obtenir l'index d'un element
+
+console.log(arr1.indexOf("🐱"));    // el mètode indexOf() en torna l'index de la primera aparició del que busquem
+console.log(arr1.indexOf("🐭"));    // i torna -1 si l'argument no es troba a l'array
+
+// Transformar un array en string
+
+console.log(arr1.toString());      // el mètode toString() torna tots els elements de l'array separats per comes
+console.log(arr1.join("&"));       // el mètode join() torna tots els elements de l'array separats per la cadena introduida
+
+// Afegir un array a un altre
+
+arr3 = arr1 + arr2;     // l'operador + converteix en strings els arrays
+
+console.log(arr3);
+
+arr3 = arr1.concat(arr2);    // si volem "sumar" dos arrays, hem d'usar el mètode concat()
+
+console.log(arr3);
+
+// Comprovar si un array conté un element
+
+console.log(arr3.includes("😃"));
+console.log(arr3.includes("💩"));
+
+// Afegir o treure elements d'un array
+
+var emoji;
+
+emoji = arr2.pop();     // el mètode pop() retorna i elimina l'ultim element d'un array
+
+console.log(emoji);
+console.log(arr2);
+
+arr2.push("amor");           // el mètode push() afegeix al final d'un array un o més elements
+arr2.push(emoji, "💩");
+
+console.log(arr2);
+
+// --------------------
+
+emoji = arr2.shift();     // el mètode shift() retorna i elimina el primer element d'un array
+
+console.log(emoji);
+console.log(arr2);
+
+arr2.unshift("caca");         // el mètode unshift() afegeix al principi d'un array un o més elements
+arr2.unshift(emoji, "💩");
+
+console.log(arr2);
+
+// Agafar una part d'un array
+
+arr4 = arr2.slice(6);       // el mètode slice() crea un array amb els elements des de l'index fins al final
+
+console.log(arr4);
+console.log(arr2);
+
+// Agafar i substituir una part d'un array
+
+arr4 = arr2.splice(2,1);                    // el mètode splice() elimina 1 element a partir de la posició 2
+arr4 = arr4.concat(arr2.splice(4,1));       // agafo l'element en la posició 4 i l'afegeixo al arr4
+
+console.log(arr4);
+console.log(arr2);
+
+//! ⚠️ El mètode slice no modifica l'array original, el mètode splice sí ⚠️
+
+// Ordenar elements d'un array
+
+var arr5 = ["patata", "unstable", "unicorns", "rookie", "exploding", "comunismo"];
+
+arr5.sort();        // el mètode sort() ordena alfabèticament els elements d'un array (modificant l'original)
+
+console.log(arr5);
+
+arr5.reverse();     // el mètode reverse() inverteix l'ordre dels elements d'un array (modificant l'original)
+
+console.log(arr5);
+
+// ---------------------------
+
+var arr6 = [4, 0, 12, 3.15, 15, -25, 3/5, Math.sqrt(2)];
+
+arr6.sort();        //! ⚠️ El mètode sort() no ordena números ⚠️
+
+console.log(arr6);
+
+// arr6.sort(ordenar);         // per ordenar numèricament li he de passar al mètode sort() la definició d'una funció
+//                                la funció ordenar es coneix com a "callback" (una funció cridada des d'una funció)                            
+// function ordenar(a,b) {
+//     return a - b;
+// }
+
+arr6.sort( (a,b) => a - b );     // aquesta línia fa el mateix però definim una funció arrow anònima (que no te nom)
+
+console.log(arr6);
+
+
+
+//* ------------------------- Iteració arrays ------------------------------
+
+console.log("------------------- Iteració arrays --------------------");
+
+// Executar una funció per cada element d'un array
+
+alumnes.forEach(callback);              // el mètode forEach() executa una funció per cada element d'un array (funció callback)
+                                        // ⚠️ la funció callback la passem sense () perquè li estem donant la definició
+function callback(item) {
+    funcióSenseReturn(item);
+}
+
+alumnes.forEach(e => funcióSenseReturn(e));     // tot això se simplifica fent que la funció callback sigui una funció arrow anònima
+
+// ------------------------------
+
+var paraules = "";
+
+arr5.forEach(element => {               
+    paraules += element + " ";
+});
+
+console.log(paraules);
+
+// -------------------------------
+
+arr5.forEach((element, i, a) => {       // els paràmetres de la funció callback són: l'element actual, l'index i l'array
+    if (i % 2 == 0) {
+        a[i] = element.toUpperCase();
+    }
+})
+
+console.log(arr5);
+
+// -------------------------------
+
+var suma = 0;
+
+arr6.forEach(element => {             // el mètode forEach() executa una funció per cada element d'un array
+    suma += element;
+})
+
+console.log({"array": arr6, "suma dels elements": suma});
+
+// Crear un nou array a partir de l'anterior
+
+var arr7;
+
+arr7 = arr6.map(v => v * 3);         // torna un nou array amb cada element de l'array multiplicat per 3
+
+console.log(arr7);
+
+// Reduïr els elements d'un array a un únic valor
+
+var triple;
+
+triple = arr6.reduce((total, valor) => total + 3 * valor, 0);   /* el mètode reduce té com a arguments la funció callback 
+                                                                   i el valor inicial de l'acumulador (si no hi ha valor
+                                                                   inicial, agafa el valor del primer element) ⚠️ */
+
+suma = arr6.reduce((total, valor) => total + valor);            // aquí el primer valor és el del primer element
+
+console.log({"array": arr6, suma, triple});
+
+// --------------------------------------
+
+var emojis1, emojis2;
+
+emojis1 = arr1.reduce((acc, v) => acc + v + "💩")       // sense valor inicial
+emojis2 = arr1.reduce((acc, v) => acc + v + "💩","")    // amb valor inicial ⚠️
+
+console.log({"array": arr1, emojis1, emojis2});
+
+
+// Nota: hi ha més mètodes iteratius amb arrays que només veurem si els necessitem (filter(), some(), every()...)
 
 
 
@@ -693,17 +886,62 @@ console.log("-------------------- Mètodes arrays --------------------");
 
 console.log("--------------------- Objectes ---------------------");
 
+var animal2 = {  especie: "tortuga",        // cada paraula clau és una propietat de l'objecte
+                mida: "mitjana",
+                alimentacio: "herba",
+                pes: 10,
+                foto: function() {          // el valor d'una propietat pot ser la definició d'una funció ---> mètode de l'objecte
+                    console.log("🐢");
+                }
+};
+
+// Accedir a les propietats d'un objecte
+
+console.log(`La ${animal2.especie} és una animal de mida ${animal2.mida} que menja ${animal2.alimentacio} i pesa ${animal2.pes} kg`);
+
+
+// Usar mètodes d'objectes
+
+animal2.foto();     // s'accedeix als mètodes d'un objecte igual que ho fem amb els de strings o arrays .metode()
+
+var classe = {  nomClasse: "Classe de Lenin",
+                alumnes: 5,
+                alumnesGuais: 0,
+                noms: ["Alex", "David", "Dani", "Sergi", "Joselyn"],
+                alumnesAmbCamera: ["David", "Sergi"],
+                alumnesAmbVeu: ["Alex", "Joselyn"],
+                passarLlista: function () {                                                             // mètode sense return
+                        this.noms.forEach((alumne) => console.log(alumne + " presente"))
+                    },
+                audiovisuals: function () {                                                             // mètode amb return
+                        return this.alumnesAmbCamera.length + this.alumnesAmbVeu.length
+                    },        
+                buscarGuais: function () {                                                              // funció que modifica una
+                        this.alumnesGuais = this.alumnesAmbCamera.length + this.alumnesAmbVeu.length    // propietat del mateix objecte
+                    }
+}
+
+// la paraula clau this dins d'un objecte es refereix al mateix objecte i ens permet accedir a les seves propietats i mètodes
+//!                           ⚠️ la paraula clau this no funciona dins d'una funció arrow ⚠️
+
+
+classe.passarLlista();                  // executa el mètode passarLlista() de l'objecte classe
+
+console.log(classe.audiovisuals());
+
+console.log(classe.alumnesGuais);
+classe.buscarGuais();                   // aquest mètode no te output, només modifica una propietat
+console.log(classe.alumnesGuais);
+
+console.log(classe);
+
+classe.horari = "8:45 - 14:45";         // puc afegir propietats de la mateixa manera que es declara i assigna una variable
+
+console.log(classe);
 
 
 
-
-
-
-
-
-
-
-
+// Nota: més endavant veurem com funcionen les classes (constructors d'objectes) i la deconstrucció d'objectes i arrays (destructuring)
 
 
 
