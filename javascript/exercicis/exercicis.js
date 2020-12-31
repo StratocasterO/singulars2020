@@ -379,6 +379,8 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 //                                                                             + Síndria
 //// PISTA: el prompt demanarà dues paraules: el producte i una lletra per classificar-los (p.e. "magdalenes F")
 
+// TODO: aqui el codi
+
 
 // exercici 33: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
 // d'objectes amb els noms de les columnes com a propietats
