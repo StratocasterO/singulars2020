@@ -1,0 +1,39 @@
+main .deck{
+    @include flexCenter(row);
+
+    justify-content: space-between;
+    padding-top: 20px;
+
+    .card{
+        @include flexCenter(column);
+        background-color: rgba($color: #ffffff, $alpha: .2);
+        width: 20%;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: $titleColor 0 0 15px;
+
+        h3 {
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        a{
+            display: inline-block;
+            width: fit-content;
+            padding: 10px 15px;
+            border-radius: 2px;
+            color: $backColor;
+            background-color: $titleColor;
+            text-align: center;
+            text-decoration: none;
+
+            &:hover{
+                background-color: $textColor;
+            }
+        }
+
+        p{
+            font-size: 15px;
+        }
+    }
+}

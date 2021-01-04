@@ -1,35 +1,49 @@
-// * {
-//     margin: 0;
-//     padding: 0;
-// }
+@import "./colors";         // imports separated SCSS
+@import "./header-footer";
+@import "./deck";
+
 body {
-    background-color:#ffc6e3;
+    background-color: $backColor;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
 }
+
 .cont{
     max-width: 1024px;
     margin: auto;
 }
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 20px 100px;
-    background-color: rgba($color: #ffffff, $alpha: .1);
 
-    & h2{
-        font-size: 50px;
-        margin: 0;
-        color: #CF649A;
-    }
-
-    & img{
-        height: 50px;
-    }
-}
 main{
-    background-color: rgba($color: #ffffff, $alpha: .3);
+    background-image: linear-gradient(rgba($color: #ffffff, $alpha: .6), rgba($color: #ffffff, $alpha: .1)) ;
     padding: 20px;
-    color: #9b3a6b;
+    color: $textColor;
+
+    text-align: justify;
+
+    > p:first-of-type{
+        width: 80%;
+        margin: 32px auto 56px auto;
+        font-size: small;
+        font-style: oblique 20deg;
+    }
+
+    > p{
+        margin: 32px auto;
+    }
+
+    > img:first-of-type{
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+    
+    > img:nth-of-type(2){
+        float: right;
+        margin: 0 0 5px 10px;
+    }
+    
+    img{
+        &:hover{
+            opacity: .8;
+        }
+    }
 }
