@@ -358,7 +358,7 @@ persona.calcularEdat();
 // exercici 32: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
-var frase = { string = "blaucacavermellcacagroccacamarrócacaverd",
+var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
                 // TODO aquí el mètode de l'objecte  
 }
 
