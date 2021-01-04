@@ -385,11 +385,12 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 // exercici 34: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
 // d'objectes amb els noms de les columnes com a propietats
 //// PISTA: necessitareu ajuda. Demaneu-la
+//// PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
 
-var csv = `Year,Make,Model,Description,Price\n
-           1997,Ford,E350,ac abs moon,3000.00\n
-           1999,Chevy,Venture "Extended Edition",,4900.00\n
-           1999,Chevy,Venture "Extended Edition XL",,5000.00\n
+var csv = `Year,Make,Model,Description,Price
+           1997,Ford,E350,ac abs moon,3000.00
+           1999,Chevy,Venture "Extended Edition",,4900.00
+           1999,Chevy,Venture "Extended Edition XL",,5000.00
            1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
 
 // TODO gestionar el csv perquè acabi sent una cosa com la de sota
