@@ -657,7 +657,7 @@ var w = "";
 var other = "";
 
 function lletres() {
-    if ((/[a-zA-Z]/).test(word[0])) {       // filtre per saber si el caràcter és una lletra
+    if (/[a-zA-Z]/.test(word[0])) {       // filtre per saber si el caràcter és una lletra
         w += word[0];                       // Una altra manera: word[0].toLowerCase() != word[0].toUpperCase()
     } else {
         other += word[0];
