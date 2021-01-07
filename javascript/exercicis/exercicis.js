@@ -8,15 +8,20 @@ console.log("------------- INICI EXERCICIS -------------");
 
 //* ------------------------ Variables --------------------------
 
+console.log("%cExercicis de variables:", "font-weight: bold");
+
 // exercici 1: intercanvi de variables
 
 var primer, segon;
 
 primer = 1;
-
 segon = 2;
 
-// TODO: aquí el teu codi
+var aux = primer;  // manera amb variable auxiliar
+primer = segon;
+segon = aux;
+
+[primer, segon] = [segon, primer]  // manera amb desestructuració
 
 console.log(primer,segon);  // ha de mostrar 2 1
 
@@ -24,9 +29,13 @@ console.log(primer,segon);  // ha de mostrar 2 1
 
 //* ------------------------- Funcions --------------------------
 
+console.log("%cExercicis de funcions:", "font-weight: bold");
+
 // exercici 2: defineix una funció psicologo() que et pregunti "Com estàs?" al executar-la
 
-// TODO: aquí la definició de psicolog() 
+function psicologo() {
+    console.log("Com estàs?")
+}
 
 psicologo();
 
@@ -34,17 +43,28 @@ psicologo();
 // exercici 3: defineix una funció pregunta() que et pregunti "T'agrada la pizza?"
 // quan li introduim com a paràmentre "la pizza"
 
-// TODO: aquí la definició de pregunta() 
+const pregunta = (menjar) => {
+    console.log(`T'agrada ${menjar}?`);
+    
+    // var string = "T'agrada "          <= matar mosques a canonades 💣
+    // string =  string + menjar
+    // string = string + "?"
+    // console.log(string)
+}
 
 pregunta("la pizza");
+pregunta("el sushi");
 
 
 // exercici 4: defineix una funció pregunta2() que et retorni "T'agrada la pizza"
 // quan li introduim com a paràmentre "la pizza"
 
-// TODO: aquí la definició de pregunta2() 
+const pregunta2 = (menjar) => {
+    return `T'agrada ${menjar}`
+}
 
 console.log(pregunta2("la pizza") + " amb piña?");
+console.log(pregunta2("el sushi") + " de tonyina?");
 
 
 // exercici 5: defineix una funció metresCubicsALitres() que passi metres cúbics a litres i retorni el resultat
@@ -52,7 +72,11 @@ console.log(pregunta2("la pizza") + " amb piña?");
 
 var m3 = 8;
 
-// TODO: aquí les definicions de metresCubicsALitres() i mostrarSolució() 
+const metresCubicsALitres = (m) => m*1000
+
+function mostrarSolució() {
+    console.log(`${m3} metres cúbics són ${metresCubicsALitres(m3)} litres`);
+}
 
 mostrarSolució();
 
@@ -62,7 +86,14 @@ mostrarSolució();
 
 var diners = 0;
 
-// TODO: definició de afegirDiners() i gastarDiners() 
+const afegirDiners = quantitat => {
+    diners += quantitat;    // diners = diners + quantitat
+    console.log(diners);
+}
+const gastarDiners = quantitat => {
+    diners -= quantitat;    // diners = diners - quantitat
+    console.log(diners);
+} 
 
 afegirDiners(20);
 gastarDiners(15);
@@ -75,12 +106,20 @@ console.log(diners); // això retornarà 20
 
 //* ------------------------------ Condicionals --------------------------------
 
+console.log("%cExercicis de condicionals:", "font-weight: bold");
+
 // exercici 7: fes un diàleg que et demani la talla de samarreta que vols comprar (S, M, L, XL) i et digui per la consola
 // quina talla has sel·leccionat i t'avisi si sel·lecciones una talla que no és vàlida
 
-var talla = prompt("Aquí el missatge del prompt")  // TODO: editar el missatge del prompt()
+var talla = prompt("Escriu la talla que vols (S, M, L, XL)")
 
-// TODO: estructura condicional que digui per la consola la talla escollida
+if (talla == null || talla == ""){
+    console.log("%cSi us plau, introdueix una talla", "color: red");
+} else if (talla.toUpperCase() == "S" || talla.toUpperCase() == "M" || talla.toUpperCase() == "L" || talla.toUpperCase() == "XL") {
+    console.log("Has escollit la talla " + talla.toUpperCase());
+} else {
+    console.log(`%c${talla} no és una talla vàlida. Escull entre S, M, L i XL`, "color: red");
+}
 
 
 // exercici 8: defineix una funció amb modes que pugui calcular l'area o el perímetre d'un cercle i et faci console.log()
@@ -88,8 +127,20 @@ var talla = prompt("Aquí el missatge del prompt")  // TODO: editar el missatge 
 var radi = 5;
 var mode = "P"; // "P" pel perímentre o "A" per l'àrea
 
-// TODO: defineix la funció cercle amb dos modes
+function cercle(r, m) {
+    if (m == "P") console.log(`El perímetre d'un cercle de radi ${r} és ${(2*Math.PI*r).toFixed(2)}`);
+    else if (m == "A") console.log(`L'àrea d'un cercle de radi ${r} és ${(Math.PI*r**2).toFixed(2)}`);
+    else console.log("%cEl mode escollit no és vàlid", "color: red");
+}
 
+cercle(radi, mode);
+
+radi = 7;
+mode = "A";
+cercle(radi, mode);
+
+radi = 9;
+mode = "R";
 cercle(radi, mode);
 
 
@@ -98,7 +149,12 @@ cercle(radi, mode);
 var costat = 3;
 var costats = 5;
 
-// TODO: defineix la funció poligon()
+function poligon(c,n) {
+    var a = c / (2*Math.tan(Math.PI/n))
+    var area = c*n*a / 2
+    
+    console.log(`El perímetre i l'àrea d'un polígon regular de ${n} costats i de costat ${c} són ${c*n} i ${area.toFixed(2)} respectivament`);
+}
 
 poligon(costat, costats);
 
@@ -108,7 +164,54 @@ poligon(costat, costats);
 // (pel color no hi ha opcions, és lliure) i et faci sel·leccionar la talla (S, M, L, XL). La funció retorna una cadena
 // amb tota la informació per pintar-la en un console.log()
 
-// TODO: defineix la funció botiga()
+function botiga() {
+    var item = prompt("Sel·lecciona l'article (samarreta, pantaló o barret)");
+    var items = ["samarreta", "pantaló", "pantalo", "barret"];
+
+    var article, talla, color
+
+    // comprova que l'article és vàlid
+    if (item != null && items.includes(item.toLowerCase())) {
+        if (item.toLowerCase() == "barret") {
+            var tipus = prompt("De quin tipus vols el barret? (copa, pirata, gorra, llana)");
+            var tipusBarret = ["copa", "pirata", "gorra", "llana"];
+
+            // comprova el tipus de barret
+            if (tipus != null && tipusBarret.includes(tipus)){
+                if (tipus == "gorra"){
+                    article = "una gorra"
+                } else {
+                    article = `un barret de ${tipus}`
+                }
+                color = ""
+            } else {
+                return console.log("%cIntrodueix un tipus de barret vàlid (copa, pirata, gorra, llana)", "color: red")
+            }
+        } else {
+            color = prompt("De quin color?");
+            
+            if (item == "samarreta") {
+                article = "una samarreta "
+            } else {
+                article = "un pantaló "
+            }
+        }
+
+        talla = prompt("De quina talla?");
+        var talles = ["S", "M", "L", "XL"];
+
+        // comprova que la tella sigui vàlida
+        if (talles != null && talles.includes(talla.toUpperCase())){
+            talla = talla.toUpperCase();
+        } else {
+            return console.log("%cIntrodueix una talla vàlida (S, M, L, XL)", "color: red")
+        }
+    } else {
+        return console.log("%cIntrodueix un article vàlid (samarreta, pantaló o barret)", "color: red")
+    }
+
+    return `Has sel·leccionat ${article}${color} (talla ${talla})`
+}
 
 var carrito = botiga();
 
@@ -128,7 +231,7 @@ calculadora();
 function calculadora() {
     var simbols = ["+","-","*","/","**"]
     var sim = prompt("simbol")
-
+    
     if (simbols.indexOf(sim) != -1) {
         if (sim == "+"){}
     }
@@ -359,7 +462,7 @@ persona.calcularEdat();
 // que poguem usar-lo amb el codi següent
 
 var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
-                // TODO aquí el mètode de l'objecte  
+// TODO aquí el mètode de l'objecte  
 }
 
 var fraseSeparada = frase.separar("caca");
@@ -388,10 +491,10 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 //// PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
 
 var csv = `Year,Make,Model,Description,Price
-           1997,Ford,E350,ac abs moon,3000.00
-           1999,Chevy,Venture "Extended Edition",,4900.00
-           1999,Chevy,Venture "Extended Edition XL",,5000.00
-           1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
+1997,Ford,E350,ac abs moon,3000.00
+1999,Chevy,Venture "Extended Edition",,4900.00
+1999,Chevy,Venture "Extended Edition XL",,5000.00
+1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
 
 // TODO gestionar el csv perquè acabi sent una cosa com la de sota
 

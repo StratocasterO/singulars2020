@@ -170,12 +170,12 @@ console.log(potencia);
 
 var diners = 0;
 
-const afegirDiners = (quantitat) => {
+const estalviarDiners = (quantitat) => {
     diners += quantitat;
 }
 
-afegirDiners(1000);
-afegirDiners(500);
+estalviarDiners(1000);
+estalviarDiners(500);
 
 console.log(diners);
 
