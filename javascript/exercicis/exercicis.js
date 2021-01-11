@@ -2,13 +2,13 @@ console.log("JavaScript carregat des d'un document .js dins el <body>");
 
 document.write("<p>Això escriu dins el body (.js extern)</p>");
 
-console.log("------------- INICI EXERCICIS -------------");
+console.log("-------------------- INICI EXERCICIS -----------------");
 
 
 
 //* ------------------------ Variables --------------------------
 
-console.log("%cExercicis de variables:", "font-weight: bold");
+console.log("----------------- Exercicis de variables ---------------");
 
 // exercici 1: intercanvi de variables
 
@@ -29,7 +29,7 @@ console.log(primer,segon);  // ha de mostrar 2 1
 
 //* ------------------------- Funcions --------------------------
 
-console.log("%cExercicis de funcions:", "font-weight: bold");
+console.log("----------------- Exercicis de funcions ---------------");
 
 // exercici 2: defineix una funció psicologo() que et pregunti "Com estàs?" al executar-la
 
@@ -106,7 +106,7 @@ console.log(diners); // això retornarà 20
 
 //* ------------------------------ Condicionals --------------------------------
 
-console.log("%cExercicis de condicionals:", "font-weight: bold");
+console.log("----------------- Exercicis de condicionals ---------------");
 
 // exercici 7: fes un diàleg que et demani la talla de samarreta que vols comprar (S, M, L, XL) i et digui per la consola
 // quina talla has sel·leccionat i t'avisi si sel·lecciones una talla que no és vàlida
@@ -168,15 +168,15 @@ poligon(costat, costats);
 function botiga() {
     var item = prompt("Sel·lecciona l'article (samarreta, pantaló o barret)");
     var items = ["samarreta", "pantaló", "pantalo", "barret"];
-
+    
     var article, talla, color
-
+    
     // comprova que l'article és vàlid
     if (item != null && items.includes(item.toLowerCase())) {
         if (item.toLowerCase() == "barret") {
             var tipus = prompt("De quin tipus vols el barret? (copa, pirata, gorra, llana)");
             var tipusBarret = ["copa", "pirata", "gorra", "llana"];
-
+            
             // comprova el tipus de barret
             if (tipus != null && tipusBarret.includes(tipus)){
                 if (tipus == "gorra"){
@@ -197,10 +197,10 @@ function botiga() {
                 article = "un pantaló "
             }
         }
-
+        
         talla = prompt("De quina talla?");
         var talles = ["S", "M", "L", "XL"];
-
+        
         // comprova que la tella sigui vàlida
         if (talles != null && talles.includes(talla.toUpperCase())){
             talla = talla.toUpperCase();
@@ -210,7 +210,7 @@ function botiga() {
     } else {
         return console.log("%cIntrodueix un article vàlid (samarreta, pantaló o barret)", "color: red")
     }
-
+    
     return `Has sel·leccionat ${article}${color} (talla ${talla})`
 }
 
@@ -222,6 +222,8 @@ if (carrito) console.log(carrito);  // això tornarà "Has demanat un barret de 
 
 //* ---------------------------- Mètodes numbers -------------------------------
 
+console.log("----------------- Exercicis de numbers ---------------");
+
 // exercici 11: defineix una funció calculadora que agafi com a paràmetres una operació i un o dos números 
 // (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)
 
@@ -230,13 +232,13 @@ calculadora();
 function calculadora() {
     var simbols = ["+","-","*","/","**", "SQ", "CB"]
     var num1 = prompt("Introdueix el primer número")
-
+    
     if (num1 == null || isNaN(num1)) {      // comprovació primer número
-            return console.log(`%c"${num1}" no és un número vàlid`, `color: red`);
+        return console.log(`%c"${num1}" no és un número vàlid`, `color: red`);
     }
-
+    
     var sim = prompt("Introdueix el símbol de la operació (+, -, *, /, **, SQ i CB)")
-
+    
     if (sim != null && simbols.indexOf(sim.toUpperCase()) != -1) {      // equivalent a simbols.includes(sim.toUpperCase())
         // arrels
         if (sim.toUpperCase() == "SQ" || sim.toUpperCase() == "CB") {
@@ -247,12 +249,12 @@ function calculadora() {
             }
         } else {
             var num2 = prompt("Introdueix el segon número")
-
+            
             if (num2 != null && isNaN(num2)) {      // comprovació segon número
                 return console.log(`%c"${num2}" no és un número vàlid`, `color: red`);
             }
         }
-
+        
         // resta d'operacions
         if (sim == "+") {
             console.log(`${num1} més ${num2} és ${num1+num2}`); 
@@ -267,7 +269,7 @@ function calculadora() {
         } else if (sim == "**") {
             console.log(`${num1} elevat a ${num2} és ${num1**num2}`);
         } 
-
+        
     } else {
         // simbols que no siguin (+, -, *, /, **, SQ o CB)
         console.log(`%c"${sim}" no és una operació vàlida`, `color: red`);
@@ -319,6 +321,8 @@ console.log(calculaAngles(c1,c2));      // ha de donar 53.13º i 36.87º
 
 //* ---------------------------- Mètodes strings -------------------------------
 
+console.log("----------------- Exercicis de strings ---------------");
+
 //! ⚠️ en aquests exercicis no s'hi val usar el mètode .split() a no ser que s'indiqui el contrari ⚠️
 
 // exercici 14: recrea la funció parseInt() de manera que agafi els números encara que hi hagi lletres abans
@@ -327,27 +331,27 @@ console.log(calculaAngles(c1,c2));      // ha de donar 53.13º i 36.87º
 function convertirEnEnter(str) {
     var i = 0;
     var num = "";
-
+    
     while (isNaN(str[i])) {     // busca el principi dels números
         i++;
     }
     
     while (/[0-9]/.test(str[i])) {      // acumula fins que s'acaben els números
-        num += str[i];
-        i++;
-    }
+    num += str[i];
+    i++;
+}
 
-    return parseFloat(num);
+return parseFloat(num);
 }
 
 function convertirEnEnter2(str) {
     var num = "";
-
+    
     for (let i = 0; i < str.length; i++) {
         if (!isNaN(str[i])) num += str[i];
         else if (num != '' && isNaN(str[i])) break;
     }
-
+    
     return parseFloat(num);
 }
 
@@ -368,7 +372,7 @@ function convertirEnDecimal(str) {
     var num = "";
     var comes = ["'", ".", ","];
     var jaTeUnaComa = false;        // marcador per saber si ja té coma
-
+    
     for (let i = 0; i < str.length; i++) {
         if (!isNaN(str[i])) num += str[i];
         else if (num != '' && comes.includes(str[i]) && !jaTeUnaComa) {
@@ -376,7 +380,7 @@ function convertirEnDecimal(str) {
             jaTeUnaComa = true;     // canvia l'estat del marcador
         } else if (num != '' && isNaN(str[i])) break;
     }
-
+    
     return num;
 }
 
@@ -392,7 +396,7 @@ const valorAbsolut = num => {
     // num = String(num);
     // if (num[0] == "-") return num.slice(1)
     // else return num
-
+    
     return String(num)[0] == "-" ? String(num).slice(1) : String(num);  // if/else resumit en un operador ternari
     
     // return num < 0 ? 0 - num : num;      <= mètode matemàtic
@@ -409,13 +413,13 @@ console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
 
 var lletres = "aaaa, abcd ef!?* omar-olmedo-ferrer @";
 
-console.log(lletraRandom(lletres));     // torna una lletra entre la a i la f
+console.log("Lletra random: " + lletraRandom(lletres));     // torna una lletra entre la a i la f
 
 function lletraRandom(word) {
     do {
         var char = word[Math.floor(Math.random() * word.length)]
     } while (char.toUpperCase() == char.toLowerCase())  // mentre sigui un simbol
-
+    
     return char
 }
 
@@ -429,13 +433,13 @@ var paraules = separarParaules(text);
 
 function separarParaules(str) {
     var words = ""
-
+    
     for (const char of str) {
         // si és una lletra o si és un espai i l'últim caràcter acumulat és un espai
         //       words[words.length - 1] retorna l'ultim caràcter de words
         if (char.toLowerCase() != char.toUpperCase() || (char == " " && words[words.length - 1] != " ")) words += char;  
     }
-
+    
     return words
 }
 
@@ -445,32 +449,32 @@ console.log(paraules);
 // exercici 19: crea una funció que agafi un string i que torni una paraula aleatòria continguda en ella (podeu cridar
 // la funció separarParaules() dins d'aquesta funció)
 
-console.log(paraulaRandom(text));
-console.log(paraulaRandom2(text));
+console.log("Paraula random: " + paraulaRandom(text));
+console.log("Paraula random: " + paraulaRandom2(text));
 
 function paraulaRandom(words) {
     var paraules = separarParaules(words);
     words = paraules;
-
+    
     var numParaules = 1;
-
+    
     // conta els espais
     while (paraules.indexOf(" ") != -1) {
         numParaules++;
         paraules = paraules.slice(paraules.indexOf(" ") + 1);
     }
-
+    
     // sorteja la paraula sel·leccionada
     indexParaula = Math.floor(Math.random() * numParaules);
-
+    
     // elimina paraules fins a arribar a la sel·leccionada
     for (let i = 0; i < indexParaula; i++) {
         words = words.slice(words.indexOf(" ") + 1);
     }
-
+    
     // elimina les paraules a partir de la seleccionada
     words = words.slice(0,words.indexOf(" "))
-
+    
     return words
 }
 
@@ -478,12 +482,12 @@ function paraulaRandom(words) {
 function paraulaRandom2(words) {
     words = separarParaules(words);
     arr = [];
-
+    
     while (words.indexOf(" ") != -1) {
         arr.push(words.slice(0,words.indexOf(" "))); 
         words = words.slice(words.indexOf(" ") + 1);
     }
-
+    
     return arr[Math.floor(Math.random() * arr.length)]
 }
 
@@ -491,11 +495,91 @@ function paraulaRandom2(words) {
 // exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
 // predicció del que et passarà durant el dia
 
-// TODO defineix la funció horoscop()
+function horoscop() {
+    var data, dia, mes, signe
+    
+    // agafa la data d'un prompt
+    data = prompt("Quan és el teu aniversari (DD/MM)?");
 
+    if (data) {
+        dia = data.slice(0,2);
+        mes = data.slice(3);
+    } else {
+        return console.log("%cNo has introduit una data vàlida", "color: red");
+    }
+    
+    if ((data.length != 5 || data[2] != "/") ||
+        !(((1 <= dia && dia <= 31) && (mes==1||mes==3||mes==5||mes==7||mes==8||mes==10||mes==12) ) ||
+        ((1 <= dia && dia <= 30) && (mes==4||mes==6||mes==9||mes==11) ) ||
+        ((1 <= dia && dia <= 29) && (mes==2) ))) {
+
+        return console.log("%cNo has introduit una data vàlida", "color: red");
+    }
+
+    // defineix signes i prediccions
+    var signes = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+    var prediccions = ["The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way"];
+
+    switch (parseInt(mes)) {    //! ⚠️ El switch compara també el tipus de literal ⚠️
+        case 1:
+            signe = dia > 19 ? 11 : 10;
+            break;
+        case 2:
+            signe = dia > 18 ? 12 : 11;
+            break;
+        case 3:
+            signe = dia > 20 ? 1 : 12;
+            break;
+        case 4:
+            signe = dia > 19 ? 2 : 1;
+            break;
+        case 5:
+            signe = dia > 20 ? 3 : 2;
+            break;
+        case 6:
+            signe = dia > 20 ? 4 : 3;
+            break;
+        case 7:
+            signe = dia > 22 ? 5 : 4;
+            break;
+        case 8:
+            signe = dia > 22 ? 6 : 5;
+            break;
+        case 9:
+            signe = dia > 22 ? 7 : 6;
+            break;
+        case 10:
+            signe = dia > 22 ? 8 : 7;
+            break;
+        case 11:
+            signe = dia > 22 ? 9 : 8;
+            break;
+        case 12:
+            signe = dia > 21 ? 10 : 9;
+            break;
+        default:
+            return console.log("%cNo has introduit una data vàlida", "color: red");
+    }
+
+    console.log(signes[signe - 1] + ":\n" + prediccions[signe - 1]);
+}
+
+horoscop();
+
+
+// exercici 20.1: crea una funció que generi prediccions aleatòries
+
+// TODO defineix la funció prediccio()
+
+
+// exercici 20.2: crea una funció que implementi l'horòscop xinès
+
+// TODO defineix la funció horoscopXines()
 
 
 //* ------------------------------ Bucle for ------------------------------------
+
+console.log("----------------- Exercicis de bucles ---------------");
 
 // exercici 21: fes un bucle que escrigui 10 vegades a la consola alternant un color i un altre
 
@@ -554,6 +638,8 @@ mostrarDigits(digits);      // si digits és "2 3 4", això mostrarà "2, 3, 4, 
 
 //* ---------------------------- Mètodes arrays ---------------------------------
 
+console.log("----------------- Exercicis d'arrays ---------------");
+
 // exercici 27: dia de la setmana. A partir d'un array amb els dies de la setmana, pinta a la consola quin dia és avui
 
 var dies = ["dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte", "diumenge"]
@@ -594,6 +680,9 @@ console.log(moure(array, 2));       // ha de mostrar ["quart", "cinquè", "prime
 
 
 //* ------------------------------ Objectes -------------------------------------
+
+console.log("----------------- Exercicis d'objectes ---------------");
+
 
 // exercici 32: crea un objecte que tingui les propietats "nom", "any" i "edat" i un mètode calcularEdat()
 // que calculi l'edat en funció de l'any de neixement i la guardi a la propietat "edat"
@@ -647,6 +736,23 @@ var csv = `Year,Make,Model,Description,Price
 
 // TODO gestionar el csv perquè acabi sent una cosa com la de sota
 
+arrGeneral = csv.split('\n'); 
+
+let header = arrGeneral[0].split(',');
+let objecteCSV = [];
+
+for(let i = 1; i < arrGeneral.length; i++) {
+    let data = arrGeneral[i].split(',');
+    let obj = {};
+    for(var j = 0; j < data.length; j++) {
+        obj[header[j].trim()] = data[j].trim();
+    }
+    objecteCSV.push(obj);
+}
+
+console.log(objecteCSV);
+
+
 // var cotxes = [ { Year = 1997,
 //                  Make = "Ford",
 //                  Model = "E350",
@@ -663,3 +769,4 @@ var csv = `Year,Make,Model,Description,Price
 
 
 console.log("-------------------- FI DELS EXERCICIS --------------------");
+
