@@ -2,7 +2,7 @@ console.log("JavaScript carregat des d'un document .js dins el <body>");
 
 document.write("<p>Això escriu dins el body (.js extern)</p>");
 
-console.log("-------------------- INICI EXERCICIS -----------------");
+console.log("------------- INICI EXERCICIS -------------");
 
 
 
@@ -15,13 +15,10 @@ console.log("----------------- Exercicis de variables ---------------");
 var primer, segon;
 
 primer = 1;
+
 segon = 2;
 
-var aux = primer;  // manera amb variable auxiliar
-primer = segon;
-segon = aux;
-
-[primer, segon] = [segon, primer]  // manera amb desestructuració
+// TODO: aquí el teu codi
 
 console.log(primer,segon);  // ha de mostrar 2 1
 
@@ -33,9 +30,7 @@ console.log("----------------- Exercicis de funcions ---------------");
 
 // exercici 2: defineix una funció psicologo() que et pregunti "Com estàs?" al executar-la
 
-function psicologo() {
-    console.log("Com estàs?")
-}
+// TODO: aquí la definició de psicolog() 
 
 psicologo();
 
@@ -43,28 +38,17 @@ psicologo();
 // exercici 3: defineix una funció pregunta() que et pregunti "T'agrada la pizza?"
 // quan li introduim com a paràmentre "la pizza"
 
-const pregunta = (menjar) => {
-    console.log(`T'agrada ${menjar}?`);
-    
-    // var string = "T'agrada "          <= matar mosques a canonades 💣
-    // string =  string + menjar
-    // string = string + "?"
-    // console.log(string)
-}
+// TODO: aquí la definició de pregunta() 
 
 pregunta("la pizza");
-pregunta("el sushi");
 
 
 // exercici 4: defineix una funció pregunta2() que et retorni "T'agrada la pizza"
 // quan li introduim com a paràmentre "la pizza"
 
-const pregunta2 = (menjar) => {
-    return `T'agrada ${menjar}`
-}
+// TODO: aquí la definició de pregunta2() 
 
 console.log(pregunta2("la pizza") + " amb piña?");
-console.log(pregunta2("el sushi") + " de tonyina?");
 
 
 // exercici 5: defineix una funció metresCubicsALitres() que passi metres cúbics a litres i retorni el resultat
@@ -72,11 +56,7 @@ console.log(pregunta2("el sushi") + " de tonyina?");
 
 var m3 = 8;
 
-const metresCubicsALitres = (m) => m*1000
-
-function mostrarSolució() {
-    console.log(`${m3} metres cúbics són ${metresCubicsALitres(m3)} litres`);
-}
+// TODO: aquí les definicions de metresCubicsALitres() i mostrarSolució() 
 
 mostrarSolució();
 
@@ -86,14 +66,7 @@ mostrarSolució();
 
 var diners = 0;
 
-const afegirDiners = quantitat => {
-    diners += quantitat;    // diners = diners + quantitat
-    console.log(diners);
-}
-const gastarDiners = quantitat => {
-    diners -= quantitat;    // diners = diners - quantitat
-    console.log(diners);
-} 
+// TODO: definició de afegirDiners() i gastarDiners() 
 
 afegirDiners(20);
 gastarDiners(15);
@@ -111,37 +84,18 @@ console.log("----------------- Exercicis de condicionals ---------------");
 // exercici 7: fes un diàleg que et demani la talla de samarreta que vols comprar (S, M, L, XL) i et digui per la consola
 // quina talla has sel·leccionat i t'avisi si sel·lecciones una talla que no és vàlida
 
-var talla = prompt("Escriu la talla que vols (S, M, L, XL)")
+var talla = prompt("Aquí el missatge del prompt")  // TODO: editar el missatge del prompt()
 
-if (talla == null || talla == ""){
-    console.log("%cSi us plau, introdueix una talla", "color: red");
-} else if (talla.toUpperCase() == "S" || talla.toUpperCase() == "M" || talla.toUpperCase() == "L" || talla.toUpperCase() == "XL") {
-    console.log("Has escollit la talla " + talla.toUpperCase());
-} else {
-    console.log(`%c${talla} no és una talla vàlida. Escull entre S, M, L i XL`, "color: red");
-}
+// TODO: estructura condicional que digui per la consola la talla escollida
 
 
 // exercici 8: defineix una funció amb modes que pugui calcular l'area o el perímetre d'un cercle i et faci console.log()
 // de la cosa calculada
-
 var radi = 5;
 var mode = "P"; // "P" pel perímentre o "A" per l'àrea
 
-function cercle(r, m) {
-    if (m == "P") console.log(`El perímetre d'un cercle de radi ${r} és ${(2*Math.PI*r).toFixed(2)}`);
-    else if (m == "A") console.log(`L'àrea d'un cercle de radi ${r} és ${(Math.PI*r**2).toFixed(2)}`);
-    else console.log("%cEl mode escollit no és vàlid", "color: red");
-}
+// TODO: defineix la funció cercle amb dos modes
 
-cercle(radi, mode);
-
-radi = 7;
-mode = "A";
-cercle(radi, mode);
-
-radi = 9;
-mode = "R";
 cercle(radi, mode);
 
 
@@ -150,12 +104,7 @@ cercle(radi, mode);
 var costat = 3;
 var costats = 5;
 
-function poligon(c,n) {
-    var a = c / (2*Math.tan(Math.PI/n))
-    var area = c*n*a / 2
-    
-    console.log(`El perímetre i l'àrea d'un polígon regular de ${n} costats i de costat ${c} són ${c*n} i ${area.toFixed(2)} respectivament`);
-}
+// TODO: defineix la funció poligon()
 
 poligon(costat, costats);
 
@@ -165,58 +114,11 @@ poligon(costat, costats);
 // (pel color no hi ha opcions, és lliure) i et faci sel·leccionar la talla (S, M, L, XL). La funció retorna una cadena
 // amb tota la informació per pintar-la en un console.log()
 
-function botiga() {
-    var item = prompt("Sel·lecciona l'article (samarreta, pantaló o barret)");
-    var items = ["samarreta", "pantaló", "pantalo", "barret"];
-    
-    var article, talla, color
-    
-    // comprova que l'article és vàlid
-    if (item != null && items.includes(item.toLowerCase())) {
-        if (item.toLowerCase() == "barret") {
-            var tipus = prompt("De quin tipus vols el barret? (copa, pirata, gorra, llana)");
-            var tipusBarret = ["copa", "pirata", "gorra", "llana"];
-            
-            // comprova el tipus de barret
-            if (tipus != null && tipusBarret.includes(tipus)){
-                if (tipus == "gorra"){
-                    article = "una gorra"
-                } else {
-                    article = `un barret de ${tipus}`
-                }
-                color = ""
-            } else {
-                return console.log("%cIntrodueix un tipus de barret vàlid (copa, pirata, gorra, llana)", "color: red")
-            }
-        } else {
-            color = prompt("De quin color?");
-            
-            if (item == "samarreta") {
-                article = "una samarreta "
-            } else {
-                article = "un pantaló "
-            }
-        }
-        
-        talla = prompt("De quina talla?");
-        var talles = ["S", "M", "L", "XL"];
-        
-        // comprova que la tella sigui vàlida
-        if (talles != null && talles.includes(talla.toUpperCase())){
-            talla = talla.toUpperCase();
-        } else {
-            return console.log("%cIntrodueix una talla vàlida (S, M, L, XL)", "color: red")
-        }
-    } else {
-        return console.log("%cIntrodueix un article vàlid (samarreta, pantaló o barret)", "color: red")
-    }
-    
-    return `Has sel·leccionat ${article}${color} (talla ${talla})`
-}
+// TODO: defineix la funció botiga()
 
 var carrito = botiga();
 
-if (carrito) console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla L)"
+console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla L)"
 
 
 
@@ -224,58 +126,21 @@ if (carrito) console.log(carrito);  // això tornarà "Has demanat un barret de 
 
 console.log("----------------- Exercicis de numbers ---------------");
 
-// exercici 11: defineix una funció calculadora que agafi com a paràmetres una operació i un o dos números 
+// exercici 11: defineix una funció calculadora que agafi com a paràmentres una operació i un o dos números 
 // (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)
+
+// TODO: defineix la funció calculadora() (reutilitza la que vam fer a classe fa uns dies)
 
 calculadora();
 
 function calculadora() {
-    var simbols = ["+","-","*","/","**", "SQ", "CB"]
-    var num1 = prompt("Introdueix el primer número")
-    
-    if (num1 == null || isNaN(num1)) {      // comprovació primer número
-        return console.log(`%c"${num1}" no és un número vàlid`, `color: red`);
-    }
-    
-    var sim = prompt("Introdueix el símbol de la operació (+, -, *, /, **, SQ i CB)")
-    
-    if (sim != null && simbols.indexOf(sim.toUpperCase()) != -1) {      // equivalent a simbols.includes(sim.toUpperCase())
-        // arrels
-        if (sim.toUpperCase() == "SQ" || sim.toUpperCase() == "CB") {
-            if (sim.toUpperCase() == "SQ") {
-                console.log(`L'arrel quadrada de ${num1} és ${Math.sqrt(num1)}`);
-            } else {
-                console.log(`L'arrel cúbica de ${num1} és ${Math.cbrt(num1)}`);
-            }
-        } else {
-            var num2 = prompt("Introdueix el segon número")
-            
-            if (num2 != null && isNaN(num2)) {      // comprovació segon número
-                return console.log(`%c"${num2}" no és un número vàlid`, `color: red`);
-            }
-        }
-        
-        // resta d'operacions
-        if (sim == "+") {
-            console.log(`${num1} més ${num2} és ${num1+num2}`); 
-        } else if (sim == "-") {
-            console.log(`${num1} menys ${num2} és ${num1-num2}`);
-        } else if (sim == "*") {
-            console.log(`${num1} multiplicat per ${num2} és ${num1*num2}`);
-        } else if (sim == "/" && num2 != 0) {
-            console.log(`${num1} dividit per ${num2} és ${num1/num2}`);
-        } else if (sim == "/" && num2 == 0) {    // excepció dividir per zero
-            console.log(`%cNo es pot dividir per zero!`, `color: red`); 
-        } else if (sim == "**") {
-            console.log(`${num1} elevat a ${num2} és ${num1**num2}`);
-        } 
-        
-    } else {
-        // simbols que no siguin (+, -, *, /, **, SQ o CB)
-        console.log(`%c"${sim}" no és una operació vàlida`, `color: red`);
+    var simbols = ["+","-","*","/","**"]
+    var sim = prompt("simbol")
+
+    if (simbols.indexOf(sim) != -1) {
+        if (sim == "+"){}
     }
 }
-
 
 // exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle aplicant el
 // teorema de Pitàgores (a**2 == b**2 + c**2 és "true" pels triangles rectangles quan "a" és el seu costat més llarg)
@@ -288,19 +153,13 @@ c3 = 5;
 
 console.log(triangleRectangle(c1,c2,c3));  // ha de tornar true
 
-c1 = 6;
+c1 = 4;
 c2 = 5;
-c3 = 4;
+c3 = 6;
 
 console.log(triangleRectangle(c1,c2,c3));  // ha de tornar false
 
-function triangleRectangle(a, b, c) {
-    return (pitagoras(a, b, c) || pitagoras(b, c, a) || pitagoras(c, a, b))
-}
-
-function pitagoras(a, b, c) {
-    return a*a == b*b + c*c
-}
+// TODO: defineix la funció triangleRectangle()
 
 
 // exercici 13: a partir de dos catets, calcula la hipotenusa i els angles d'un triangle rectangle
@@ -309,9 +168,9 @@ function pitagoras(a, b, c) {
 c1 = 30;
 c2 = 40;
 
-const calculaHipotenusa = (a,b) => `La hipotenusa del triangle amb catets ${a} i ${b} és ${(Math.sqrt(a*a + b*b)).toFixed(2)}`
+// TODO: defineix la funció calculaHipotenusa()
 
-const calculaAngles = (a,b) => `Els angles són ${(180*Math.atan(a/b)/Math.PI).toFixed(2)}º i ${(180*Math.atan(b/a)/Math.PI).toFixed(2)}º`
+// TODO: defineix la funció calculaAngles()
 
 console.log(calculaHipotenusa(c1,c2));  // ha de donar 50
 
@@ -328,79 +187,28 @@ console.log("----------------- Exercicis de strings ---------------");
 // exercici 14: recrea la funció parseInt() de manera que agafi els números encara que hi hagi lletres abans
 // p.e: "hola89234" ha de tornar "89234", "43'35465adeu" ha de tornar "43", "amor45.9odi" ha de tornar "45"
 
-function convertirEnEnter(str) {
-    var i = 0;
-    var num = "";
-    
-    while (isNaN(str[i])) {     // busca el principi dels números
-        i++;
-    }
-    
-    while (/[0-9]/.test(str[i])) {      // acumula fins que s'acaben els números
-    num += str[i];
-    i++;
-}
-
-return parseFloat(num);
-}
-
-function convertirEnEnter2(str) {
-    var num = "";
-    
-    for (let i = 0; i < str.length; i++) {
-        if (!isNaN(str[i])) num += str[i];
-        else if (num != '' && isNaN(str[i])) break;
-    }
-    
-    return parseFloat(num);
-}
+// TODO: defineix la funció convertirEnEnter()
 
 console.log(convertirEnEnter("hola89234"));     // ha de tornar 89234
 console.log(convertirEnEnter("43.35465adeu"));  // ha de tornar 43
 console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
-
-console.log(convertirEnEnter2("hola89234"));     // ha de tornar 89234
-console.log(convertirEnEnter2("43.35465adeu"));  // ha de tornar 43
-console.log(convertirEnEnter2("amor45.9odi"));   // ha de tornar 45
 
 
 // exercici 15: recrea la funció parseFloat() de manera que agafi els números encara que hi hagi lletres abans
 // i accepti com a separador decimal els símbols ",", "." i "'"
 // p.e: "hola89'234" ha de tornar "89.234", "43'35adeu" ha de tornar "43.35", "amor45.9odi" ha de tornar "45.9"
 
-function convertirEnDecimal(str) {
-    var num = "";
-    var comes = ["'", ".", ","];
-    var jaTeUnaComa = false;        // marcador per saber si ja té coma
-    
-    for (let i = 0; i < str.length; i++) {
-        if (!isNaN(str[i])) num += str[i];
-        else if (num != '' && comes.includes(str[i]) && !jaTeUnaComa) {
-            num += ".";
-            jaTeUnaComa = true;     // canvia l'estat del marcador
-        } else if (num != '' && isNaN(str[i])) break;
-    }
-    
-    return num;
-}
+// TODO: defineix la funció convertirEnDecimal()
 
-console.log(convertirEnDecimal("hola89'23.4"));    // ha de tornar 89.23
-console.log(convertirEnDecimal("43'35adeu"));      // ha de tornar 43.35
-console.log(convertirEnDecimal("amor45.9odi"));    // ha de tornar 45.9
+console.log(convertirEnEnter("hola89'234"));     // ha de tornar 89.234
+console.log(convertirEnEnter("43'35adeu"));      // ha de tornar 43.35
+console.log(convertirEnEnter("amor45.9odi"));    // ha de tornar 45.9
 
 
 // exercici 16: recrea la funció "valor absolut", que torna el mateix número si és positiu i el mateix número
 // canviat de signe si és negatiu (2 -> 2; -3.4 -> 3.4). No s'hi val usar Math.abs()
 
-const valorAbsolut = num => {
-    // num = String(num);
-    // if (num[0] == "-") return num.slice(1)
-    // else return num
-    
-    return String(num)[0] == "-" ? String(num).slice(1) : String(num);  // if/else resumit en un operador ternari
-    
-    // return num < 0 ? 0 - num : num;      <= mètode matemàtic
-}
+// TODO: defineix la funció valorAbsolut()
 
 console.log(valorAbsolut(-3.14));        // ha de tornar 3.14
 console.log(valorAbsolut(0));            // ha de tornar 0
@@ -411,17 +219,11 @@ console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
 // exercici 17: crea una funció que agafi un string i que torni una lletra aleatoria (sense contar espais i signes 
 // de puntuació)
 
-var lletres = "aaaa, abcd ef!?* omar-olmedo-ferrer @";
+var lletres = "aaaaabcdef!?*";
 
-console.log("Lletra random: " + lletraRandom(lletres));     // torna una lletra entre la a i la f
+console.log(lletraRandom(lletres));     // torna una lletra entre la a i la f
 
-function lletraRandom(word) {
-    do {
-        var char = word[Math.floor(Math.random() * word.length)]
-    } while (char.toUpperCase() == char.toLowerCase())  // mentre sigui un simbol
-    
-    return char
-}
+// TODO defineix la funció lletraRandom()
 
 
 // exercici 18: crea una funció que agafi un text i li'n separi les paraules (sense signes de puntuació) i les torni
@@ -431,17 +233,7 @@ var text = "En un lugar de La Mancha de cuyo nombre no quiero acordarme. Què ta
 
 var paraules = separarParaules(text);
 
-function separarParaules(str) {
-    var words = ""
-    
-    for (const char of str) {
-        // si és una lletra o si és un espai i l'últim caràcter acumulat és un espai
-        //       words[words.length - 1] retorna l'ultim caràcter de words
-        if (char.toLowerCase() != char.toUpperCase() || (char == " " && words[words.length - 1] != " ")) words += char;  
-    }
-    
-    return words
-}
+// TODO: defineix la funció separarParaules()
 
 console.log(paraules);
 
@@ -449,122 +241,15 @@ console.log(paraules);
 // exercici 19: crea una funció que agafi un string i que torni una paraula aleatòria continguda en ella (podeu cridar
 // la funció separarParaules() dins d'aquesta funció)
 
-console.log("Paraula random: " + paraulaRandom(text));
-console.log("Paraula random: " + paraulaRandom2(text));
+console.log(paraulaRandom(text));
 
-function paraulaRandom(words) {
-    var paraules = separarParaules(words);
-    words = paraules;
-    
-    var numParaules = 1;
-    
-    // conta els espais
-    while (paraules.indexOf(" ") != -1) {
-        numParaules++;
-        paraules = paraules.slice(paraules.indexOf(" ") + 1);
-    }
-    
-    // sorteja la paraula sel·leccionada
-    indexParaula = Math.floor(Math.random() * numParaules);
-    
-    // elimina paraules fins a arribar a la sel·leccionada
-    for (let i = 0; i < indexParaula; i++) {
-        words = words.slice(words.indexOf(" ") + 1);
-    }
-    
-    // elimina les paraules a partir de la seleccionada
-    words = words.slice(0,words.indexOf(" "))
-    
-    return words
-}
-
-// mètode trampa perquè usa arrays
-function paraulaRandom2(words) {
-    words = separarParaules(words);
-    arr = [];
-    
-    while (words.indexOf(" ") != -1) {
-        arr.push(words.slice(0,words.indexOf(" "))); 
-        words = words.slice(words.indexOf(" ") + 1);
-    }
-    
-    return arr[Math.floor(Math.random() * arr.length)]
-}
+// TODO defineix la funció paraulaRandom()
 
 
 // exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
 // predicció del que et passarà durant el dia
 
-function horoscop() {
-    var data, dia, mes, signe
-    
-    // agafa la data d'un prompt
-    data = prompt("Quan és el teu aniversari (DD/MM)?");
-
-    if (data) {
-        dia = data.slice(0,2);
-        mes = data.slice(3);
-    } else {
-        return console.log("%cNo has introduit una data vàlida", "color: red");
-    }
-    
-    if ((data.length != 5 || data[2] != "/") ||
-        !(((1 <= dia && dia <= 31) && (mes==1||mes==3||mes==5||mes==7||mes==8||mes==10||mes==12) ) ||
-        ((1 <= dia && dia <= 30) && (mes==4||mes==6||mes==9||mes==11) ) ||
-        ((1 <= dia && dia <= 29) && (mes==2) ))) {
-
-        return console.log("%cNo has introduit una data vàlida", "color: red");
-    }
-
-    // defineix signes i prediccions
-    var signes = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
-    var prediccions = ["The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way","The stars and planets will not affect your life in any way"];
-
-    switch (parseInt(mes)) {    //! ⚠️ El switch compara també el tipus de literal ⚠️
-        case 1:
-            signe = dia > 19 ? 11 : 10;
-            break;
-        case 2:
-            signe = dia > 18 ? 12 : 11;
-            break;
-        case 3:
-            signe = dia > 20 ? 1 : 12;
-            break;
-        case 4:
-            signe = dia > 19 ? 2 : 1;
-            break;
-        case 5:
-            signe = dia > 20 ? 3 : 2;
-            break;
-        case 6:
-            signe = dia > 20 ? 4 : 3;
-            break;
-        case 7:
-            signe = dia > 22 ? 5 : 4;
-            break;
-        case 8:
-            signe = dia > 22 ? 6 : 5;
-            break;
-        case 9:
-            signe = dia > 22 ? 7 : 6;
-            break;
-        case 10:
-            signe = dia > 22 ? 8 : 7;
-            break;
-        case 11:
-            signe = dia > 22 ? 9 : 8;
-            break;
-        case 12:
-            signe = dia > 21 ? 10 : 9;
-            break;
-        default:
-            return console.log("%cNo has introduit una data vàlida", "color: red");
-    }
-
-    console.log(signes[signe - 1] + ":\n" + prediccions[signe - 1]);
-}
-
-horoscop();
+// TODO defineix la funció horoscop()
 
 
 // exercici 20.1: crea una funció que generi prediccions aleatòries
@@ -575,6 +260,7 @@ horoscop();
 // exercici 20.2: crea una funció que implementi l'horòscop xinès
 
 // TODO defineix la funció horoscopXines()
+
 
 
 //* ------------------------------ Bucle for ------------------------------------
@@ -683,7 +369,6 @@ console.log(moure(array, 2));       // ha de mostrar ["quart", "cinquè", "prime
 
 console.log("----------------- Exercicis d'objectes ---------------");
 
-
 // exercici 32: crea un objecte que tingui les propietats "nom", "any" i "edat" i un mètode calcularEdat()
 // que calculi l'edat en funció de l'any de neixement i la guardi a la propietat "edat"
 //// PISTA: useu Date()
@@ -696,11 +381,11 @@ persona.calcularEdat();
 // TODO console.log() que digui "La Maria va nèixer el 1995 i té 25 anys" agafant les propietats de l'objecte
 
 
-// exercici 33: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
+// exercici 32: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
 var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
-// TODO aquí el mètode de l'objecte  
+                // TODO aquí el mètode de l'objecte  
 }
 
 var fraseSeparada = frase.separar("caca");
@@ -708,7 +393,7 @@ var fraseSeparada = frase.separar("caca");
 console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
-// exercici 34: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
+// exercici 33: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
 // separats per seccions (carnisseria, fruita i verdura, làctics, forn de pa) i ordenats alfabèticament. El console.log
 // haurà de mostrar els productes classificats per seccions:           Llista de la compra:
 //                                                                        - Carnisseria
@@ -723,35 +408,18 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 // TODO: aqui el codi
 
 
-// exercici 35: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
+// exercici 34: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
 // d'objectes amb els noms de les columnes com a propietats
 //// PISTA: necessitareu ajuda. Demaneu-la
 //// PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
 
 var csv = `Year,Make,Model,Description,Price
-1997,Ford,E350,ac abs moon,3000.00
-1999,Chevy,Venture "Extended Edition",,4900.00
-1999,Chevy,Venture "Extended Edition XL",,5000.00
-1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
+           1997,Ford,E350,ac abs moon,3000.00
+           1999,Chevy,Venture "Extended Edition",,4900.00
+           1999,Chevy,Venture "Extended Edition XL",,5000.00
+           1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
 
 // TODO gestionar el csv perquè acabi sent una cosa com la de sota
-
-arrGeneral = csv.split('\n'); 
-
-let header = arrGeneral[0].split(',');
-let objecteCSV = [];
-
-for(let i = 1; i < arrGeneral.length; i++) {
-    let data = arrGeneral[i].split(',');
-    let obj = {};
-    for(var j = 0; j < data.length; j++) {
-        obj[header[j].trim()] = data[j].trim();
-    }
-    objecteCSV.push(obj);
-}
-
-console.log(objecteCSV);
-
 
 // var cotxes = [ { Year = 1997,
 //                  Make = "Ford",
@@ -769,4 +437,3 @@ console.log(objecteCSV);
 
 
 console.log("-------------------- FI DELS EXERCICIS --------------------");
-
