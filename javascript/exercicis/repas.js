@@ -423,6 +423,12 @@ function random(min, max) {                                 // funció que torna
 
 console.log("------------------ Mètodes strings ------------------");
 
+// Converteix en una string
+
+var pi = 3.14
+
+console.log(String(pi));
+
 // Concatenació de strings
 
 var str, str1, str2, str3;
@@ -443,6 +449,7 @@ console.log(str.length);     // podem obtenir la longitud de qualsevol string am
 // Ús d'index dins una string
 
 console.log(str[6]);         // puc sel·leccionar un caràcter concret amb l'índex de la seva posició
+console.log(String(pi)[2]);  // agafo el caràcter 2 d'un número passat a String
 
 // Majúscules i minúscules
 

@@ -124,6 +124,7 @@ if (talla == null || talla == ""){
 
 // exercici 8: defineix una funció amb modes que pugui calcular l'area o el perímetre d'un cercle i et faci console.log()
 // de la cosa calculada
+
 var radi = 5;
 var mode = "P"; // "P" pel perímentre o "A" per l'àrea
 
@@ -215,27 +216,64 @@ function botiga() {
 
 var carrito = botiga();
 
-console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla L)"
+if (carrito) console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla L)"
 
 
 
 //* ---------------------------- Mètodes numbers -------------------------------
 
-// exercici 11: defineix una funció calculadora que agafi com a paràmentres una operació i un o dos números 
+// exercici 11: defineix una funció calculadora que agafi com a paràmetres una operació i un o dos números 
 // (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)
-
-// TODO: defineix la funció calculadora() (reutilitza la que vam fer a classe fa uns dies)
 
 calculadora();
 
 function calculadora() {
-    var simbols = ["+","-","*","/","**"]
-    var sim = prompt("simbol")
-    
-    if (simbols.indexOf(sim) != -1) {
-        if (sim == "+"){}
+    var simbols = ["+","-","*","/","**", "SQ", "CB"]
+    var num1 = prompt("Introdueix el primer número")
+
+    if (num1 == null || isNaN(num1)) {      // comprovació primer número
+            return console.log(`%c"${num1}" no és un número vàlid`, `color: red`);
+    }
+
+    var sim = prompt("Introdueix el símbol de la operació (+, -, *, /, **, SQ i CB)")
+
+    if (sim != null && simbols.indexOf(sim.toUpperCase()) != -1) {      // equivalent a simbols.includes(sim.toUpperCase())
+        // arrels
+        if (sim.toUpperCase() == "SQ" || sim.toUpperCase() == "CB") {
+            if (sim.toUpperCase() == "SQ") {
+                console.log(`L'arrel quadrada de ${num1} és ${Math.sqrt(num1)}`);
+            } else {
+                console.log(`L'arrel cúbica de ${num1} és ${Math.cbrt(num1)}`);
+            }
+        } else {
+            var num2 = prompt("Introdueix el segon número")
+
+            if (num2 != null && isNaN(num2)) {      // comprovació segon número
+                return console.log(`%c"${num2}" no és un número vàlid`, `color: red`);
+            }
+        }
+
+        // resta d'operacions
+        if (sim == "+") {
+            console.log(`${num1} més ${num2} és ${num1+num2}`); 
+        } else if (sim == "-") {
+            console.log(`${num1} menys ${num2} és ${num1-num2}`);
+        } else if (sim == "*") {
+            console.log(`${num1} multiplicat per ${num2} és ${num1*num2}`);
+        } else if (sim == "/" && num2 != 0) {
+            console.log(`${num1} dividit per ${num2} és ${num1/num2}`);
+        } else if (sim == "/" && num2 == 0) {    // excepció dividir per zero
+            console.log(`%cNo es pot dividir per zero!`, `color: red`); 
+        } else if (sim == "**") {
+            console.log(`${num1} elevat a ${num2} és ${num1**num2}`);
+        } 
+
+    } else {
+        // simbols que no siguin (+, -, *, /, **, SQ o CB)
+        console.log(`%c"${sim}" no és una operació vàlida`, `color: red`);
     }
 }
+
 
 // exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle aplicant el
 // teorema de Pitàgores (a**2 == b**2 + c**2 és "true" pels triangles rectangles quan "a" és el seu costat més llarg)
@@ -248,13 +286,19 @@ c3 = 5;
 
 console.log(triangleRectangle(c1,c2,c3));  // ha de tornar true
 
-c1 = 4;
+c1 = 6;
 c2 = 5;
-c3 = 6;
+c3 = 4;
 
 console.log(triangleRectangle(c1,c2,c3));  // ha de tornar false
 
-// TODO: defineix la funció triangleRectangle()
+function triangleRectangle(a, b, c) {
+    return (pitagoras(a, b, c) || pitagoras(b, c, a) || pitagoras(c, a, b))
+}
+
+function pitagoras(a, b, c) {
+    return a*a == b*b + c*c
+}
 
 
 // exercici 13: a partir de dos catets, calcula la hipotenusa i els angles d'un triangle rectangle
@@ -263,9 +307,9 @@ console.log(triangleRectangle(c1,c2,c3));  // ha de tornar false
 c1 = 30;
 c2 = 40;
 
-// TODO: defineix la funció calculaHipotenusa()
+const calculaHipotenusa = (a,b) => `La hipotenusa del triangle amb catets ${a} i ${b} és ${(Math.sqrt(a*a + b*b)).toFixed(2)}`
 
-// TODO: defineix la funció calculaAngles()
+const calculaAngles = (a,b) => `Els angles són ${(180*Math.atan(a/b)/Math.PI).toFixed(2)}º i ${(180*Math.atan(b/a)/Math.PI).toFixed(2)}º`
 
 console.log(calculaHipotenusa(c1,c2));  // ha de donar 50
 
@@ -280,28 +324,79 @@ console.log(calculaAngles(c1,c2));      // ha de donar 53.13º i 36.87º
 // exercici 14: recrea la funció parseInt() de manera que agafi els números encara que hi hagi lletres abans
 // p.e: "hola89234" ha de tornar "89234", "43'35465adeu" ha de tornar "43", "amor45.9odi" ha de tornar "45"
 
-// TODO: defineix la funció convertirEnEnter()
+function convertirEnEnter(str) {
+    var i = 0;
+    var num = "";
+
+    while (isNaN(str[i])) {     // busca el principi dels números
+        i++;
+    }
+    
+    while (/[0-9]/.test(str[i])) {      // acumula fins que s'acaben els números
+        num += str[i];
+        i++;
+    }
+
+    return parseFloat(num);
+}
+
+function convertirEnEnter2(str) {
+    var num = "";
+
+    for (let i = 0; i < str.length; i++) {
+        if (!isNaN(str[i])) num += str[i];
+        else if (num != '' && isNaN(str[i])) break;
+    }
+
+    return parseFloat(num);
+}
 
 console.log(convertirEnEnter("hola89234"));     // ha de tornar 89234
 console.log(convertirEnEnter("43.35465adeu"));  // ha de tornar 43
 console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
+
+console.log(convertirEnEnter2("hola89234"));     // ha de tornar 89234
+console.log(convertirEnEnter2("43.35465adeu"));  // ha de tornar 43
+console.log(convertirEnEnter2("amor45.9odi"));   // ha de tornar 45
 
 
 // exercici 15: recrea la funció parseFloat() de manera que agafi els números encara que hi hagi lletres abans
 // i accepti com a separador decimal els símbols ",", "." i "'"
 // p.e: "hola89'234" ha de tornar "89.234", "43'35adeu" ha de tornar "43.35", "amor45.9odi" ha de tornar "45.9"
 
-// TODO: defineix la funció convertirEnDecimal()
+function convertirEnDecimal(str) {
+    var num = "";
+    var comes = ["'", ".", ","];
+    var jaTeUnaComa = false;        // marcador per saber si ja té coma
 
-console.log(convertirEnEnter("hola89'234"));     // ha de tornar 89.234
-console.log(convertirEnEnter("43'35adeu"));      // ha de tornar 43.35
-console.log(convertirEnEnter("amor45.9odi"));    // ha de tornar 45.9
+    for (let i = 0; i < str.length; i++) {
+        if (!isNaN(str[i])) num += str[i];
+        else if (num != '' && comes.includes(str[i]) && !jaTeUnaComa) {
+            num += ".";
+            jaTeUnaComa = true;     // canvia l'estat del marcador
+        } else if (num != '' && isNaN(str[i])) break;
+    }
+
+    return num;
+}
+
+console.log(convertirEnDecimal("hola89'23.4"));    // ha de tornar 89.23
+console.log(convertirEnDecimal("43'35adeu"));      // ha de tornar 43.35
+console.log(convertirEnDecimal("amor45.9odi"));    // ha de tornar 45.9
 
 
 // exercici 16: recrea la funció "valor absolut", que torna el mateix número si és positiu i el mateix número
 // canviat de signe si és negatiu (2 -> 2; -3.4 -> 3.4). No s'hi val usar Math.abs()
 
-// TODO: defineix la funció valorAbsolut()
+const valorAbsolut = num => {
+    // num = String(num);
+    // if (num[0] == "-") return num.slice(1)
+    // else return num
+
+    return String(num)[0] == "-" ? String(num).slice(1) : String(num);  // if/else resumit en un operador ternari
+    
+    // return num < 0 ? 0 - num : num;      <= mètode matemàtic
+}
 
 console.log(valorAbsolut(-3.14));        // ha de tornar 3.14
 console.log(valorAbsolut(0));            // ha de tornar 0
@@ -312,11 +407,17 @@ console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
 // exercici 17: crea una funció que agafi un string i que torni una lletra aleatoria (sense contar espais i signes 
 // de puntuació)
 
-var lletres = "aaaaabcdef!?*";
+var lletres = "aaaa, abcd ef!?* omar-olmedo-ferrer @";
 
 console.log(lletraRandom(lletres));     // torna una lletra entre la a i la f
 
-// TODO defineix la funció lletraRandom()
+function lletraRandom(word) {
+    do {
+        var char = word[Math.floor(Math.random() * word.length)]
+    } while (char.toUpperCase() == char.toLowerCase())  // mentre sigui un simbol
+
+    return char
+}
 
 
 // exercici 18: crea una funció que agafi un text i li'n separi les paraules (sense signes de puntuació) i les torni
@@ -326,7 +427,17 @@ var text = "En un lugar de La Mancha de cuyo nombre no quiero acordarme. Què ta
 
 var paraules = separarParaules(text);
 
-// TODO: defineix la funció separarParaules()
+function separarParaules(str) {
+    var words = ""
+
+    for (const char of str) {
+        // si és una lletra o si és un espai i l'últim caràcter acumulat és un espai
+        //       words[words.length - 1] retorna l'ultim caràcter de words
+        if (char.toLowerCase() != char.toUpperCase() || (char == " " && words[words.length - 1] != " ")) words += char;  
+    }
+
+    return words
+}
 
 console.log(paraules);
 
@@ -335,8 +446,46 @@ console.log(paraules);
 // la funció separarParaules() dins d'aquesta funció)
 
 console.log(paraulaRandom(text));
+console.log(paraulaRandom2(text));
 
-// TODO defineix la funció paraulaRandom()
+function paraulaRandom(words) {
+    var paraules = separarParaules(words);
+    words = paraules;
+
+    var numParaules = 1;
+
+    // conta els espais
+    while (paraules.indexOf(" ") != -1) {
+        numParaules++;
+        paraules = paraules.slice(paraules.indexOf(" ") + 1);
+    }
+
+    // sorteja la paraula sel·leccionada
+    indexParaula = Math.floor(Math.random() * numParaules);
+
+    // elimina paraules fins a arribar a la sel·leccionada
+    for (let i = 0; i < indexParaula; i++) {
+        words = words.slice(words.indexOf(" ") + 1);
+    }
+
+    // elimina les paraules a partir de la seleccionada
+    words = words.slice(0,words.indexOf(" "))
+
+    return words
+}
+
+// mètode trampa perquè usa arrays
+function paraulaRandom2(words) {
+    words = separarParaules(words);
+    arr = [];
+
+    while (words.indexOf(" ") != -1) {
+        arr.push(words.slice(0,words.indexOf(" "))); 
+        words = words.slice(words.indexOf(" ") + 1);
+    }
+
+    return arr[Math.floor(Math.random() * arr.length)]
+}
 
 
 // exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
@@ -458,7 +607,7 @@ persona.calcularEdat();
 // TODO console.log() que digui "La Maria va nèixer el 1995 i té 25 anys" agafant les propietats de l'objecte
 
 
-// exercici 32: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
+// exercici 33: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
 var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
@@ -470,7 +619,7 @@ var fraseSeparada = frase.separar("caca");
 console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
-// exercici 33: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
+// exercici 34: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
 // separats per seccions (carnisseria, fruita i verdura, làctics, forn de pa) i ordenats alfabèticament. El console.log
 // haurà de mostrar els productes classificats per seccions:           Llista de la compra:
 //                                                                        - Carnisseria
@@ -485,7 +634,7 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 // TODO: aqui el codi
 
 
-// exercici 34: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
+// exercici 35: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
 // d'objectes amb els noms de les columnes com a propietats
 //// PISTA: necessitareu ajuda. Demaneu-la
 //// PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
