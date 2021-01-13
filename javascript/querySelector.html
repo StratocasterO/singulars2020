@@ -1,0 +1,43 @@
+<!-- querySelector -->
+<!-- addEventListener -->
+<!-- accedir propietats -->
+
+<!-- location.href -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link id="css" rel="stylesheet" href="">
+</head>
+<body>
+    <input type="text" name="" id="info" placeholder="Escriu aquí">
+    <button id="btn">Mostrar info</button>
+    <button id="color">Canvia color</button>
+    <button id="style">Canvia estil</button>
+
+    <script>
+        var quadreDeText = document.querySelector("#info");
+        console.log(quadreDeText.placeholder);
+
+        var button = document.querySelector("#btn");
+        button.addEventListener("click", () => {
+            console.log(quadreDeText.value)
+        });
+
+        var bcolor = document.querySelector("#color");
+        bcolor.addEventListener("click", () => {
+            document.querySelector("body").style.display = "flex";
+            document.querySelector("body").style.flexDirection = "column";
+        });
+        
+        var bstyle = document.querySelector("#style");
+        bstyle.addEventListener("click", () => {
+            document.querySelector("#css").href = "button_css.css";
+        });
+    </script>
+</body>
+</html>
