@@ -381,7 +381,7 @@ persona.calcularEdat();
 // TODO console.log() que digui "La Maria va nèixer el 1995 i té 25 anys" agafant les propietats de l'objecte
 
 
-// exercici 32: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
+// exercici 33: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
 var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
@@ -393,7 +393,7 @@ var fraseSeparada = frase.separar("caca");
 console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
-// exercici 33: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
+// exercici 34: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
 // separats per seccions (carnisseria, fruita i verdura, làctics, forn de pa) i ordenats alfabèticament. El console.log
 // haurà de mostrar els productes classificats per seccions:           Llista de la compra:
 //                                                                        - Carnisseria
@@ -408,7 +408,7 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 // TODO: aqui el codi
 
 
-// exercici 34: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
+// exercici 35: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
 // d'objectes amb els noms de les columnes com a propietats
 //// PISTA: necessitareu ajuda. Demaneu-la
 //// PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
