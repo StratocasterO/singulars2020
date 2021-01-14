@@ -1,8 +1,9 @@
 <!-- querySelector -->
-<!-- addEventListener -->
 <!-- accedir propietats -->
+<!-- addEventListener -->
 
 <!-- location.href -->
+<!-- innerHTML -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,32 +13,88 @@
     <title>Document</title>
 
     <link id="css" rel="stylesheet" href="">
+
+    <!-- Aquí els elements d'estil CSS -->
+    <style>
+        body{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        h2{
+            text-align: center;
+        }
+        .form{
+            margin: auto;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" name="" id="info" placeholder="Escriu aquí">
-    <button id="btn">Mostrar info</button>
-    <button id="color">Canvia color</button>
-    <button id="style">Canvia estil</button>
+    <!-- Aquí el codi HTML -->
 
+    <h2>Exercicis accés al DOM</h2>
+
+    <div class="form" style="background-color: rgb(128, 128, 128); padding: 5px">
+        <input type="text" name="" id="">
+        <button id="log">Mostrar per la consola</button>
+        <button id="img">Mostrar per la consola</button>
+    </div>
+
+
+
+
+    <!-- Aquest script s'executa al carregar el body -->
     <script>
-        var quadreDeText = document.querySelector("#info");
-        console.log(quadreDeText.placeholder);
 
-        var button = document.querySelector("#btn");
+        // Seleccionar un element del DOM:
+        var button = document.querySelector("#log");
+        console.log(button);
+
+        var divForm = document.querySelector(".form");
+        console.log(divForm);
+
+        
+        
+        // Accedir a una propietat de l'element del DOM:
+        var contingut = button.innerHTML;   // La propietat innerHTML torna en una string el que hi ha entre les etiquetes de l'element
+        console.log(contingut);
+        
+        var contingutDiv = divForm.innerHTML;
+        console.log(contingutDiv);
+        
+        var styleDiv = divForm.style.display;   // La propietat .style torna l'estil en linea de l'element, .style.display (en aquest cas és "")
+        console.log(styleDiv);
+        
+        var styleDivComp = getComputedStyle(divForm).display;  // La funció getComputedStyle() torna l'estil de l'element en el moment de ser cridada
+        console.log(styleDivComp);
+        
+        
+        // Modificar una propietat de l'element del DOM:
+        button.innerHTML = "CONSOLA";
+        
+        contingut = button.innerHTML;
+        console.log(contingut);
+        
+        divForm.style.backgroundColor = "#CDCDCD";  // En javascript: background-color -> backgroundColor
+        divForm.style.borderRadius = "5px";         //                border-radius    -> borderRadius
+        
+        
+        // Afegir un detector d'esdeveniments a un element
+        var body = document.querySelector("body");
+        
         button.addEventListener("click", () => {
-            console.log(quadreDeText.value)
-        });
-
-        var bcolor = document.querySelector("#color");
-        bcolor.addEventListener("click", () => {
-            document.querySelector("body").style.display = "flex";
-            document.querySelector("body").style.flexDirection = "column";
+            body.innerHTML += '<img src="http://placekitten.com/400/300" style="margin: 10px auto; display: block" alt="">'
         });
         
-        var bstyle = document.querySelector("#style");
-        bstyle.addEventListener("click", () => {
-            document.querySelector("#css").href = "button_css.css";
+        
+        var button2 = document.querySelector("#img");
+        button2.addEventListener("click", () => {
+            body.innerHTML = '<img src="http://placekitten.com/400/300" style="margin: 10px auto; display: block" alt="">'
         });
+
+
     </script>
 </body>
 </html>
