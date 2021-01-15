@@ -677,6 +677,19 @@ console.log(moure(array, 2));       // ha de mostrar ["quart", "cinquè", "prime
 
 // TODO aquí el codi
 
+//? generador de numeros aleatorios entre 1 i 365
+//? generador de array de N numeros aleatorios -> array(5) -> [45,4,7,323,53]
+//? comprovador de elementos repetidos -> [45,2,74,84,74] -> true
+//? bucle que te genere los arrays -> array(5), array(10), array(15)...
+
+//? Console.log:
+//? 5 personas -> false
+//? 10 personas -> false
+//? 15 personas -> true
+//? 20 personas -> false
+//? 25 personas -> true
+//? ...
+
 
 
 //* ------------------------------ Objectes -------------------------------------
