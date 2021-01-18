@@ -1,9 +1,6 @@
 <!-- querySelector -->
-
 <!-- accedir propietats: style, innerHTML, value -->
-
 <!-- addEventListener -->
-
 <!-- location.href -->
 
 <!DOCTYPE html>
@@ -34,6 +31,9 @@
         .cont{
             max-width: 1024px;
             margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .img{
             display: flex;
@@ -73,7 +73,10 @@
             <p class="small">Prova amb les paraules "blau", "vermell" i "verd"</p>
         </div>
 
-        <div class="img"></div>
+        <div class="img"><!-- Aquest div és per afegir contingut amb JavaScript --></div><br>
+
+        <button id="omar">Ves a la pàgina <i>www.omarolmedoferrer.com</i></button><br>
+        <button id="page">On sóc?</button>
     </div>
 
 
@@ -93,10 +96,10 @@
         button.addEventListener("click", mostrar);     // detecta el click al botó i executa la funció mostrar()
 
         function mostrar() {
-            console.log(text.value);
+            console.log(text.value);    // mostra la propietat value de l'element text
         }
 
-        document.querySelector("#log2").addEventListener("click", () => console.log(text.value))  // fa el mateix però amb una funció anònima
+        document.querySelector("#log2").addEventListener("click", () => console.log(text.value))  // fa el mateix però amb una funció arrow anònima
 
         
 
@@ -128,7 +131,7 @@
         button2.innerHTML += " (amb arrow)"     // modifica la propietat innerHTML afegint una cadena de text
         
         divForm.style.backgroundColor = "#CDCDCD";  // modifica propietats d'estil 
-        divForm.style.borderRadius = "5px";
+        divForm.style.borderRadius = "5px";         // ⚠️ no es pot canviar una propietat del getComputedStyle()
 
         console.log("El color de fons del div amb classe form és " + getComputedStyle(divForm).backgroundColor);
         
@@ -141,8 +144,8 @@
 
         // Afegir elements al DOM:
         document.querySelector("#img").addEventListener("click", () => {
-            var size = Math.floor(50 + Math.random() * 100)     // calcula una mida random
-            document.querySelector(".img").innerHTML += `<img src="http://placekitten.com/${size}/${size}" style="margin: 5px" alt="">`
+            var size = Math.floor(50 + Math.random() * 1000)     // calcula una mida random
+            document.querySelector(".img").innerHTML += `<img src="http://placekitten.com/${size}/${size}" style="margin: 5px; height: 100px; width: 100px" alt="">`
         });
         
         var divImg = document.querySelector(".img");
@@ -168,6 +171,20 @@
             }
         })
 
+
+        // Propietat location.href (URL de la pàgina)
+        var botoOmar = document.querySelector("#omar");
+        var botoPage = document.querySelector("#page");
+        
+        botoPage.addEventListener("click", () => {
+            var localitzacio = location.href;    // location.href torna la URL de la pàgina
+            console.log(localitzacio);
+        });
+
+        botoOmar.addEventListener("click", () => {
+            var destination = "http://www.omarolmedoferrer.com";
+            location.href = destination;         // asigna a location.href la URL desitjada
+        });
 
     </script>
 </body>
