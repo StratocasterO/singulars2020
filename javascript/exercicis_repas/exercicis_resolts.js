@@ -1,8 +1,8 @@
-console.log("JavaScript carregat des d'un document .js dins el <body>");
+// console.log("JavaScript carregat des d'un document .js dins el <body>");
 
-document.write("<p>Això escriu dins el body (.js extern)</p>");
+// document.write("<p>Això escriu dins el body (.js extern)</p>");
 
-console.log("-------------------- INICI EXERCICIS -----------------");
+// console.log("-------------------- INICI EXERCICIS -----------------");
 
 
 
@@ -809,20 +809,49 @@ document.querySelector("#llistaA").innerHTML = textLlista;      // això escriu 
 // si hi ha alguna repetida. Fes això per N = 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 i mostra a la consola per quins
 // hi ha hagut coincidències d'aniversari
 
-// TODO aquí el codi
+// generador de numeros aleatorios entre 1 i 365:
+function diaRandom() {
+    return Math.ceil(Math.random()*365)
+}
 
-//? generador de numeros aleatorios entre 1 i 365
-//? generador de array de N numeros aleatorios -> array(5) -> [45,4,7,323,53]
-//? comprovador de elementos repetidos -> [45,2,74,84,74] -> true
-//? bucle que te genere los arrays -> array(5), array(10), array(15)...
+console.log(diaRandom());
 
-//? Console.log:
-//? 5 personas -> false
-//? 10 personas -> false
-//? 15 personas -> true
-//? 20 personas -> false
-//? 25 personas -> true
-//? ...
+// generador de array de N numeros aleatorios -> array(5) -> [45,4,7,323,53]
+function arrayRandom(N) {
+    var arr = []
+    for (let i = 0; i < N; i++) {
+           arr.push(diaRandom());     
+    }
+    return arr;
+}
+
+console.log(arrayRandom(5), arrayRandom(15));
+
+// comprovador de elementos repetidos -> [45,2,74,84,74] -> true
+function comprovarRepeticions(arr){
+    arr.sort();
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == arr[i+1]) return true;
+    }
+    return false;
+}
+
+console.log(comprovarRepeticions([1, 2, 3, 4, 34, 35, 300, 5, 34, 2]));
+
+// alternativa
+function comprovarRepeticionsLlarg(arr){
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] == arr[j]) return true;          
+        }        
+    }
+    return false;
+}
+
+// calcula exemples de la paradoxa:
+for (let i = 5; i < 55; i+=5) {
+    console.log(`${i} personas -> ${comprovarRepeticions(arrayRandom(i))}`);
+}
 
 
 
@@ -835,24 +864,32 @@ console.log("----------------- Exercicis d'objectes ---------------");
 // que calculi l'edat en funció de l'any de neixement i la guardi a la propietat "edat"
 //// PISTA: useu Date()
 
-var persona = { // TODO aquí les propietats de l'objecte
+var persona = { nom: "Maria",
+                any: 1995,
+                edat: 0,
+                calcularEdat: function() {
+                    this.edat = new Date().getFullYear() - this.any
+                }
 }
 
-persona.calcularEdat();
+// persona.calcularEdat();
 
-// TODO console.log() que digui "La Maria va nèixer el 1995 i té 25 anys" agafant les propietats de l'objecte
+console.log(`La ${persona.nom} va néixer el ${persona.any} i té ${persona.edat} anys`);
+// TODO console.log() que digui "La Maria va néixer el 1995 i té 25 anys" agafant les propietats de l'objecte
 
 
 // exercici 33: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
 var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
-// TODO aquí el mètode de l'objecte  
+              separar: function(sep) {
+                  return separar(this.string, sep)
+              }
 }
 
 var fraseSeparada = frase.separar("caca");
 
-console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
+console.log("Split objecte: ", fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
 // exercici 34: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
@@ -867,7 +904,68 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 //                                                                             + Síndria
 //// PISTA: el prompt demanarà dues paraules: el producte i una lletra per classificar-los (p.e. "magdalenes F")
 
-// TODO: aqui el codi
+var pass = "STOP"
+var item = ""   // aquesta inicialització no cal si usem un do/while
+var llista = {  seccions: ["Carnisseria", "Fruita i verdura", "Làctics", "Forn de pa", "Drogueria", "Altres"],
+                c: [],
+                f: [],
+                l: [],
+                p: [],
+                d: [],
+                a: [],
+                ordenar: function() {   // ordena alfabèticament les llistes
+                    this.c.sort();
+                    this.f.sort();
+                    this.l.sort();
+                    this.p.sort();
+                    this.d.sort();
+                    this.a.sort();
+                },
+                retornar: function() {  // retorna un string amb la info
+                    this.ordenar();
+
+                    var text = "Llista de la compra:\n"
+                    for (sec of "cflpda") {
+                        if (this[sec].length != 0) {
+                            text += " - " + this.seccions["cflpda".indexOf(sec)] + "\n";
+
+                            for (item of this[sec]) {
+                                text += "    + " + item + "\n";
+                            }
+                        }
+                    }
+
+                    return text;
+                }
+}
+
+while (item != null && item.toUpperCase() != pass) {    // toUpperCase() per poder parar amb "STOP" i amb "stop"
+                                                        // Cancel·lant el prompt => item = null => atura el bucle
+    item = prompt("Introdueix un article de la llista de la compra i la lletra de la categoria separada amb un espai (C = carnisseria, F = fruita i verdura, L = làctics, D = drogueria, P = forn de pa, A = altres) o la paraula STOP si has acabat:");
+
+    if (item != null && item.toUpperCase() != pass) {   // la paraula STOP no l'afegim a la llista
+        var pro = item.slice(0, item.lastIndexOf(" "));     // agafa només el producte
+        var sec = item.slice(item.lastIndexOf(" ") + 1);    // agafa només la categoria (una lletra)
+
+        if (sec != null) {
+            if ("CFLDPA".includes(sec) && sec.length == 1) {    // comprova categoria vàlida
+                llista[sec.toLowerCase()].push(pro);            // insereix l'article en l'array de la propietat amb el nom de la secció (entre "[]" perquè és una string)
+            } else {
+                console.log("%cIntrodueix una categoria vàlida", "color: red");
+            }
+        } else {
+            console.log("%cIntrodueix una categoria vàlida", "color: red");
+        }
+    }    
+}
+
+console.log(llista);
+
+var textLlista = llista.retornar();
+
+console.log(textLlista);
+
+document.querySelector("#llistaO").innerHTML = textLlista;      // això escriu la llista també a l'HTML
 
 
 // exercici 35: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
@@ -875,15 +973,57 @@ console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "ma
 //// PISTA: necessitareu ajuda. Demaneu-la
 //// PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
 
+function CSVToObject(str) {
+    var arr = [];
+    var linies = str.split("\n");   // separa per linies
+
+    for (let i = 0; i < linies.length; i++) {
+        linies[i] = linies[i].split(",");      // separa per comes
+    }
+
+    for (let i = 1; i < linies.length; i++) {   // recorre les linies
+        var obj = {};
+
+        for (let j = 0; j < linies[i].length; j++) {    // recorre les propietats
+            obj[linies[0][j]] = linies[i][j]
+        }
+
+        arr.push(obj);
+    }
+
+    return arr;
+}
+
 var csv = `Year,Make,Model,Description,Price
 1997,Ford,E350,ac abs moon,3000.00
 1999,Chevy,Venture "Extended Edition",,4900.00
 1999,Chevy,Venture "Extended Edition XL",,5000.00
 1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
 
-// TODO gestionar el csv perquè acabi sent una cosa com la de sota
+var cotxes = CSVToObject(csv);
 
-arrGeneral = csv.split('\n'); 
+console.log("Cotxes: ", cotxes);
+
+
+var csvAlumnes = `Nom,Cognom,Any,Horoscop
+Omar,Olmedo,1990,Sagitari
+Ester,Batllori,1997,Bessons
+Eva,González,1994,Peixos
+Òscar,Baeza,1997,Capricorn`
+
+var alumnes = CSVToObject(csvAlumnes);
+
+console.log("Alumnes: ", alumnes);
+
+alumnes.sort((a,b) => (a.Cognom < b.Cognom) ? -1 : (a.Cognom > b.Cognom) ? 1 : 0)  // ordena els alumnes per cognom
+
+console.log("Alumnes ordenats: ", alumnes);
+
+
+
+// Mètode ràpid sense funció:
+
+arrGeneral = csv.split('\n');               
 
 let header = arrGeneral[0].split(',');
 let objecteCSV = [];
@@ -897,21 +1037,7 @@ for(let i = 1; i < arrGeneral.length; i++) {
     objecteCSV.push(obj);
 }
 
-console.log(objecteCSV);
-
-
-// var cotxes = [ { Year = 1997,
-//                  Make = "Ford",
-//                  Model = "E350",
-//                  Description = "ac, abs, moon",
-//                  Price = 3000.00
-//                 },    
-//                { Year = 1997,
-//                  Make = "Ford",
-//                  Model = "E350",
-//                  Description = "",
-//                  Price = 3000.00
-//                 } ];
+console.log("Cotxes (mètode 2): ", objecteCSV);
 
 
 
