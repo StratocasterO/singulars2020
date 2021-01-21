@@ -1,0 +1,248 @@
+<!-- Canvi atributs: src, href...  -->
+<!-- event.preventDefault() -->
+<!-- querySelectorAll() -->
+<!-- Canvi classes: classList.add(), .remove(), .toggle(), .contains()  -->
+<!-- Filtre elements   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: lightblue;
+        }
+        body > div{
+            text-align: center;
+            max-width: 500px;
+            border: solid 1px black;
+            background-color: white;
+            border-radius: 3px;
+            padding: 0 1em 1em 1em;
+            margin: 1em auto;
+        }
+        .negreta{
+            font-weight: bold;
+        }
+        .cursiva{
+            font-style: italic;
+        }
+        .sub{
+            text-decoration: underline black;
+        }
+        #filtre > div{
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 1em;
+            justify-content: center;
+        }
+        #filtre > div > div{
+            width: 50px;
+            height: 50px;
+            border: solid black 1px;
+            border-radius: 3px;
+            margin: 1em
+        }
+        .blue{
+            background-color: rgb(161, 157, 207);            
+        }
+        .red{
+            background-color: rgb(228, 152, 152);
+        }
+        .yellow{
+            background-color: rgb(221, 216, 139);
+        }
+        .green{
+            background-color: rgb(135, 180, 137);
+        }
+        .gray{
+            background-color: rgb(151, 151, 151);
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvi de location.href -->
+    <div id="links">
+        <h3>Canvi de <i>location.href</i></h3>
+        <select name="" id="search">
+            <option value="http://www.google.com">Google</option>
+            <option value="http://www.bing.com">Bing</option>
+            <option value="http://www.yahoo.com">Yahoo</option>
+        </select>
+
+        <a href="www.omarolmedoferrer.com">Vés a la pàgina</a>
+    </div>
+
+    <script>
+        var sel, link;
+
+        sel = document.querySelector("#search")
+        link = document.querySelector("#links a")
+
+        link.addEventListener("click", (event) => {     // li passem a la funció l'esdeveniment "click" com a paràmetre
+            event.preventDefault();                     // li cancelem el comportament per defecte (canviar la location.href)
+            location.href = sel.value                   // canvia la URL de la pàgina
+        })
+    </script>
+
+
+
+    <!-- Canvi d'atribut href (despres del clic)-->
+    <div id="links2">
+        <h3>Canvi de <i>href</i> (clic)</h3>
+        <select name="" id="search2">
+            <option value="http://www.google.com">Google</option>
+            <option value="http://www.bing.com">Bing</option>
+            <option value="http://www.yahoo.com">Yahoo</option>
+        </select>
+
+        <a href="www.omarolmedoferrer.com">Vés a la pàgina</a>
+    </div>
+
+    <script>
+        var sel2, link2;
+
+        sel2 = document.querySelector("#search2")
+        link2 = document.querySelector("#links2 a")
+
+        link2.addEventListener("click", () => {     
+            link2.href = sel2.value                       // li fixem la destinació a la del valor del input select
+        })
+    </script>
+
+
+
+    <!-- Canvi d'atribut href (després del select) -->
+    <div id="links3">
+        <h3>Canvi de <i>href</i> (change)</h3>
+        <select name="" id="search3">
+            <option value="http://www.google.com">Google</option>
+            <option value="http://www.bing.com">Bing</option>
+            <option value="http://www.yahoo.com">Yahoo</option>
+        </select>
+
+        <a href="www.omarolmedoferrer.com">Vés a la pàgina</a>
+    </div>
+
+    <script>
+        var sel3, link3;
+
+        sel3 = document.querySelector("#search3")
+        link3 = document.querySelector("#links3 a")
+
+        sel3.addEventListener("change", () => link3.href = sel3.value)     // li fixem la destinació a la del valor del input select
+    </script>
+
+
+
+    <!-- Canvi d'atribut src -->
+    <div id="img">
+        <h3>Canvi de <i>src</i></h3>
+        <img src="./img/squirtle.png" height="300px" alt="">
+        <br>
+        <select name="" id="pokemon">
+            <option value="./img/bulbasaur.png">Bulbasaur</option>
+            <option value="./img/charmander.png">Charmander</option>
+            <option value="./img/squirtle.png" selected="selected">Squirtle</option>
+        </select>
+    </div>
+
+    <script>
+        var img, pok;
+
+        img = document.querySelector("#img img")
+        pok = document.querySelector("#pokemon")
+
+        pok.addEventListener("change", () => img.src = pok.value)   // quan canvio el select, canvia l'atribut src de la imatge
+    </script>
+
+
+
+    <!-- Canvi de classes -->
+    <div id="classes">
+        <h3>Afegir, eliminar, canviar i comprovar classes</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nulla vero modi quia, assumenda hic, atque deserunt officiis, amet culpa inventore! Libero ut vel eius commodi quas a mollitia iusto.</p><br>
+
+        <button id="n">Negreta</button>
+        <button id="c">Cursiva</button>
+        <button id="s">Subratllada</button>
+    </div>
+
+    <script>
+        var neg, cur, sub, par
+
+        neg = document.querySelector("#n")
+        cur = document.querySelector("#c")
+        sub = document.querySelector("#s")
+        par = document.querySelector("#classes p")
+
+        cur.addEventListener("click", () => par.classList.toggle("cursiva"))    //
+        sub.addEventListener("click", () => par.classList.toggle("sub"))        // afegeix o elimina la classe (perque tingui css)
+        neg.addEventListener("click", () => par.classList.toggle("negreta"))    //
+        
+        // Nota: podeu afegir classes a la classList amb .add(), eliminar-les amb .remove() i comprovar si la conté amb .contains()
+    </script>
+
+
+
+    <!-- Filtrar elements del DOM -->
+    <div id="filtre">
+        <h3>Filtre amb canvis de classe</h3>
+        <a href="" id="b">Blaus</a>
+        <a href="" id="r">Vermells</a>
+        <a href="" id="g">Verds</a>
+
+        <div id="quadrats">
+            <div class="blue"></div>
+            <div class="red"></div>
+            <div class="yellow"></div>
+            <div class="blue"></div>
+            <div class="red"></div>
+            <div class="green"></div>
+            <div class="blue"></div>
+            <div class=""></div>
+            <div class="blue"></div>
+            <div class=""></div>
+            <div class="green"></div>
+            <div class=""></div>
+            <div class="blue"></div>
+            <div class="gray"></div>
+            <div class="red"></div>
+        </div>
+    </div>
+
+    <script>
+        var blue, red, green, divs
+
+        blue = document.querySelector("#b")
+        red = document.querySelector("#r")
+        green = document.querySelector("#g")
+
+        divs = document.querySelectorAll("#quadrats div")   // em genera un array amb els elements seleccionats
+
+        blue.addEventListener("click", (e) => {
+            e.preventDefault();                     // preventDefault() perquè els enllaços no em recarreguin la pàgina
+            mostrar("blue");                        // mostra els elements que tinguin la classe "blue"
+        })
+        red.addEventListener("click", (e) => {
+            e.preventDefault();
+            mostrar("red");
+        })
+        green.addEventListener("click", (e) => {
+            e.preventDefault();
+            mostrar("green");
+        })
+
+        function mostrar(c) {
+            divs.forEach((el) => {      // recorre un array amb tots els elements del DOM seleccionats
+                if (el.classList.contains(c)) el.style.display = "block"    // si te la classe, el mostra
+                else el.style.display = "none"                              // si no, l'amaga
+            })
+        }
+    </script>
+
+</body>
+</html>
