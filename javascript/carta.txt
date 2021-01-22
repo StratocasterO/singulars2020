@@ -1,0 +1,63 @@
+<fieldset>
+        <legend>Saludo</legend>
+
+        <p><input type="radio" name="saludo" checked> Hola.</p>
+        <p><input type="radio" name="saludo"> Estimados.</p>
+        <p><input type="radio" name="saludo"> Apreciados.</p>
+        <p><input type="radio" name="saludo"> Buenos días.</p>
+        <p><input type="radio" name="saludo"> Buenas tardes.</p>
+        <p><input type="radio" name="saludo"> Buenas noches.</p>
+        <p><input type="radio" name="saludo"> A quién corresponda.</p>
+
+</fieldset>
+
+<fieldset>
+    <legend>Motivo</legend>
+
+    <p><input type="radio" name="motivo" checked> Cuento con varios años de experiencia muy sólida como profesional por lo cual me creo capacitado para asumir las responsabilidades del puesto que ustedes anuncian.</p>
+    <p><input type="radio" name="motivo"> En relación al anuncio publicado donde solicitaban un profesional para su empresa, les presento mi candidatura.</p>
+    <p><input type="radio" name="motivo"> El pasado día del mes corriente, se publicó una oferta de trabajo en la que se hacía constar que necesitaban cubrir un puesto de trabajo.</p>
+    <p><input type="radio" name="motivo"> En respuesta a su anuncio aparecido en el periódico , me es grato manifestarle mi interés por el puesto.</p>
+    <p><input type="radio" name="motivo"> Me dirijo a ustedes con el fin de ofrecerles mis servicios profesionales.</p>
+    <p><input type="radio" name="motivo"> En relación al anuncio de referencia tengo el gusto de enviarle mi currículo ya que, como verá en el mismo, creo reunir todos los requisitos para el puesto de trabajo que quieren cubrir.</p>
+    <p><input type="radio" name="motivo"> Me pongo en contacto con ustedes para manifestarles mi interés por el puesto de trabajo que solicitaban.</p>
+    <p><input type="radio" name="motivo"> Me dirijo a ustedes para hacerles constar mi interés por desarrollar mi futuro profesional en su empresa.</p>
+    <p><input type="radio" name="motivo"> Sería de mi agrado poderme integrar en aquella actividad que me permita continuar con lo ya aprendido.</p>  
+</fieldset>
+
+<fieldset>
+    <legend>Medallas</legend>
+
+    <p><input type="radio" name="medallas" checked> Como he reseñado en el historial adjunto, aunque solo cuento años de experiencia, confío en mi afán de de superación para llegar a poseer un dominio completo de la profesión. Creo contar con las aptitudes necesarias para poder aportar beneficios muy positivos a su organización.</p>
+    <p><input type="radio" name="medallas"> Debido a mis cualidades personales y mi experiencia, me considero capacitado para desempeñar ese trabajo.</p>
+    <p><input type="radio" name="medallas"> Me adapto con facilidad al trabajo en equipo y baso mi actuación profesional en una relación duradera y de confianza con la empresa.</p>
+    <p><input type="radio" name="medallas"> El puesto que ustedes ofrecen coincide plenamente con mis objetivos profesionales y constituye para mi un reto profesional, qué trataré de llevar a cabo con todo entusiasmo, para mutuo beneficio.</p>
+    <p><input type="radio" name="medallas"> Considero que mis características de formación y experiencia puedan corresponder con las de su anuncio y me complazco en enviarles mi CV para su consideración.</p>
+    <p><input type="radio" name="medallas"> Por mi formación y por mi entusiasmo en desarrollar al máximo mi carrera profesional, espero ser un firme candidato para cubrir el puesto que se ofrece.</p>
+    <p><input type="radio" name="medallas"> Mis aspiraciones profesionales se dirigen profesionalmente hacia sectores donde mi formación y experiencia podrían consolidarse. Tengo plena disponibilidad para cambios de residencia y viajes.</p>
+    <p><input type="radio" name="medallas"> Tanto el interés por ampliar mi carrera profesional, como mi capacidad de trabajo y responsabilidad, pueden resultar de utilidad para una empresa consolidada como la suya.</p>  
+</fieldset>
+
+<fieldset>
+    <legend>Objetivo</legend>
+
+    <p><input type="radio" name="objetivo" checked> Agradecería la oportunidad de poder presentarme ante ustedes para contestar cualquier pregunta y ampliar lo resumido en mi historial.</p>
+    <p><input type="radio" name="objetivo"> Les agradecería me dejasen formar parte del proceso de selección.</p>
+    <p><input type="radio" name="objetivo"> Por todo ello espero que tenga en cuenta mi candidatura ante cualquier necesidad futura se ponga en contacto conmigo.</p>
+    <p><input type="radio" name="objetivo"> Desearía formar parte del proceso de selección, y quedo a su disposición para mantener una entrevista personal si lo estiman oportuno.</p>
+    <p><input type="radio" name="objetivo"> Espero se pongan en contacto conmigo para poderles ampliar mi datos en una entrevista personal.</p>
+    <p><input type="radio" name="objetivo"> Por todo ello, creo reunir los requisitos que mencionan para el futuro ocupante del puesto, deseando poder formar parte del proceso de selección.</p>
+    <p><input type="radio" name="objetivo"> Esperando comentar con usted en una próxima entrevista mi historial profesional, aprovecho la ocasión para saludarle atentamente.</p>  
+</fieldset>
+
+<fieldset>
+    <legend>Despedida</legend>
+
+    <p><input type="radio" name="despedida" checked> Un cordial saludo.</p>
+    <p><input type="radio" name="despedida"> En espera de sus noticias y sin otro particular.</p>
+    <p><input type="radio" name="despedida"> Aprovecho la ocasión para agradecerle el interés que ha manifestado por mi candidatura. Atentamente.</p>
+    <p><input type="radio" name="despedida"> Muy atentamente.</p>
+    <p><input type="radio" name="despedida"> Atentamente.</p>
+    <p><input type="radio" name="despedida"> A la espera de recibir noticias suyas, les saluda atentamente.</p>
+    <p><input type="radio" name="despedida"> Agradeciéndoles la atención restada , se despide atentamente.</p>  
+</fieldset>
