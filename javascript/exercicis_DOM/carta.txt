@@ -1,14 +1,13 @@
 <fieldset>
-        <legend>Saludo</legend>
+    <legend>Saludo</legend>
 
-        <p><input type="radio" name="saludo" checked> Hola.</p>
-        <p><input type="radio" name="saludo"> Estimados.</p>
-        <p><input type="radio" name="saludo"> Apreciados.</p>
-        <p><input type="radio" name="saludo"> Buenos días.</p>
-        <p><input type="radio" name="saludo"> Buenas tardes.</p>
-        <p><input type="radio" name="saludo"> Buenas noches.</p>
-        <p><input type="radio" name="saludo"> A quién corresponda.</p>
-
+    <p><input type="radio" name="saludo" checked> Hola.</p>
+    <p><input type="radio" name="saludo"> Estimados.</p>
+    <p><input type="radio" name="saludo"> Apreciados.</p>
+    <p><input type="radio" name="saludo"> Buenos días.</p>
+    <p><input type="radio" name="saludo"> Buenas tardes.</p>
+    <p><input type="radio" name="saludo"> Buenas noches.</p>
+    <p><input type="radio" name="saludo"> A quién corresponda.</p>
 </fieldset>
 
 <fieldset>
