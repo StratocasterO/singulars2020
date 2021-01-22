@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" name="ex" id="1" value="1" checked><label for="1">Opció 1</label><br>
+    <input type="radio" name="ex" id="2" value="2"><label for="2">Opció 2</label><br>
+    <input type="radio" name="ex" id="3" value="3"><label for="3">Opció 3</label><br>
+    <input type="radio" name="ex" id="4" value="4"><label for="4">Opció 4</label><br>
+    <input type="radio" name="ex" id="5" value="5"><label for="5">Opció 5</label><br><br>
+
+    <input type="text" name="" id="output"><br><br>
+    <input type="text" name="" id="output2">
+
+    <script>
+        var radios = document.querySelectorAll("input[type=radio]")  // tots els radios
+        var output = document.querySelector("#output")
+        var output2 = document.querySelector("#output2")
+
+        radios.forEach((el) => {
+            el.addEventListener("click", mostrar)
+        })
+
+        function mostrar() {
+            mostrar1();
+            mostrar2();
+        }
+
+        function mostrar1() {   // selecciona el radio marcat
+            var checked = document.querySelector("input[type=radio]:checked")   
+            output.value = checked.value
+        }
+
+        function mostrar2() {   // comprova quin està marcat de tots els radios
+            for (let i = 0; i < radios.length; i++) {   
+                if (radios[i].checked) {
+                    output2.value = radios[i].value;
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
