@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black;
+        }
+        #countdown{
+            font-size: 5em;
+        }
+        #cont{
+            margin: 200px auto;
+            padding: 20px;
+            width: fit-content;
+            background-color: blanchedalmond;
+            border: 10px red solid;
+        }
+        #cont pre{
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <div id="countdown"></div>
+        <div><pre>    DY          HR        MIN      SEC</pre></div>
+    </div>
+
+    <script>
+        var end = new Date('12/16/2021 0:00');  // data final del contador
+        
+        // milisegons en un...
+        const SEC = 1000;
+        const MIN = SEC * 60;
+        const HR = MIN * 60;
+        const DAY = HR * 24;
+
+        var timer;
+        
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;   // temps restant en milisegons
+
+            if (distance < 0) {
+                // para el crono
+                clearInterval(timer);
+                document.querySelector('#countdown').innerHTML = 'EXPIRED!';
+                document.querySelector('#cont pre').innerHTML = ""
+                return;
+            }
+
+            // calcula dies, hores, minuts i segons
+            var days = Math.floor(distance / DAY);
+            var hours = Math.floor((distance % DAY) / HR);
+            var minutes = Math.floor((distance % HR) / MIN);
+            var seconds = Math.floor((distance % MIN) / SEC);
+            
+            // els pinta
+            document.querySelector('#countdown').innerHTML = days + ':' + hours + ':' + minutes + ':' + seconds;
+        }
+        
+        timer = setInterval(showRemaining, 1000);
+    </script>
+</body>
+</html>
+

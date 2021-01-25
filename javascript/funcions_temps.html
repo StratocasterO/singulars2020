@@ -1,0 +1,42 @@
+<!-- setInterval(): dispara una funció cada vegada que passin els milisegons que posem -->
+
+<p id="data">Data: </p>
+
+<textarea name="" id="input" cols="30" rows="10"></textarea>
+
+<div id="output"></div>
+
+<script>
+    var input = document.querySelector("#input")
+    var output = document.querySelector("#output")
+
+    var i = 0;
+    
+    setInterval(() => {
+        output.innerHTML = input.value;
+    }, 2000);
+
+    console.log("hola");
+
+
+    var data = document.querySelector("#data");
+
+    var timer = setInterval(() => {
+        data.innerHTML = "Data: " + new Date();
+        i++;
+
+        if(i == 10) clearInterval(timer);
+    }, 1000)
+
+    
+</script>
+
+
+
+<!-- setTimeout(): dispara una funció quan passin els milisegons que posem -->
+
+<script>
+    const alerta = _ => window.alert("Han passat 5 segons")
+    
+    setTimeout(alerta, 5000)
+</script>
