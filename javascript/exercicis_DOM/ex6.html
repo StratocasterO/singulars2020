@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="text">
+    <select name="" id="color">
+        <option value="purple">Violeta</option>
+        <option value="green">Verd</option>
+        <option value="orange">Taronja</option>
+    </select>
+    <button id="button">Click</button>
+    <p style="width: 300px;"></p>
+
+    <script>
+        var input, button, par;
+
+        input = document.querySelector("#text")
+        button = document.querySelector("#button")
+        par = document.querySelector("p")
+
+        button.addEventListener("click", () => {
+            console.log(`%cHola, ${input.value}`, `color: ${document.querySelector("#color").value}`);
+            par.innerHTML = `Hola, ${input.value}`
+            par.style.color = document.querySelector("#color").value
+        })
+    </script>
+</body>
+</html>

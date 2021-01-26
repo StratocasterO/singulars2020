@@ -7,6 +7,7 @@
 </head>
 <body>
     <input type="text" name="" id="text">
+    <input type="color" name="" id="color">
     <button id="button">Click</button>
     <p style="width: 300px;"></p>
 
@@ -18,7 +19,9 @@
         par = document.querySelector("p")
 
         button.addEventListener("click", () => {
-            par.innerHTML += input.value
+            console.log(`%cHola, ${input.value}`, `color: ${document.querySelector("#color").value}`);
+            par.innerHTML = `Hola, ${input.value}`
+            par.style.color = document.querySelector("#color").value
         })
     </script>
 </body>

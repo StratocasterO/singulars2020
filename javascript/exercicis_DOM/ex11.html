@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #calc{
+            width: 400px;
+            margin: 200px auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: grey;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px
+        }
+        #pantalla{
+            width: 400px;
+            height: 1.5em;
+            font-size: 3em;
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            padding: 0px 10px;
+            box-sizing: border-box;
+        }
+        .button{
+            width: 96px;
+            height: 80px;
+            border-radius: 3px;
+            font-size: 2.8em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .equal{
+            background-color: rgb(224, 199, 87);
+        }
+        .oper{
+            background-color: rgb(206, 210, 211);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="calc">
+        <input type="text" name="" id="pantalla" placeholder="0" readonly>
+
+        <button class="button oper">√</button>
+        <button class="button oper">∛</button>
+        <button class="button oper">^</button>
+        <button class="button oper">÷</button>
+        <button class="button number">7</button>
+        <button class="button number">8</button>
+        <button class="button number">9</button>
+        <button class="button oper">&times;</button>
+        <button class="button number">4</button>
+        <button class="button number">5</button>
+        <button class="button number">6</button>
+        <button class="button oper">-</button>
+        <button class="button number">1</button>
+        <button class="button number">2</button>
+        <button class="button number">3</button>
+        <button class="button oper">+</button>
+        <button class="button number">0</button>
+        <button class="button dot">.</button>
+        <button class="button clear">C</button>
+        <button class="button equal">=</button>
+    </div>
+
+    <script>
+        var pantalla = document.querySelector("#pantalla")
+
+        pantalla.value = 12345
+
+
+        // que els números (i el punt) escriguin a la pantalla
+        var numbers = document.querySelectorAll(".number")
+
+        numbers.forEach((num) => {
+            num.addEventListener("click", () => pantalla.value += num.innerHTML)
+        })
+
+
+        // que el clear esborri la pantalla (o reset)
+        var clear = document.querySelector(".clear")
+
+        clear.addEventListener("click", () => pantalla.value = 0)
+
+
+        // que l'igual escrigui el resultat
+        
+    </script>
+</body>
+</html>

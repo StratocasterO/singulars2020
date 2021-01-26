@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" name="pro" value="guapo" id="he"><label for="he">Masc</label><br>
+    <input type="radio" name="pro" value="guapa" id="she"><label for="she">Fem</label><br>
+    <input type="radio" name="pro" value="guapi" id="they" checked><label for="they">Altres</label><br><br>
+
+    <input type="text" name="" id="text">
+    <button id="button">Click</button>
+    <p style="width: 300px;"></p>
+
+    <script>
+        var input, button, par;
+
+        input = document.querySelector("#text")
+        button = document.querySelector("#button")
+        par = document.querySelector("p")
+
+        button.addEventListener("click", () => {
+            par.innerHTML = `Hola, ${input.value}, ets molt ${document.querySelector("[type=radio]:checked").value}`
+        })
+    </script>
+</body>
+</html>

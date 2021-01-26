@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="input" style="text-align: right;">
+    <select name="" id="tInput">
+        <option value="c">ºC</option>
+        <option value="f">ºF</option>
+        <option value="k">K</option>
+    </select>
+    
+    <input type="text" name="" id="output" readonly style="text-align: right;">
+    <select name="" id="tOutput">
+        <option value="c">ºC</option>
+        <option value="f">ºF</option>
+        <option value="k">K</option>
+    </select>
+    
+    <button id="button">Convertir</button>
+    
+    <script>
+        var input, output, tInput, tOutput, button;
+        
+        input = document.querySelector("#input")
+        output = document.querySelector("#output")
+        tInput = document.querySelector("#tInput")
+        tOutput = document.querySelector("#tOutput")
+        button = document.querySelector("#button")
+        
+        button.addEventListener("click", () => {
+            if (input.value == null || isNaN(input.value)){
+                output.value = "Temperatura no vàlida"
+                output.style.color = "red"
+                return;
+            }
+
+            output.style.color = "default"
+
+            if (tOutput.value == tInput.value) {
+                output.value = input.value
+            } else if (tInput.value == "c") {
+                if (tOutput.value == "f") {
+                    output.value = ((parseFloat(input.value) * 9/5) + 32).toFixed(2)
+                } else {
+                    output.value = (parseFloat(input.value) + 273.15).toFixed(2)
+                }
+            } else if (tInput.value == "f") {
+                if (tOutput.value == "c") {
+                    output.value = ((parseFloat(input.value) - 32) * 5/9).toFixed(2)
+                } else {
+                    output.value = ((parseFloat(input.value) - 32) * 5/9 + 273.15).toFixed(2)
+                }
+            } else {
+                if (tOutput.value == "c") {
+                    output.value = (parseFloat(input.value) - 273.15).toFixed(2)
+                } else {
+                    output.value = ((parseFloat(input.value) - 273.15) * 9/5 + 32).toFixed(2)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
