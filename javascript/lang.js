@@ -1,5 +1,3 @@
-// import, export
-
 var copy = {
     titol: {id: "titol",
             cat: "El meu primer web",
@@ -21,4 +19,4 @@ function lang(lang) {
     }
 }
 
-export {copy, lang};
+export {lang};

@@ -1,4 +1,4 @@
-import {copy, lang} from "./lang.js"
+import {lang} from "./lang.js"
 
 document.querySelectorAll(".lang").forEach((button) => {
     button.addEventListener("click", () => {
@@ -6,4 +6,4 @@ document.querySelectorAll(".lang").forEach((button) => {
     })
 })
 
-console.log(copy);
+console.log(copy); // copy no està importat -> no s'hi pot accedir des d'aquí
