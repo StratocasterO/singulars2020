@@ -1,4 +1,4 @@
-var copy = {
+const copy = {
     titol: {cat: "El meu primer web",
             esp: "Mi primera web",
             eng: "My first web page"},

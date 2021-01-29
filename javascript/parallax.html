@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            background: url("./img/three.png") fixed;
+            background-size: 80px;
+        }
+        .cont{
+            position: relative;
+            top: 3000px;
+            background-color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+        #two{
+            background: url("img/two.png");
+            background-size: 150px;
+            position: fixed;
+            top: 0;
+            height: 3000px;
+            width: 100%;
+        }
+        #one{
+            background: url("img/one.png");
+            background-size: 200px;
+            position: fixed;
+            top: 0;
+            height: 3000px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="two"></div>
+    <div id="one"></div>
+
+    <div class="cont">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates praesentium hic earum nemo, impedit exercitationem aliquid sit sint corporis perferendis nobis esse culpa modi debitis temporibus similique voluptatibus ipsa quas at pariatur. Molestiae dolore cum ea rem ipsum unde veritatis voluptatibus vero nobis excepturi eveniet ut alias eius necessitatibus atque deleniti minima, laboriosam odio corrupti laudantium! Aperiam dolore fuga omnis quas error sint totam, quam ea officiis beatae voluptatem eveniet doloremque eos ipsam delectus nemo perferendis nihil explicabo hic culpa reprehenderit! Necessitatibus amet distinctio, sit quibusdam illo, molestiae sunt veniam ea non odio nostrum tempore illum quidem cum deleniti similique porro nam eos, placeat facere? Aliquam labore mollitia aliquid animi repellat, ipsam quis nulla consectetur, corporis, sint laboriosam laudantium nam. In eaque quis cum perferendis illo aperiam similique. Quasi natus non ipsa sint iure placeat deleniti, veritatis repellendus quisquam, quos commodi sed possimus ad nam dicta eius laboriosam animi. Saepe doloribus repudiandae laudantium labore aliquid rerum voluptates? Eaque, et a sunt impedit placeat maiores, vel laborum non natus quis pariatur est, illum commodi! Modi maxime sed nostrum provident totam quis, facilis rem tenetur aliquid vero. Esse illum reiciendis quae tempora aliquid expedita quaerat temporibus rerum ex architecto veniam cumque, iste ipsum voluptatem quo, sequi quam. Dolorem quas doloribus, facere tenetur quos quia cupiditate saepe recusandae impedit porro omnis officia voluptatibus, esse sint blanditiis itaque. Rem, tenetur. Ut harum dolor voluptatibus aut officia architecto sed, rerum quae soluta. Repellendus officiis eaque unde ex. Mollitia perspiciatis tempora numquam corrupti reprehenderit itaque error possimus at voluptas incidunt quas commodi fugiat sequi alias corporis cupiditate quae magnam, ipsa ullam officiis, sapiente recusandae aspernatur provident in. Aspernatur dolores velit porro maxime sit itaque alias, sed aliquam temporibus ullam, reprehenderit quae odio eveniet, ea eaque omnis quis hic! Deleniti minus soluta quos natus in sint laudantium, doloribus eaque temporibus accusamus tenetur ex iure consequuntur voluptas eos omnis, saepe iusto dignissimos. Rem reiciendis porro, magnam rerum, culpa nobis cum dolore itaque suscipit velit iusto. Alias quaerat cupiditate, voluptatem rerum debitis aspernatur. Obcaecati porro inventore non quidem commodi necessitatibus pariatur officiis consequatur qui ipsam nam tempore nisi dolorum quo, sequi dicta error suscipit iure quisquam accusantium ullam ad eveniet sed. Dicta eveniet perferendis aperiam ullam, error totam nam ad asperiores, odio vitae necessitatibus? Dolorum recusandae tempora exercitationem voluptatum perspiciatis accusantium consectetur ut impedit, dolore fugiat omnis ipsum voluptas, molestias necessitatibus corrupti dolorem vel inventore velit sequi cumque enim.</p>
+    </div>
+
+    <div class="cont" style="top: 6000px">Final Final</div>
+
+    <script>
+        var one = document.querySelector("#one")
+        var two = document.querySelector("#two")
+
+        window.addEventListener("scroll", () => {
+            one.style.top = -(window.scrollY*.1) + "px"
+            two.style.top = -(window.scrollY*.05) + "px"
+        })
+    </script>
+</body>
+</html>
