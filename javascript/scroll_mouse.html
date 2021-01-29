@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll</title>
+    
+    <style>
+        *{
+            margin: 0;
+        }
+        #quadrat {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            position: fixed;
+            top: 150px;
+            right: 0;
+            left: 0;
+            background-color: rgb(25, 121, 121);
+        }
+        
+        /* Scrollbar personalitzada */  
+        body::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+        
+        body::-webkit-scrollbar-track {
+            background:  rgb(191, 214, 214);
+        }
+        
+        body::-webkit-scrollbar-thumb {
+            background:  rgb(25, 121, 121);
+            border-radius: .25rem;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background:  rgb(10, 77, 77);
+            border-radius: .25rem;
+        }
+
+        /* appearing items with scroll */
+        #appear{
+            position: relative;
+            top: 5000px; 
+            padding: 500px; 
+            font-size: 3em; 
+            opacity: 0; 
+            transition: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="quadrat"></div>
+    
+    <div id="appear">FINAL</div>
+    
+    <script>
+        var quadrat = document.querySelector("#quadrat");
+        var appear = document.querySelector("#appear");
+        
+        window.addEventListener("scroll", () => {
+            console.log(window.scrollY);
+            quadrat.style.transform = `rotate(${window.scrollY*0.2}deg)`    // controla la rotació amb scroll
+
+            if (window.scrollY > 4600) {
+                appear.style.opacity = 1;
+            } else {
+                appear.style.opacity = 0;
+            }
+        })
+
+        window.addEventListener("mousemove", (e) => {
+            quadrat.style.opacity = `${1 - (e.clientY / 600)}`        // controla la opacitat amb la posició Y del ratolí
+            quadrat.style.transform = `rotate(${e.clientX / 8}deg)`   // controla la rotació amb la posicó X del ratolí
+        })
+    </script>
+</body>
+</html>
