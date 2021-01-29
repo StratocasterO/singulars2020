@@ -6,4 +6,4 @@ document.querySelectorAll(".lang").forEach((button) => {
     })
 })
 
-console.log(copy); // copy no està importat -> no s'hi pot accedir des d'aquí
+lang("cat");  // carrega el primer llenguatge (es pot evitar posant el llenguatge per defecte a l'HTML) 
