@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snap scroll</title>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* snap scroll */
+        .cont::-webkit-scrollbar { 
+            display: none;
+        }
+        .cont{
+            scroll-snap-type: y mandatory;
+            overflow: scroll;
+            height: 100vh;
+        }
+        .section{
+            box-sizing: border-box;
+            max-width: 100%;
+            height: 100vh;
+            padding: 200px;
+            scroll-snap-align: start;
+        }
+
+        /* visual style */
+        #one{
+            background-color: rgb(142, 223, 223);
+        }
+        #two{
+            background-color: rgb(159, 242, 248);
+        }
+        #three{
+            background-color: rgb(255, 255, 255);
+            color: rgb(241, 128, 236);
+        }
+        #four{
+            background-color: rgb(255, 194, 250);
+        }
+        #five{
+            background-color: rgb(255, 146, 250);
+        }
+        #one, #two, #five, #four{
+            color: white;
+            text-shadow: rgb(112, 112, 112) 0 0 20px;
+        }
+        h1{
+            font-size: 4em;
+        }
+        p{
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="section" id="one">
+            <h1>This is section one</h1><br><br><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate expedita distinctio, voluptas dolorem nostrum est, facere labore dolor itaque animi consequuntur ab vero optio adipisci incidunt molestiae hic! Et, dicta!</p>
+        </div>
+        <div class="section" id="two">
+            <h1>This is section two</h1><br><br><br>
+            <p>Ratione, officiis voluptas architecto error corrupti alias laudantium sequi fugiat culpa quisquam. Perspiciatis voluptas, nulla doloremque quia recusandae hic blanditiis debitis dolorem neque dolor? Id ad est suscipit eius enim.</p>
+        </div>
+        <div class="section" id="three">
+            <h1>This is section three</h1><br><br><br>
+            <p>Obcaecati, deleniti possimus. Ea quo corporis ipsam consequuntur eveniet ducimus porro corrupti dolor at? Assumenda, animi molestias? Labore, quo. Itaque numquam amet totam quisquam earum suscipit provident, saepe commodi aliquid?</p>
+        </div>
+        <div class="section" id="four">
+            <h1>This is section four</h1><br><br><br>
+            <p>Nisi voluptates assumenda distinctio dolore laudantium, eos tempore natus, minus at voluptate suscipit quia facere nostrum dicta, sunt delectus debitis eligendi necessitatibus sint blanditiis quasi ad? Maxime quo perferendis cumque.</p>
+        </div>
+        <div class="section" id="five">
+            <h1>This is section five</h1><br><br><br>
+            <p>Eaque, distinctio aliquid? Harum eaque quo dicta? Maxime neque, quaerat, cumque reprehenderit dolorum debitis, corporis voluptas quia ea nesciunt ullam qui. Tenetur suscipit nostrum fuga ipsa velit aspernatur dolor architecto.</p>
+        </div>
+    </div>
+</body>
+</html>
