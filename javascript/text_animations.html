@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text animations</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .cont{
+            max-width: 1000px;
+            margin: auto;
+        }
+        
+        /* animate.css title */
+        .animate__fadeIn {
+            --animate-duration: 2s;
+        }
+        .animate__slideInDown{
+            --animate-duration: 1s;
+        }
+
+        /* animation with transform */
+        .move:hover{
+            transform: translateY(-10px);
+        }
+        .move{
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <p>Animació amb <a href="http://animate.style">Animate.css</a>:</p>
+        <div class="animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__slideInDown">This is some text</h1>
+        </div><br>
+
+        <p>Animació amb JavaScript:</p>
+        <h1 id="animated">My name is Tom Riddle</h1>
+        <button id="change">Change text</button><br><br><br>
+
+        <p>Animació amb CSS (hover):</p>
+        <h1 class="move">This is even more text</h1>
+
+        <p>Animació GIF:</p>
+        <img class="gif" src="img/slowpoke.png" alt="" width="200px">
+    </div>
+
+    <script>
+        window.addEventListener("load", animate);
+
+        var text = document.querySelector("#animated")
+        
+        var change = document.querySelector("#change")
+        var quinText = true;
+
+        // change text with button
+        change.addEventListener("click", () => {
+            quinText = !quinText
+
+            if (!quinText) text.innerHTML = "I am Lord Voldemort"
+            else text.innerHTML = "My name is Tom Riddle"
+            
+            animate()
+        })
+
+        // animate text
+        function animate() {
+            var cont = text.innerHTML
+            text.innerHTML = ""
+
+            var write  = setInterval(() => {
+                text.innerHTML = cont.slice(0,text.innerHTML.length + 1)
+                if (text.innerHTML.length == cont.length) {
+                    clearInterval(write);
+                }
+            }, 100);
+        }
+
+        // animate gif on hover
+        var gif = document.querySelector(".gif")
+        var gifName = "img/slowpoke."
+        gif.addEventListener("mouseenter", () => gif.src = gifName + "gif")
+        gif.addEventListener("mouseleave", () => gif.src = gifName + "png")
+    </script>
+</body>
+</html>
