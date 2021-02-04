@@ -1,7 +1,7 @@
 const copy = {
-    titol: {cat: "El meu primer web",
-            esp: "Mi primera web",
-            eng: "My first web page"},
+    titol: {cat: "El meu primer web 🖥️",
+            esp: "Mi primera web 🖥️",
+            eng: "My first web page 🖥️"},
     
     bio: {cat: "Hola! Benvinguts al primer web que faig amb HTML, CSS i JavaScript. Fes clic als botons per traduïr els textos.",
          esp: "¡Hola! Bienvenidos a la primera web que hago con HTML, CSS y JavaScript. Haz clic en los botones para traducir los textos.",
