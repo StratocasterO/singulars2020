@@ -4,31 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image slider</title>
-
+    
     <style>
         .cont{
             max-width: 1000px;
             margin: auto;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
         h2{
             text-align: center;
         }
-        #slider1, #slider2{
+        #slider1, #slider2, #slider3, #slider4{
             width: 400px;
             height: 400px;
             overflow: hidden;
             border: 1px black solid;
             margin: auto;
         }
-        #slider1content, #slider2content{
+        #slider1content, #slider2content, #slider3content, #slider4content{
             height: 400px;
             width: 1200px;
             transition: 1s;
         }
-        #slider1content img, #slider2content img{
+        #slider1content img, #slider2content img, #slider3content img, #slider4content img{
             width: 400px;
             height: 400px;
             object-fit: contain;
+            transition: 1s;
         }
         button{
             width: 100px;
@@ -37,101 +39,226 @@
             width: fit-content;
             margin:auto
         }
+        p{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="cont">
         <h2>Slider 1</h2>
-
+        <p>Mida fixa</p>
+        
         <div id="slider1">
             <div id="slider1content">
                 <img src="img/bulbasaur.png" alt=""><img src="img/squirtle.png" alt=""><img src="img/charmander.png" alt="">
             </div>
         </div><br>
-
+        
         <div class="buttons">
             <button id="previous">Previous</button>
             <button id="next">Next</button>
         </div>
-
+        
         <br><br><br>
-
+        
         <h2>Slider 2</h2>
-
+        <p>Mida variable</p>
+        
         <div id="slider2">
             <div id="slider2content">
-                <img class="sliderImg" src="img/bulbasaur.png" alt=""><img class="sliderImg" src="img/squirtle.png" alt=""><img class="sliderImg" src="img/charmander.png" alt=""><img class="sliderImg" src="img/mew.png" alt=""><img class="sliderImg" src="img/ditto.png" alt="">
+                <img class="sliderImg" src="img/bulbasaur.png" alt=""
+                /><img class="sliderImg" src="img/squirtle.png" alt=""
+                /><img class="sliderImg" src="img/charmander.png" alt=""
+                /><img class="sliderImg" src="img/mew.png" alt=""
+                /><img class="sliderImg" src="img/ditto.png" alt="">
             </div>
         </div><br>
-
+        
         <div class="buttons">
             <button id="previous2">Previous</button>
             <button id="next2">Next</button>
         </div>
+        
+        <br><br><br>
+        
+        <h2>Slider 3</h2>
+        <p>Amb animació</p>
+        
+        <div id="slider3">
+            <div id="slider3content">
+                <img class="slider3Img" src="img/bulbasaur.png" alt=""
+                /><img class="slider3Img" src="img/squirtle.png" alt=""
+                /><img class="slider3Img" src="img/charmander.png" alt=""
+                /><img class="slider3Img" src="img/mew.png" alt=""
+                /><img class="slider3Img" src="img/ditto.png" alt="">
+            </div>
+        </div><br>
+        
+        <div class="buttons">
+            <button id="previous3">Previous</button>
+            <button id="next3">Next</button>
+        </div>
+        
+        <br><br><br>
+        
+        <h2>Slider 4</h2>
+        <p>Infinit</p>
+        
+        <div id="slider4">
+            <div id="slider4content"><img class="slider4Img" src="img/bulbasaur.png" alt=""/><img class="slider4Img" src="img/squirtle.png" alt=""/><img class="slider4Img" src="img/charmander.png" alt=""/><img class="slider4Img" src="img/mew.png" alt=""/><img class="slider4Img" src="img/ditto.png" alt=""/></div>
+        </div><br>
+        
+        <div class="buttons">
+            <button id="previous4">Previous</button>
+            <button id="next4">Next</button>
+        </div>
     </div>
-
-
-
+    
+    
+    
     <script>
         // --------------------- slider 1 ----------------------
-
+        
         var next = document.querySelector("#next")
         var prev = document.querySelector("#previous")
-
+        
         var slider = document.querySelector("#slider1content")
-
+        
         next.addEventListener("click", () => {
             moveSlider(1)
             clearInterval(auto)
         })
-
+        
         prev.addEventListener("click", () => {
             moveSlider(-1)
             clearInterval(auto)
         })
-
+        
         var imgActiva = 0;
-
+        
         function moveSlider(direction) {
             imgActiva = imgActiva + direction   // canvia la imatge activa
-
+            
             if (imgActiva > 2) imgActiva = 0;   // comprova que no estiguem al principi o al final
             else if (imgActiva < 0) imgActiva = 2;
-
+            
             slider.style.marginLeft = `${-400 * imgActiva}px`   // fixa el marge perque es vegi la imatge correcta
         }
-
+        
         var auto = setInterval(() => moveSlider(1), 3000);  // disparar el slider automàticament
         
-
+        
         // ----------------------- slider 2 -------------------
-
+        
         var next2 = document.querySelector("#next2")
         var prev2 = document.querySelector("#previous2")
-
+        
         var slider2 = document.querySelector("#slider2content")
         var sliderImg = document.querySelectorAll(".sliderImg")
-
+        
         next2.addEventListener("click", () => {
             moveSlider2(1)
         })
-
+        
         prev2.addEventListener("click", () => {
             moveSlider2(-1)
         })
-
+        
         var imgActiva2 = 0;
-        var numImg = sliderImg.length
-
-        slider2.style.width = (numImg * 400) + "px"
-
+        var numImg = sliderImg.length   // calcula el numero d'imatges que hi ha
+        
+        slider2.style.width = (numImg * 400) + "px"     // li fixa l'amplada al div interior
+        
         function moveSlider2(direction) {
             imgActiva2 = imgActiva2 + direction   // canvia la imatge activa
-
+            
             if (imgActiva2 > numImg - 1) imgActiva2 = 0;   // comprova que no estiguem al principi o al final
             else if (imgActiva2 < 0) imgActiva2 = numImg - 1;
-
+            
             slider2.style.marginLeft = `${-400 * imgActiva2}px`   // fixa el marge perque es vegi la imatge correcta
+        }
+        
+        
+        // --------------------- slider 3 -----------------------
+        
+        var next3 = document.querySelector("#next3")
+        var prev3 = document.querySelector("#previous3")
+        
+        var slider3 = document.querySelector("#slider3content")
+        var slider3Img = document.querySelectorAll(".slider3Img")
+        
+        next3.addEventListener("click", () => {
+            moveSlider3(1)
+        })
+        
+        prev3.addEventListener("click", () => {
+            moveSlider3(-1)
+        })
+        
+        var imgActiva3 = 0;
+        var numImg3 = slider3Img.length   // calcula el numero d'imatges que hi ha
+        
+        slider3.style.width = (numImg3 * 400) + "px"     // li fixa l'amplada al div interior
+        
+        function moveSlider3(direction) {
+            imgActiva3 = imgActiva3 + direction   // canvia la imatge activa
+            
+            if (imgActiva3 > numImg3 - 1) imgActiva3 = 0;   // comprova que no estiguem al principi o al final
+            else if (imgActiva3 < 0) imgActiva3 = numImg3 - 1;
+
+            mostrar(imgActiva3);
+            
+            slider3.style.marginLeft = `${-400 * imgActiva3}px`   // fixa el marge perque es vegi la imatge correcta
+        }
+
+        function mostrar(img){      // comprova quina imatge es mostrar i oculta la resta
+            slider3Img.forEach((imatge, i) => {
+                if (i == img) {
+                    imatge.style.opacity = 1 
+                    imatge.style.transform = "scale(1)"
+                } else {
+                    imatge.style.opacity = 0                // fa la imatge transparent
+                    imatge.style.transform = "scale(0)"     // escala la imatge a 0
+                }
+            })
+        }
+
+        mostrar(0)
+
+
+        // --------------------- slider 4 -----------------------
+        
+        var next4 = document.querySelector("#next4")
+        var prev4 = document.querySelector("#previous4")
+        
+        var slider4 = document.querySelector("#slider4content")
+        var slider4Img = document.querySelectorAll(".slider4Img")
+        
+        next4.addEventListener("click", () => {
+            moveSlider4(1)
+        })
+        
+        prev4.addEventListener("click", () => {
+            moveSlider4(-1)
+        })
+        
+        var imgActiva4 = 0;
+        var numImg4 = slider4Img.length   // calcula el numero d'imatges que hi ha
+        
+        slider4.style.width = (numImg4 * 400) + "px"     // li fixa l'amplada al div interior
+        
+        function moveSlider4(direction) {
+            imgActiva4 = imgActiva4 + direction   // canvia la imatge activa
+            
+            if (imgActiva4 > numImg4 - 1) {  // comprova que no estiguem al principi o al final
+                slider4.innerHTML += slider4.innerHTML
+                slider4Img = document.querySelectorAll(".slider4Img")
+                numImg4 = slider4Img.length
+                slider4.style.width = (numImg4 * 400) + "px"
+            } else if (imgActiva4 < 0) imgActiva4 = numImg4 - 1;
+            
+            slider4.style.marginLeft = `${-400 * imgActiva4}px`   // fixa el marge perque es vegi la imatge correcta
         }
     </script>
 </body>
