@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image slider</title>
+
+    <style>
+        .cont{
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2{
+            text-align: center;
+        }
+        #slider1, #slider2{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            border: 1px black solid;
+            margin: auto;
+        }
+        #slider1content, #slider2content{
+            height: 400px;
+            width: 1200px;
+            transition: 1s;
+        }
+        #slider1content img, #slider2content img{
+            width: 400px;
+            height: 400px;
+            object-fit: contain;
+        }
+        button{
+            width: 100px;
+        }
+        .buttons{
+            width: fit-content;
+            margin:auto
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <h2>Slider 1</h2>
+
+        <div id="slider1">
+            <div id="slider1content">
+                <img src="img/bulbasaur.png" alt=""><img src="img/squirtle.png" alt=""><img src="img/charmander.png" alt="">
+            </div>
+        </div><br>
+
+        <div class="buttons">
+            <button id="previous">Previous</button>
+            <button id="next">Next</button>
+        </div>
+
+        <br><br><br>
+
+        <h2>Slider 2</h2>
+
+        <div id="slider2">
+            <div id="slider2content">
+                <img class="sliderImg" src="img/bulbasaur.png" alt=""><img class="sliderImg" src="img/squirtle.png" alt=""><img class="sliderImg" src="img/charmander.png" alt=""><img class="sliderImg" src="img/mew.png" alt=""><img class="sliderImg" src="img/ditto.png" alt="">
+            </div>
+        </div><br>
+
+        <div class="buttons">
+            <button id="previous2">Previous</button>
+            <button id="next2">Next</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        // --------------------- slider 1 ----------------------
+
+        var next = document.querySelector("#next")
+        var prev = document.querySelector("#previous")
+
+        var slider = document.querySelector("#slider1content")
+
+        next.addEventListener("click", () => {
+            moveSlider(1)
+            clearInterval(auto)
+        })
+
+        prev.addEventListener("click", () => {
+            moveSlider(-1)
+            clearInterval(auto)
+        })
+
+        var imgActiva = 0;
+
+        function moveSlider(direction) {
+            imgActiva = imgActiva + direction   // canvia la imatge activa
+
+            if (imgActiva > 2) imgActiva = 0;   // comprova que no estiguem al principi o al final
+            else if (imgActiva < 0) imgActiva = 2;
+
+            slider.style.marginLeft = `${-400 * imgActiva}px`   // fixa el marge perque es vegi la imatge correcta
+        }
+
+        var auto = setInterval(() => moveSlider(1), 3000);  // disparar el slider automàticament
+        
+
+        // ----------------------- slider 2 -------------------
+
+        var next2 = document.querySelector("#next2")
+        var prev2 = document.querySelector("#previous2")
+
+        var slider2 = document.querySelector("#slider2content")
+        var sliderImg = document.querySelectorAll(".sliderImg")
+
+        next2.addEventListener("click", () => {
+            moveSlider2(1)
+        })
+
+        prev2.addEventListener("click", () => {
+            moveSlider2(-1)
+        })
+
+        var imgActiva2 = 0;
+        var numImg = sliderImg.length
+
+        slider2.style.width = (numImg * 400) + "px"
+
+        function moveSlider2(direction) {
+            imgActiva2 = imgActiva2 + direction   // canvia la imatge activa
+
+            if (imgActiva2 > numImg - 1) imgActiva2 = 0;   // comprova que no estiguem al principi o al final
+            else if (imgActiva2 < 0) imgActiva2 = numImg - 1;
+
+            slider2.style.marginLeft = `${-400 * imgActiva2}px`   // fixa el marge perque es vegi la imatge correcta
+        }
+    </script>
+</body>
+</html>
