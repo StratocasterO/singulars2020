@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fetch</title>
 </head>
 <body>
     
+    
+    <script>
+        fetch("https://swapi.dev/api/planets")  // fa la petició
+        .then(res => res.json())                // QUAN TE RESPOSTA la converteix a json
+        .then(res => console.log(res))          // QUAN L'HA CONVERTIT la mostra per la consola
+        
+
+        async function getPokemon() {
+            const result = await fetch('https://pokeapi.co/api/v2/type/3');
+            const res = await result.json();
+            console.log(res.pokemon);
+        };
+
+        getPokemon();
+    </script>
 </body>
 </html>

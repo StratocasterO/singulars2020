@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local storage</title>
+    
+    <style>
+        div{
+            width: fit-content;
+            margin: auto;
+        }
+        textarea{
+            width: 500px;
+            height: 300px;
+        }
+        button{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <textarea name="" id="textRandom" cols="30" rows="10"></textarea><br>
+        <button id="save">Guardar</button>
+    </div>
+
+
+    <script>
+        var but = document.querySelector("#save")
+        var text = document.querySelector("#textRandom")
+
+        but.addEventListener("click", () => {
+            localStorage.setItem("text", text.value)
+        })
+
+        text.value = localStorage.getItem("text");
+    </script>
+</body>
+</html>
