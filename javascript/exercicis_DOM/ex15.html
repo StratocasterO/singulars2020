@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtres</title>
+
+    <style>
+        #filtre{
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        #filtre > div{
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 1em;
+            justify-content: center;
+        }
+        #filtre > div > div{
+            height: 100px;
+            border-radius: 3px;
+            transition: 1s;
+        }
+        .blue{
+            background-color: rgb(152, 183, 212);            
+        }
+        .red{
+            background-color: rgb(228, 152, 152);
+        }
+        .yellow{
+            background-color: rgb(221, 216, 139);
+        }
+        .green{
+            background-color: rgb(135, 180, 137);
+        }
+        .gray{
+            background-color: rgb(151, 151, 151);
+        }
+        .quadrat{
+            margin: 1em 0;
+            width: 0;
+            opacity: 0;
+            border: solid black 0;
+        }
+        .show{
+            border: solid black 1px;
+            margin: 1em;
+            width: 100px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Filtrar elements del DOM -->
+    <div id="filtre">
+        <h3>Filtrar elements per classe</h3>
+        <a href="" id="blue">Blaus</a>
+        <a href="" id="red">Vermells</a>
+        <a href="" id="green">Verds</a>
+        <a href="" id="rest">Resta</a>
+        <a href="" id="all">Tots</a>
+        <a href="" id="none">Cap</a>
+
+        <div id="quadrats">
+            <div class="quadrat show blue"></div>
+            <div class="quadrat show red"></div>
+            <div class="quadrat show yellow"></div>
+            <div class="quadrat show blue"></div>
+            <div class="quadrat show red"></div>
+            <div class="quadrat show green"></div>
+            <div class="quadrat show blue"></div>
+            <div class="quadrat show "></div>
+            <div class="quadrat show blue"></div>
+            <div class="quadrat show "></div>
+            <div class="quadrat show green"></div>
+            <div class="quadrat show "></div>
+            <div class="quadrat show blue"></div>
+            <div class="quadrat show gray"></div>
+            <div class="quadrat show red"></div>
+        </div>
+    </div>
+
+    <script>
+        var quadrats = document.querySelectorAll("#quadrats div")
+        var but = document.querySelectorAll("a")
+
+        but.forEach(el => {
+            el.addEventListener("click", (ev) => {
+                ev.preventDefault();
+
+                mostrar(el.id)
+            })
+        })
+
+        function mostrar(id) {
+            if (id == "all") {  // mostra tots
+                for (quadrat of quadrats) quadrat.classList.add("show")
+
+            } else if (id == "none") {  // no mostra cap
+                for (quadrat of quadrats) quadrat.classList.remove("show")
+
+            } else if (id == "rest") {  // mostra els que no tenen categoria específica
+                for (quadrat of quadrats) {
+                    if (quadrat.classList.contains("red") || quadrat.classList.contains("blue") || quadrat.classList.contains("green")) quadrat.classList.remove("show")
+                    else quadrat.classList.add("show")
+                }
+
+            } else {    // mostra els d'una categoria específica
+                for (quadrat of quadrats) {
+                    if (quadrat.classList.contains(id)) quadrat.classList.add("show")
+                    else quadrat.classList.remove("show")
+                }
+            } 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .cont{
+            width: 800px;
+            margin: auto;
+        }
+
+        h2{
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background-color: black;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0
+        }
+        .title{
+            display: flex;
+            justify-content: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <fieldset>
+            <legend>Nom</legend>
+            <p><input type="radio" name="nom" id="" checked>Esqueletos</p>
+            <p><input type="radio" name="nom" id="">Robots</p>
+            <p><input type="radio" name="nom" id="">Ángeles</p>
+            <p><input type="radio" name="nom" id="">Zombis</p>
+            <p><input type="radio" name="nom" id="">Monaguillos</p>
+        </fieldset><br>
+
+        <fieldset>
+            <legend>Adjectiu 1</legend>
+            <p><input type="radio" name="adj1" id="" checked>negros</p>
+            <p><input type="radio" name="adj1" id="">furiosos</p>
+            <p><input type="radio" name="adj1" id="">muertos</p>
+            <p><input type="radio" name="adj1" id="">caídos</p>
+            <p><input type="radio" name="adj1" id="">satánicos</p>
+        </fieldset><br>
+
+        <fieldset>
+            <legend>Adjectiu 2</legend>
+            <p><input type="radio" name="adj2" id="" checked>del infierno</p>
+            <p><input type="radio" name="adj2" id="">de la muerte</p>
+            <p><input type="radio" name="adj2" id="">cagando sin papel</p>
+            <p><input type="radio" name="adj2" id="">sin fronteras</p>
+            <p><input type="radio" name="adj2" id="">que tocan folk</p>
+        </fieldset><br>
+
+        <div class="title">
+            <img src='http://placeskull.com/67/67/000000/7' alt=''/>
+            <h2 id="result">Texto de prueba</h2>
+            <img src='http://placeskull.com/67/67/000000/7' alt=''/>
+        </div>
+    </div>
+    
+    <script>
+        var radios = document.querySelectorAll("input")
+        var nomBanda = document.querySelector("#result")
+
+        radios.forEach(element => {
+            element.addEventListener("click", comprobar)
+        })
+
+        function comprobar() {
+            var radiosActivos = document.querySelectorAll("input:checked")
+            var text = ""
+
+            // Gestionar les diferents frases de la carta:
+            // text += "<p>" + radiosActivos[0] + ", </p>"     // saludo
+            // text += "<p>" + radiosActivos[1] + radiosActivos[2] + "</p>"   // experiencia
+
+            for (radio of radiosActivos) {
+                text += radio.closest("p").textContent + " "
+            }
+
+            nomBanda.innerHTML = text
+        }
+
+        comprobar();
+    </script>
+</body>
+</html>

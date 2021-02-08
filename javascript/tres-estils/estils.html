@@ -10,9 +10,9 @@
     <h1>Pàgina amb diferents mostres d'estils</h1>
 
     <ul class="nav">
-        <li><a id="estil1" href="">Bright</a></li>
-        <li><a id="estil2" href="">Dark</a></li>
-        <li><a id="estil3" href="">Color</a></li>
+        <li><a class="styleChange" id="estil1">Bright</a></li>
+        <li><a class="styleChange" id="estil2">Dark</a></li>
+        <li><a class="styleChange" id="estil3">Color</a></li>
     </ul>
 
     <img src='http://placeskull.com/150/150/000000/7' alt=''/>
@@ -22,13 +22,8 @@
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi laboriosam molestias esse, magni ad ex tempore ab, reiciendis totam quis expedita quasi. <span class="quote">Porro hic repellendus optio est architecto.</span> Pariatur reprehenderit expedita doloribus voluptas qui accusantium adipisci fuga blanditiis esse rerum placeat fugit quisquam, quia, aut hic molestias perferendis voluptatem. Minus corporis ipsum totam at quod vero mollitia, sunt fugiat incidunt!</p>
 
     <script>
-        var s1 = document.querySelector("#estil1")
-        var s2 = document.querySelector("#estil2")
-        var s3 = document.querySelector("#estil3")
-
+        var buttons = document.querySelectorAll(".styleChange")
         var style = document.querySelector("#css")
-
-        buttons = [s1,s2,s3]
         
         buttons.forEach(element => {
             element.addEventListener("click", (e) => {
