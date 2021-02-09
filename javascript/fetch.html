@@ -4,13 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fetch</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: black;
+            color: yellow;
+            font-family: "Space Mono";
+        }
+        .cont{
+            max-width: 800px;
+            margin: auto;
+        }
+        .cols{
+            column-count: 3;
+        }
+    </style>
 </head>
 <body>
-    <h3>Planetes d'Star Wars</h3>
-    <ul id="planets"></ul>
+    <div class="cont">
+        <h3>Planetes d'Star Wars ordenats per diàmetre (primera pàgina)</h3>
+        <ul id="planets"></ul><br>
 
-    <h3>Pokemons de Kanto</h3>
-    <ol id="pokemons"></ol>
+        <h3>Planetes d'Star Wars (tots)</h3>
+        <ul class="cols" id="planets2"></ul><br>
+
+        <!-- TODO: HTML planetes i residents -->
+
+        <h3>Pokemons de Kanto</h3>
+        <ol class="cols" id="pokemons"></ol>
+    </div>
     
     <script>
         var planets = document.querySelector("#planets")
@@ -19,9 +44,12 @@
         .then(res => res.json())                // QUAN TE RESPOSTA la converteix a json
         .then(res => {                          // QUAN L'HA CONVERTIT executa la funció anònima
 
-            var resultats = res.results         // resultats és un array d'objectes amb la info dels planetes
+            var resultats = res.results         // resultats és un array d'objectes amb la info dels planetes (amb cada API hem de mirar l'estructura de la resposta)
 
-            for (planet of resultats) {         // recorrem l'array
+            var planetDiameter = resultats.map((planet) => obj = {name: planet.name, diameter: planet.diameter})    // creo un array només amb nom i diàmetre (opcional)
+                                          .sort((a,b) => a.diameter - b.diameter)                                   // i l'ordeno per diàmetre
+
+            for (planet of planetDiameter) {         // recorrem l'array
                 // escribim un element d'una llista amb el nom dels planetes
                 planets.innerHTML += `<li>${planet.name} té un diàmetre de ${planet.diameter} km</li>`    
             }
@@ -31,12 +59,44 @@
         async function getPlanets() {
             var res = await fetch('https://swapi.dev/api/planets'); 
             res = await res.json();
-            console.log(res);
+            console.log("Això és la resposta raw del servidor:\n", res);
         };
 
-        // getPlanets();
+        getPlanets();
+
 
         // ------------------------------------------------------
+
+
+        var planets2 = document.querySelector("#planets2")
+
+        function paginaAPI(url) {
+            fetch(url)  
+            .then(res => res.json())                
+            .then(res => {                          
+                for(planet of res.results) {    // escriu els planetes al DOM
+                    planets2.innerHTML += `<li>${planet.name}</li>`    
+                }
+
+                if (res.next) paginaAPI(res.next)  // si hi ha una pàgina més, fa un altre fetch
+            })      
+        }
+
+        paginaAPI("https://swapi.dev/api/planets")  // comença la cadena de fetch per la primera pàgina
+
+
+        // ------------------------------------------------------
+
+
+        // primer fetch
+        // recorres els planetes, pintant-ne el nom
+        //              pel mateix planeta, recorre l'array de residents
+        //                                  per cada resident, fes un fetch (funció)
+        //                                  d'aquest fetch recuperes el nom del resident i l'acumules
+        //                                  quan no quedin residents -> els pintes tots
+
+
+        // -------------------------------------------------------
 
 
         var pokedex = document.querySelector("#pokemons")
@@ -44,13 +104,16 @@
         fetch("https://pokeapi.co/api/v2/pokedex/2") 
         .then(res => res.json())                
         .then(res => {                      
-
-            var pokemons = res.pokemon_entries  // array amb la info dels pokemons
-
-            for (pokemon of pokemons) {         
-                pokedex.innerHTML += `<li>${pokemon.pokemon_species.name}</li>`    
+            var pokemons = res.pokemon_entries  // array amb la info dels pokemons (amb cada API hem de mirar l'estructura de la resposta)
+            pintar(pokemons);                   // pinta els pokemons en una llista
+        })     
+        
+        function pintar(pok) {
+            for (pokemon of pok) {         
+                pokedex.innerHTML += `<li>${pokemon.pokemon_species.name[0].toUpperCase()}${pokemon.pokemon_species.name.slice(1)}</li>`    
             }
-        })          
+        }
+
     </script>
 </body>
 </html>
