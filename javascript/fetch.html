@@ -31,7 +31,8 @@
         <h3>Planetes d'Star Wars (tots)</h3>
         <ul class="cols" id="planets2"></ul><br>
 
-        <!-- TODO: HTML planetes i residents -->
+        <h3>Residents dels planetes d'Star Wars</h3>
+        <ul id="residents"><img src="https://cdn.dribbble.com/users/361263/screenshots/3051905/imperial_emblem.gif" width="50%" style="margin-left: 20%" alt=""></ul><br>
 
         <h3>Pokemons de Kanto</h3>
         <ol class="cols" id="pokemons"></ol>
@@ -49,7 +50,7 @@
             var planetDiameter = resultats.map((planet) => obj = {name: planet.name, diameter: planet.diameter})    // creo un array només amb nom i diàmetre (opcional)
                                           .sort((a,b) => a.diameter - b.diameter)                                   // i l'ordeno per diàmetre
 
-            for (planet of planetDiameter) {         // recorrem l'array
+            for (var planet of planetDiameter) {         // recorrem l'array
                 // escribim un element d'una llista amb el nom dels planetes
                 planets.innerHTML += `<li>${planet.name} té un diàmetre de ${planet.diameter} km</li>`    
             }
@@ -74,7 +75,7 @@
             fetch(url)  
             .then(res => res.json())                
             .then(res => {                          
-                for(planet of res.results) {    // escriu els planetes al DOM
+                for(var planet of res.results) {    // escriu els planetes al DOM
                     planets2.innerHTML += `<li>${planet.name}</li>`    
                 }
 
@@ -88,12 +89,34 @@
         // ------------------------------------------------------
 
 
-        // primer fetch
-        // recorres els planetes, pintant-ne el nom
-        //              pel mateix planeta, recorre l'array de residents
-        //                                  per cada resident, fes un fetch (funció)
-        //                                  d'aquest fetch recuperes el nom del resident i l'acumules
-        //                                  quan no quedin residents -> els pintes tots
+        var resi = document.querySelector("#residents")
+
+        async function residents(url) {
+            var planets = await fetch(url)
+            planets = await planets.json()  // recupero els planetes
+
+            var contingut = ""
+            var persones = ""
+
+            for (var planet of planets.results) {       // recorro els planetes
+                if (planet.residents.length > 0) {             // si té residents
+                    for (var resident of planet.residents) {
+                        var persona =  await fetch(resident)
+                        persona =  await persona.json()
+                        persones += `${persona.name}, `
+                    }
+
+                    contingut += `<li>${planet.name} is home of ${persones.slice(0, persones.length - 2)}</li>`
+                    persones = ""
+                } else {                            // si no té residents
+                    contingut += `<li>${planet.name} (no known residents)</li>`
+                }
+            }        
+
+            resi.innerHTML = contingut            
+        }
+
+        residents("https://swapi.dev/api/planets")
 
 
         // -------------------------------------------------------
