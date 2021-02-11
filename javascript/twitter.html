@@ -16,22 +16,27 @@
             display: flex;
             flex-direction: row;
             margin: auto;
-            justify-content: space-around;
+            justify-content: space-between;
         }
         .cont {
             padding: 20px;
-            width: 50%;
+            width: 60%;
         }
         .form{
+            border: 1px solid black;
+            border-radius: 2px;
             padding: 20px;
             width: 30%;
-            margin-top: 100px;
-            height: 200px;
+            margin-top: 41px;
+            height: 233px;
             display: flex;
             flex-direction: column;
+            background-color: #8080803d;
             justify-content: space-between;
         }
         .titol{
+            width: 60%;
+            margin: auto;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -39,6 +44,9 @@
         .form div{
             display: flex;
             justify-content: space-around;
+        }
+        .form h3{
+            margin: 0;
         }
         #user, #mess{
             width: 100%;
@@ -50,12 +58,16 @@
             display: flex;
             flex-direction: column-reverse;
             list-style-type: none;
+            padding: 0;
         }
         #missatges li{
             border-radius: 2px;
             border: black 1px solid;
             padding: 3px;
-            margin: 5px
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            background-color: #8080803d;
         }
         #missatges li p{
             margin: 3px;
@@ -63,23 +75,31 @@
         #missatges li p:first-of-type{
             font-weight: bold;
         }
+        #missatges li a{
+            text-align: right;
+            align-self: flex-end;
+            font-size: .8em;
+            color: brown;
+            text-decoration: none;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="titol">
+        <img src="https://cdn.trendhunterstatic.com/thumbs/twitter-ugly-birds-icons.jpeg" height="60px" alt="">
+        <h2>Singulars twitter</h2>
+        <img src="https://cdn.trendhunterstatic.com/thumbs/twitter-ugly-birds-icons.jpeg" height="60px" alt="">
+    </div>
     <div class="all">
         <div class="cont">
-            <div class="titol">
-                <img src="https://cdn.trendhunterstatic.com/thumbs/twitter-ugly-birds-icons.jpeg" height="60px" alt="">
-                <h2>Singulars twitter</h2>
-                <img src="https://cdn.trendhunterstatic.com/thumbs/twitter-ugly-birds-icons.jpeg" height="60px" alt="">
-            </div>
             <div>
-                <h3>Missatges</h3>
                 <ul id="missatges"></ul> <!-- Aquí es pintaran els missatges -->
             </div>
         </div>
         <div class="form">  <!-- D'aquí es recull la informació -->
+            <h3>New message</h3>
             <input type="text" id="user" placeholder="Write your user here">
             <textarea name="" id="mess"placeholder="Write here your message"></textarea>
             <div><button id="send">Submit</button><button id="get">Refresh</button></div>
@@ -110,11 +130,10 @@
 
             fetch(database + "missatges.json", {
                 method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({"user": usuari,
-                "message": missatge})
+                body: JSON.stringify({  "user": usuari,
+                                        "message": missatge,
+                                        "date": Date.now()
+                                    })
             })
             .then(res => res.json())
             .then(res => console.log(res));
@@ -136,11 +155,20 @@
                 miss.innerHTML = ""     // buida el contingut abans de reescriure'l
 
                 for (id in missatges) {
-                    miss.innerHTML += `<li><p>${missatges[id].user}:</p> <p>${missatges[id].message}</p></li>`
+                    miss.innerHTML += `<li data-id="${id}"><p>${missatges[id].user}:</p> <p>${missatges[id].message}</p> <a href="">Delete message</a></li>`
                 }
             })
         }
         
+
+        // eliminar una entrada
+        function deleteTuit(id){
+            fetch(database + "missatges/" + id + ".json", {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+        }
     </script>
 </body>
 </html>

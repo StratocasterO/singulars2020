@@ -9,9 +9,12 @@
 </head>
 
 <body>
-    
+    <ul id="miss"></ul>
+
     <script>
         const database = "https://singulars-2020-default-rtdb.firebaseio.com/"
+
+        var miss = document.querySelector("#miss")
         
         // agafant diferents dades amb GET
         fetch(database + "alumnes.json")
@@ -22,26 +25,7 @@
         .then(res => res.json())
         .then(res => console.log(res))
         
-        
-        // -------------------------------------------
-        
-        
-        // afegint entrades amb el mètode POST
-        function send(name, text){
-            fetch(database + "missatges.json", {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({"user": "usuari de prova",
-                "message": "missatge de prova"})
-            })
-            .then(res => res.json())
-            .then(res => console.log(res));
-        }
-        
-        
-        // getting the info
+        // el mateix en una funció
         function get() {
             fetch(database + "missatges.json")
             .then(res => res.json())
@@ -49,36 +33,68 @@
                 var missatges = res
                 
                 for (id in missatges) {
-                    miss.innerHTML += `<li>${missatges[id].user}:<br> "${missatges[id].message}"</li>`
+                    miss.innerHTML += `<li data-id="${id}" style="margin-bottom: 1em">${missatges[id].user}:<br> "${missatges[id].message}"</li>`
                 }
             })
         }
-    </script>
+        
+
+        // -------------------------------------------
+        
+        
+        // afegint entrades amb el mètode POST
+        function send(name, text){
+            fetch(database + "missatges.json", {
+                method: 'POST',
+                body: JSON.stringify({  "user": name,
+                                        "message": text
+                                    })
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+        }
+        
     
+        // ---------------------------------------------
 
-    <!-------------------------------------------------------------------->
+
+        // eliminar dades amb DELETE
+        function erase(id){
+            fetch(database + "missatges/" + id + ".json", {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+        }
 
 
-    <!-- *Importació de la llibreria de Firebase ¡NO NECESSARI!* -->
+        // -----------------------------------------------
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
-    <!-- Component per usar la llibreria de la Realtime Database -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
-    <!-- Configuració del projecte de Firebase -->
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyAYXX0h_2u5weOwAdnUHgGetnmhwpQBdfk",
-            authDomain: "singulars-2020.firebaseapp.com",
-            databaseURL: "https://singulars-2020-default-rtdb.firebaseio.com",
-            projectId: "singulars-2020",
-            storageBucket: "singulars-2020.appspot.com",
-            messagingSenderId: "656509003785",
-            appId: "1:656509003785:web:0ba18feec03a48cbdc30d8"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+
+        // modificar dades amb el mètode PATCH
+        function patch(id, obj){
+            fetch(database + "missatges/" + id + ".json", {
+                method: 'PATCH',
+                body: JSON.stringify(obj)
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+        }
+
+
+        // -----------------------------------------------
+
+
+        // sobreescriure entrades amb el mètode PUT      
+        // (⚠️ sobreescriu eliminant el que hi hagi)
+        function put(id, obj){
+            fetch(database + "missatges/" + id + ".json", {
+                method: 'PUT',
+                body: JSON.stringify(obj)
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+        }
     </script>
 </body>
 </html>
