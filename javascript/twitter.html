@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Singulars 2020</title>
+    
+    <style>
+        *{
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .all{
+            max-width: 1024px;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            justify-content: space-around;
+        }
+        .cont {
+            padding: 20px;
+            width: 50%;
+        }
+        .form{
+            padding: 20px;
+            width: 30%;
+            margin-top: 100px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .titol{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .form div{
+            display: flex;
+            justify-content: space-around;
+        }
+        #user, #mess{
+            width: 100%;
+        }
+        #mess{
+            height: 130px;
+        }
+        #missatges{
+            display: flex;
+            flex-direction: column-reverse;
+            list-style-type: none;
+        }
+        #missatges li{
+            border-radius: 2px;
+            border: black 1px solid;
+            padding: 3px;
+            margin: 5px
+        }
+        #missatges li p{
+            margin: 3px;
+        }
+        #missatges li p:first-of-type{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="cont">
+            <div class="titol">
+                <img src="https://cdn.trendhunterstatic.com/thumbs/twitter-ugly-birds-icons.jpeg" height="60px" alt="">
+                <h2>Singulars twitter</h2>
+                <img src="https://cdn.trendhunterstatic.com/thumbs/twitter-ugly-birds-icons.jpeg" height="60px" alt="">
+            </div>
+            <div>
+                <h3>Missatges</h3>
+                <ul id="missatges"></ul> <!-- Aquí es pintaran els missatges -->
+            </div>
+        </div>
+        <div class="form">  <!-- D'aquí es recull la informació -->
+            <input type="text" id="user" placeholder="Write your user here">
+            <textarea name="" id="mess"placeholder="Write here your message"></textarea>
+            <div><button id="send">Submit</button><button id="get">Refresh</button></div>
+        </div>
+    </div>
+    
+    <script>
+        const database = "https://singulars-2020-default-rtdb.firebaseio.com/"
+        
+        var miss = document.querySelector("#missatges")
+        var send = document.querySelector("#send")
+        var get = document.querySelector("#get")
+        var user = document.querySelector("#user")
+        var message = document.querySelector("#mess")
+        
+        send.addEventListener("click", () => postTuit(user.value, message.value))   // botó enviar
+
+        get.addEventListener("click", getTuits) // botó refresh
+
+        getTuits()  // carrega el contingut al iniciar la pàgina
+
+        
+        // afegint entrades amb el mètode POST
+        function postTuit(usuari, missatge) {
+            if(!usuari || !missatge) {   // atura la funció si hi ha un camp buit
+                return console.log("El missatge o l'usuari no és vàlid");  
+            }
+
+            fetch(database + "missatges.json", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({"user": usuari,
+                "message": missatge})
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+
+            miss.innerHTML += `<li><p>${usuari}:</p> <p>${missatge}</p></li>`   // escriu el tuit immediatament
+
+            user.value = ""     // buida el formulari
+            message.value = ""
+        }
+        
+
+        // recuperar informacio del server
+        function getTuits() {
+            fetch(database + "missatges.json")
+            .then(res => res.json())
+            .then(res => {
+                var missatges = res
+
+                miss.innerHTML = ""     // buida el contingut abans de reescriure'l
+
+                for (id in missatges) {
+                    miss.innerHTML += `<li><p>${missatges[id].user}:</p> <p>${missatges[id].message}</p></li>`
+                }
+            })
+        }
+        
+    </script>
+</body>
+</html>

@@ -9,36 +9,76 @@
 </head>
 
 <body>
-
-
+    
     <script>
         const database = "https://singulars-2020-default-rtdb.firebaseio.com/"
-
+        
         // agafant diferents dades amb GET
         fetch(database + "alumnes.json")
         .then(res => res.json())
         .then(res => console.log(res))
-
+        
         fetch(database + "llista-compra.json")
         .then(res => res.json())
         .then(res => console.log(res))
-
-        fetch(database + "llista-compra-array.json")
-        .then(res => res.json())
-        .then(res => console.log(res))
-
+        
+        
         // -------------------------------------------
-
+        
+        
         // afegint entrades amb el mètode POST
-        fetch(database + "missatges.json", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify("això és un altre missatge")
-        })
-        .then(res => res.json())
-        .then(res => console.log(res));
+        function send(name, text){
+            fetch(database + "missatges.json", {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({"user": "usuari de prova",
+                "message": "missatge de prova"})
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+        }
+        
+        
+        // getting the info
+        function get() {
+            fetch(database + "missatges.json")
+            .then(res => res.json())
+            .then(res => {
+                var missatges = res
+                
+                for (id in missatges) {
+                    miss.innerHTML += `<li>${missatges[id].user}:<br> "${missatges[id].message}"</li>`
+                }
+            })
+        }
+    </script>
+    
+
+    <!-------------------------------------------------------------------->
+
+
+    <!-- *Importació de la llibreria de Firebase ¡NO NECESSARI!* -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <!-- Component per usar la llibreria de la Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+    <!-- Configuració del projecte de Firebase -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAYXX0h_2u5weOwAdnUHgGetnmhwpQBdfk",
+            authDomain: "singulars-2020.firebaseapp.com",
+            databaseURL: "https://singulars-2020-default-rtdb.firebaseio.com",
+            projectId: "singulars-2020",
+            storageBucket: "singulars-2020.appspot.com",
+            messagingSenderId: "656509003785",
+            appId: "1:656509003785:web:0ba18feec03a48cbdc30d8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
 </body>
 </html>
