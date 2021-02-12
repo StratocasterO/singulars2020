@@ -136,9 +136,10 @@
                                     })
             })
             .then(res => res.json())
-            .then(res => console.log(res));
-
-            miss.innerHTML += `<li><p>${usuari}:</p> <p>${missatge}</p></li>`   // escriu el tuit immediatament
+            .then(res => {
+                console.log(res)
+                getTuits();     // torna a recuperar el contingut de la base de dades perque el generi amb enllaç
+            });
 
             user.value = ""     // buida el formulari
             message.value = ""
@@ -155,8 +156,11 @@
                 miss.innerHTML = ""     // buida el contingut abans de reescriure'l
 
                 for (id in missatges) {
-                    miss.innerHTML += `<li data-id="${id}"><p>${missatges[id].user}:</p> <p>${missatges[id].message}</p> <a href="">Delete message</a></li>`
+                    miss.innerHTML += `<li data-id="${id}"><p>${missatges[id].user}:</p> <p>${missatges[id].message}</p> <a class="del" href="">Delete message</a></li>`
                 }
+
+                addListenerDelete();
+                // addListenerEdit();
             })
         }
         
@@ -168,6 +172,19 @@
             })
             .then(res => res.json())
             .then(res => console.log(res));
+        }
+
+
+        // afegir addEventListeners als botons de delete
+        function addListenerDelete() {
+            document.querySelectorAll(".del").forEach(element => {
+                element.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    var id = e.target.closest("li").getAttribute("data-id") // agafo la id de l'atribut data-id del li que envolta l'enllaç
+                    deleteTuit(id);                                         // esborro l'entrada de la base de dades
+                    e.target.closest("li").remove();                        // elimino el li que envolta l'enllaç clicat
+                })
+            })
         }
     </script>
 </body>
