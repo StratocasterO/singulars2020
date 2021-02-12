@@ -17,22 +17,19 @@
         var miss = document.querySelector("#miss")
         
         // agafant diferents dades amb GET
-        fetch(database + "alumnes.json")
-        .then(res => res.json())
-        .then(res => console.log(res))
-        
         fetch(database + "llista-compra.json")
         .then(res => res.json())
         .then(res => console.log(res))
         
+
         // el mateix en una funció
         function get() {
-            fetch(database + "missatges.json")
+            fetch(database + "missatges.json")  // afegim a la URL general la informació que volem
             .then(res => res.json())
             .then(res => {
                 var missatges = res
                 
-                for (id in missatges) {
+                for (id in missatges) {     // recorrem les propietats de l'objecte per pintar els seus valors
                     miss.innerHTML += `<li data-id="${id}" style="margin-bottom: 1em">${missatges[id].user}:<br> "${missatges[id].message}"</li>`
                 }
             })
@@ -44,9 +41,9 @@
         
         // afegint entrades amb el mètode POST
         function send(name, text){
-            fetch(database + "missatges.json", {
-                method: 'POST',
-                body: JSON.stringify({  "user": name,
+            fetch(database + "missatges.json", {            // afegim a la URL general el lloc on volem afegir una entrada
+                method: 'POST',                             // definim el mètode
+                body: JSON.stringify({  "user": name,       // i el contingut que volem enviar
                                         "message": text
                                     })
             })
@@ -60,8 +57,8 @@
 
         // eliminar dades amb DELETE
         function erase(id){
-            fetch(database + "missatges/" + id + ".json", {
-                method: 'DELETE'
+            fetch(database + "missatges/" + id + ".json", {     // afegim a la URL la direcció (ID) de l'objecte que eliminem
+                method: 'DELETE'                                // i definim el mètode
             })
             .then(res => res.json())
             .then(res => console.log(res));
@@ -73,9 +70,9 @@
 
         // modificar dades amb el mètode PATCH
         function patch(id, obj){
-            fetch(database + "missatges/" + id + ".json", {
-                method: 'PATCH',
-                body: JSON.stringify(obj)
+            fetch(database + "missatges/" + id + ".json", {     // afegim a la URL la direcció (ID) de l'objecte que modifiquem
+                method: 'PATCH',                                // definim el mètode
+                body: JSON.stringify(obj)                       // i enviem un objecte amb les propietats que volem modificar
             })
             .then(res => res.json())
             .then(res => console.log(res));
@@ -88,9 +85,9 @@
         // sobreescriure entrades amb el mètode PUT      
         // (⚠️ sobreescriu eliminant el que hi hagi)
         function put(id, obj){
-            fetch(database + "missatges/" + id + ".json", {
-                method: 'PUT',
-                body: JSON.stringify(obj)
+            fetch(database + "missatges/" + id + ".json", {     // afegim a la URL la direcció (ID) que volem escriure o sobreescriure
+                method: 'PUT',                                  // definim el mètode
+                body: JSON.stringify(obj)                       // i enviem l'objecte que volem guardar
             })
             .then(res => res.json())
             .then(res => console.log(res));
