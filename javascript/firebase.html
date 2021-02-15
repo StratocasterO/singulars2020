@@ -78,12 +78,22 @@
             .then(res => console.log(res));
         }
 
+        // a l'obj ficariem el contingut que volem editar. P.e:
+        var objQueVolemEditar = {
+            user: "user1",
+            message: "message from user1"
+        }
+
+        var objQueEnviem = {
+            message: "edited message from user1"
+        }
+
 
         // -----------------------------------------------
 
 
         // sobreescriure entrades amb el mètode PUT      
-        // (⚠️ sobreescriu eliminant el que hi hagi)
+        // (⚠️ sobreescriu eliminant el que hi hagi ⚠️)
         function put(id, obj){
             fetch(database + "missatges/" + id + ".json", {     // afegim a la URL la direcció (ID) que volem escriure o sobreescriure
                 method: 'PUT',                                  // definim el mètode

@@ -75,6 +75,10 @@
         #missatges li p:first-of-type{
             font-weight: bold;
         }
+        #missatges li p span{
+            font-weight: normal;
+            font-size: .8em;
+        }
         #missatges li a{
             text-align: right;
             align-self: flex-end;
@@ -116,55 +120,61 @@
         var message = document.querySelector("#mess")
         
         send.addEventListener("click", () => postTuit(user.value, message.value))   // botó enviar
-
+        
         get.addEventListener("click", getTuits) // botó refresh
-
+        
         getTuits()  // carrega el contingut al iniciar la pàgina
-
+        
         
         // afegint entrades amb el mètode POST
         function postTuit(usuari, missatge) {
             if(!usuari || !missatge) {   // atura la funció si hi ha un camp buit
                 return console.log("El missatge o l'usuari no és vàlid");  
             }
-
+            
             fetch(database + "missatges.json", {
                 method: 'POST',
                 body: JSON.stringify({  "user": usuari,
-                                        "message": missatge,
-                                        "date": Date.now()
-                                    })
+                "message": missatge,
+                "date": Date.now()
             })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-                getTuits();     // torna a recuperar el contingut de la base de dades perque el generi amb enllaç
-            });
-
-            user.value = ""     // buida el formulari
-            message.value = ""
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            getTuits();     // torna a recuperar el contingut de la base de dades perque el generi amb enllaç
+        });
+        
+        user.value = ""     // buida el formulari
+        message.value = ""
         }
         
-
+        
         // recuperar informacio del server
         function getTuits() {
             fetch(database + "missatges.json")
             .then(res => res.json())
             .then(res => {
                 var missatges = res
-
+                
                 miss.innerHTML = ""     // buida el contingut abans de reescriure'l
-
+                
                 for (id in missatges) {
-                    miss.innerHTML += `<li data-id="${id}"><p>${missatges[id].user}:</p> <p>${missatges[id].message}</p> <a class="del" href="">Delete message</a></li>`
+                    miss.innerHTML += `<li data-id="${id}"><p>${missatges[id].user}<span> on ${data(missatges[id].date)}:</span></p> <p>${missatges[id].message}</p> <a class="del" href="">Delete message</a></li>`
                 }
-
+                
                 addListenerDelete();
-                // addListenerEdit();
             })
         }
         
-
+        function data(milis) {
+            var today = new Date(milis);
+            var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+            var time = today.getHours() + ":" + today.getMinutes();
+            return date + ' at ' + time;    // retorna la data i l'hora en format "DD/MM/AAAA at HH:MM"
+        }
+        
+        
         // eliminar una entrada
         function deleteTuit(id){
             fetch(database + "missatges/" + id + ".json", {
@@ -173,8 +183,8 @@
             .then(res => res.json())
             .then(res => console.log(res));
         }
-
-
+        
+        
         // afegir addEventListeners als botons de delete
         function addListenerDelete() {
             document.querySelectorAll(".del").forEach(element => {
@@ -187,5 +197,5 @@
             })
         }
     </script>
-</body>
-</html>
+    </body>
+    </html>
