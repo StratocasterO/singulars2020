@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulari VUE</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div style="max-width: 400px; margin:auto">
+        <h1>Click VUE</h1>
+        
+        <input type="text" placeholder="nom" id="nom"><br><br>
+        <input type="text" placeholder="cognom" id="cognom"><br><br>
+        <input type="text" placeholder="direcció" id="dir"><br><br>
+        <input type="number" placeholder="telèfon" id="tlf"><br><br>
+        
+        <div id="res"> <!-- Això és el nostre objecte VUE -->
+            <button v-on:click='enviar'>Enviar</button><br><br>
+        
+            <div style="border: 1px black solid; padding: 1em; width: 150px">
+                <p>{{ nom }} {{ cognom }} ({{ tlf }})</p>
+                <p>{{ dir }}</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        // Seleccionem elements d'HTML
+        var nom = document.querySelector("#nom");
+        var cognom = document.querySelector("#cognom");
+        var tlf = document.querySelector("#tlf");
+        var dir = document.querySelector("#dir");
+        
+        // Construim l'objecte VUE
+        var resposta = new Vue({
+            el: '#res',
+            data: {
+                nom: 'nom',
+                cognom: 'cognom',
+                dir: 'dir',
+                tlf: 'tlf'
+            },
+            methods: {
+                enviar: function(){     // el mètode asigna valors a les propietats
+                    this.nom = nom.value,  
+                    this.cognom = cognom.value,
+                    this.tlf = tlf.value,
+                    this.dir = dir.value
+                } 
+            }
+        })
+    </script>
+</body>
+</html>

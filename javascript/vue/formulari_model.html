@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulari VUE</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div style="max-width: 400px; margin:auto">
+        <h1>Model VUE</h1>
+        
+        <div id="res"> <!-- Això és el nostre objecte VUE -->
+            <input type="text" placeholder="nom" v-model="nom"><br><br>    <!-- l'atribut v-model enllaça una propietat amb un valor -->
+            <input type="text" placeholder="cognom" v-model="cognom"><br><br>
+            <input type="text" placeholder="direcció" v-model="dir"><br><br>
+            <input type="number" placeholder="tlf" v-model="tlf"><br><br>
+            
+            <button v-on:click='enviar'>Enviar</button><br><br>
+            
+            <div style="border: 1px black solid; padding: 1em; width: 150px">
+                <p>{{ nom }} {{ cognom }} ({{ tlf }})</p>
+                <p>{{ dir }}</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        
+        // Construim l'objecte VUE
+        var resposta = new Vue({
+            el: '#res',
+            data: {
+                nom: '',
+                cognom: '',
+                dir: '',
+                tlf: ''
+            },
+            methods: {
+                enviar: function(){     // el mètode asigna valors a les propietats
+                    console.log({
+                        nom: this.nom,
+                        cognom: this.cognom,
+                        direcció: this.dir,
+                        telèfon: this.tlf
+                    });
+                } 
+            }
+        })
+    </script>
+</body>
+</html>

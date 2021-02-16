@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1184px-Vue.js_Logo_2.svg.png" type="image/x-icon">
+
+    <title>Intro a Vue.js</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
 </head>
 <body>
-    <h1 id="app">
-        {{ message }} {{ message2 }} {{ punt }}     <!-- Template vinculats a un objecte de Vue.js (plantilles) -->
-    </h1>
+    <div id="app">
+        <h1>
+            {{ message }} {{ message2 }} {{ punt }}     <!-- Template vinculats a un objecte de Vue.js (plantilles) -->
+        </h1>
+        <h2>
+            {{ message }} {{ punt }}
+        </h2>
+    </div>
+
 
     <script>
         var app = new Vue({                         // Crea un nou objecte Vue.js
