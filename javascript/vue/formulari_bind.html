@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulari bind VUE</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://kit.fontawesome.com/73151b44f6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div style="max-width: 400px; margin:auto">
+        <h1>Model VUE</h1>
+        
+        <div id="res"> <!-- Això és el nostre objecte VUE -->
+            <input type="text" placeholder="nom" @keyup="checkNom" v-model="temp_nom">           <!-- executa la funció amb cada pulsació de tecla -->
+            <i v-if="nomCorrect" style="color: green" class="fas fa-check"></i>                <!-- mostra això si nomCorrect és true -->
+            <i v-else style="color: red; font-size: 1em;" class="fas fa-times"></i><br><br>   <!-- mostra això si nomCorrect és false -->
+
+            <input type="text" placeholder="cognom" @keyup="checkCognom" v-model="temp_cognom">
+            <i v-if="cognomCorrect" style="color: green" class="fas fa-check"></i>
+            <i v-else style="color: red; font-size: 1em;"  class="fas fa-times"></i><br><br>
+
+            <input type="number" placeholder="codi postal" @keyup="checkDir" v-model="temp_dir">
+            <i v-if="dirCorrect" style="color: green" class="fas fa-check"></i>
+            <i v-else style="color: red; font-size: 1em;"  class="fas fa-times"></i><br><br>
+
+            <input type="number" placeholder="tlf" @keyup="checkTlf" v-model="temp_tlf">  
+            <i v-if="tlfCorrect" style="color: green" class="fas fa-check"></i>
+            <i v-else style="color: red; font-size: 1em;"  class="fas fa-times"></i><br><br>
+            
+            <button v-on:click='enviar'>Enviar</button><br><br>
+            
+            <div style="border: 1px black solid; padding: 1em; width: 150px">
+                <p>{{ nom }} {{ cognom }} ({{ tlf }})</p>
+                <p>{{ dir }}</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        // Construim l'objecte VUE
+        var resposta = new Vue({
+            el: '#res',
+            data: {
+                nom: '',                // variables que es mostran a l'HTML amb {{ }}
+                cognom: '',
+                dir: '',
+                tlf: '',
+                temp_nom: '',           // variables temporals
+                temp_cognom: '',
+                temp_dir: '',
+                temp_tlf: '',
+                nomCorrect: false,      // variables per mostrar elements
+                cognomCorrect: false,
+                dirCorrect: false,
+                tlfCorrect: false
+            },
+            methods: {
+                enviar: function(){
+                    this.nom = this.temp_nom;
+                    this.cognom = this.temp_cognom;
+                    this.dir = this.temp_dir;
+                    this.tlf = this.temp_tlf;
+                },
+                checkNom: function() {      // funcions per validar els diferents camps del formulari
+                    var exp = /([A-Za-zÀ-ÖØ-öø-ÿ]+\s)*[A-Za-zÀ-ÖØ-öø-ÿ]+$/;     //
+                    if (exp.test(this.temp_nom)) this.nomCorrect = true;
+                    else this.nomCorrect = false;
+
+                    // mètode de validació alternatiu (sense reg ex)
+                    // var valid = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúèòïü "
+                    // this.nomCorrect = true;
+                    // for (const lletra of this.temp_nom) {
+                    //     if (!(valid.includes(lletra) || valid.toLowerCase().includes(lletra))) this.nomCorrect = false;
+                    // }
+                },
+                checkCognom: function() {
+                    var exp = /([A-Za-zÀ-ÖØ-öø-ÿ]+\s)*[A-Za-zÀ-ÖØ-öø-ÿ]+$/;
+                    if (exp.test(this.temp_cognom)) this.cognomCorrect = true;
+                    else this.cognomCorrect = false;
+                },
+                checkDir: function() {
+                    if (isNaN(this.temp_dir) || String(this.temp_dir).length != 5) this.dirCorrect = false;
+                    else this.dirCorrect = true;
+                },
+                checkTlf: function() {
+                    if (isNaN(this.temp_tlf) || String(this.temp_tlf).length != 9) this.tlfCorrect = false;
+                    else this.tlfCorrect = true;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

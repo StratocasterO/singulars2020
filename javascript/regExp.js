@@ -65,3 +65,5 @@ reg = /[A-zÀ-ÿ]/             // as above but including letters with an umlaut 
 reg = /[A-Za-zÀ-ÿ]/          // as above but not including [ ] ^ \
 reg = /[A-Za-zÀ-ÖØ-öø-ÿ]/    // as above but not including [ ] ^ \ × ÷
 
+// email
+reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/

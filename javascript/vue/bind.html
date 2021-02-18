@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind attributes VUE</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <style>
+        .negreta{
+            font-weight: bold;
+        }
+        .cursiva{
+            font-style: italic;
+        }
+        .gran{
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="cosa">
+        <h2>Titulo de prueba</h2>
+
+        <p v-bind:style="estilP1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis est minus non soluta esse expedita asperiores cumque aut tempora nesciunt modi nobis perferendis natus, inventore autem magni quisquam facere laborum?</p>
+
+        <p v-bind:style="estilP2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam doloremque, blanditiis maiores ducimus obcaecati officiis nostrum natus eos qui quasi atque itaque odio cupiditate quaerat ipsum explicabo. Ea, modi aliquid.</p>
+
+        <!-- v-bind:class afegeix a la llista de classes de l'element HTML la classe "negreta" si la variable "isNegreta" és true -->
+        <p v-bind:class="{ negreta: isNegreta, cursiva: isCursiva }">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum eligendi eaque asperiores placeat dolorem dolores blanditiis optio consequatur nulla corrupti animi ab odit a, similique consequuntur accusantium nesciunt, dicta cupiditate?</p>
+
+        <button @click="toggleNegreta">Negreta</button> <!-- dispara la funció que canvia la variable -->
+        <button @click="toggleCursiva">Cursiva</button>
+    </div>
+
+    <script>
+        var cosa = new Vue({
+            el: "#cosa",
+            data: {
+                estilP1: "color: olive",
+                estilP2: "color: brown",
+                isNegreta: false,
+                isCursiva: false
+            },
+            methods: {
+                toggleNegreta: function () {
+                    this.isNegreta = !this.isNegreta   // canvia la variable al seu contrari
+                },
+                toggleCursiva: function () {
+                    this.isCursiva = !this.isCursiva
+                },
+            }
+        })
+    </script>
+</body>
+</html>
