@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops VUE</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>Llista cutre:</h3>  <!-- Els elements estan predefinits -->
+        <ul>
+            <li> {{ llista.item1 }} </li>
+            <li> {{ llista.item2 }} </li>
+            <li> {{ llista.item3 }} </li>
+        </ul>
+        
+        <h3>Llista guai:</h3>   <!-- En aquesta llista, els elements son els de l'array llistaGuai -->
+        <ul>
+            <li v-for="item of llistaGuai"> {{ item }} </li>
+        </ul>
+        
+        <h3>Llista guai amb objectes:</h3>   <!-- En aquesta llista, els elements son els de l'array llistaSuperGuai -->
+        <ul>
+            <li v-for="item of llistaSuperGuai"> Comprar {{ item.producte }} al {{ item.botiga }} </li><br>
+
+            La llista anterior s'ha generat a partir de la següent llista d'objectes: <br><br>
+            <li v-for="item of llistaSuperGuai"> {{ item }} </li>
+        </ul>
+
+        <h3>Llista guai amb binding d'estil:</h3>   <!-- En aquesta llista, els elements son els de l'array llistaSuperGuai2 -->
+        <ul>
+            <!-- vinculem cada propietat d'estil a una variable amb el seu valor -->
+            <li v-for="item of llistaSuperGuai2" v-bind:style="{ color: item.color, fontSize: item.size }"> Comprar {{ item.producte }} al {{ item.botiga }} </li><br>    
+
+            <!-- o bé vinculem l'atribut style a un objecte amb les seves propietats -->
+            <li v-for="item of llistaSuperGuai2" v-bind:style="item.style"> Comprar {{ item.producte }} al {{ item.botiga }} </li><br>    
+
+            Les llistes anterior s'ha generat a partir de la següent llista d'objectes: <br><br>
+            <li v-for="item of llistaSuperGuai2"> {{ item }} </li>
+        </ul>
+    </div>
+    
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                llista: {
+                    item1: "arros",
+                    item2: "llet",
+                    item3: "sucre"
+                },
+
+                llistaGuai: ["arros", "llet", "sucre"],
+                
+                llistaSuperGuai: [{     // array d'objectes
+                    producte: "arros",
+                    botiga: "Mercadona"
+                },
+                {
+                    producte: "llet",
+                    botiga: "Lidl"
+                },
+                {
+                    producte: "sucre",
+                    botiga: "Esclat"
+                }],
+
+                llistaSuperGuai2: [{     // array d'objectes amb estil
+                    producte: "arros",
+                    botiga: "Mercadona",
+                    color: "red",
+                    size: "1.1em",
+                    style: {
+                        color: "orange",
+                        fontSize: "1.3em"
+                    }
+                },
+                {
+                    producte: "llet",
+                    botiga: "Lidl",
+                    color: "blue",
+                    size: "1.2em",
+                    style: {
+                        color: "aqua",
+                        fontSize: "1.2em"
+                    }
+                },
+                {
+                    producte: "sucre",
+                    botiga: "Esclat",
+                    color: "green",
+                    size: "1.3em",
+                    style: {
+                        color: "purple",
+                        fontSize: "1.1em"
+                    }
+                }]
+            }
+        })
+    </script>
+</body>
+</html>

@@ -68,7 +68,7 @@
                 dir: '',
                 tlf: '',
                 // variables temporals
-                temp_nom: '',           
+                temp_nom: "hola",           
                 temp_cognom: '',
                 temp_dir: '',
                 temp_tlf: '',
@@ -96,7 +96,8 @@
                     if (exp.test(this.temp_nom)) this.nomCorrect = true;
                     else this.nomCorrect = false;
 
-                    // mètode de validació alternatiu (sense reg ex)
+                    // Mètode de validació alternatiu (sense reg ex):
+
                     // var valid = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúèòïü "
                     // this.nomCorrect = true;
                     // for (const lletra of this.temp_nom) {
