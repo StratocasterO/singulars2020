@@ -40,6 +40,18 @@
             Les llistes anterior s'ha generat a partir de la següent llista d'objectes: <br><br>
             <li v-for="item of llistaSuperGuai2"> {{ item }} </li>
         </ul>
+
+        <h3>Llista que recorre un objecte:</h3>
+        <ul>
+            Recorre el contingut de les propietats: <br><br>
+            <li v-for="prop in llibre"> {{ prop }} </li><br>
+            
+            Recorre el nom de les propietats: <br><br>
+            <li v-for="(prop, key) in llibre"> {{ key }}: {{ prop }} </li><br>
+
+            Recorre el nom de les propietats i l'index: <br><br>
+            <li v-for="(prop, key, i) in llibre"> {{ key }}: {{ prop }} (és la propietat núm {{ i }}) </li>
+        </ul>
     </div>
     
     
@@ -97,7 +109,13 @@
                         color: "purple",
                         fontSize: "1.1em"
                     }
-                }]
+                }],
+
+                llibre: {
+                    titol: "Con la muerte en los talones",
+                    autor: "Mili Vanili",
+                    any: "1968"
+                }
             }
         })
     </script>

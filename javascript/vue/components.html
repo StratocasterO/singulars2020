@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Components VUE</title>
+    
+    <style>
+        .hello-world {
+            border: 1px black solid;
+            background-color: rgb(190, 190, 190);
+            padding: 1em;
+            max-width: 500px;
+            border-radius: 4px;
+        }
+        .hello-world h3 {
+            margin: 0
+        }
+        .red {
+            background-color: rgb(255, 152, 152);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <titol-pagina></titol-pagina>  <!-- crido un component personalitzat -->
+        
+        <hello-world text="Aquest text l'he escrit a l'atribut personalitzat"></hello-world> <!-- aquí els props son literals -->
+        
+        <h2>Hola, aquesta línia és HTML normal</h2>
+        
+        <hello-world class="red" v-bind:text="text"></hello-world><br>  <!-- aquí vinculo els props a variables amb v-bind -->
+        
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter><br><br>
+        
+        <p>Llista creada renderitzant iterativament (amb un v-for) un component personalitzat:</p>
+        <ul>
+            <list-element v-for="el of llista" v-bind:key="el.id" v-bind:user="el.user" v-bind:text="el.text"></list-element>
+        </ul>
+    </div>
+    
+    
+    <script>
+        Vue.component("titol-pagina", {  // inicialitzo un component personalitzat
+            template: `<h1> {{ textTitol }} </h1>`,
+            // les seves variables propies van dins d'una funció que retorna un objecte
+            data: function() {  
+                return {    
+                    textTitol: "Això és el títol de la pàgina (component)" 
+                }
+            }  
+        })
+        
+        Vue.component("hello-world", {  
+            props: ["text"],            // les props són com atributs personalitzats
+            template: `<div class="hello-world">    
+                <h3>Hello world</h3>
+                <p> {{ text }} </p>
+            </div>`, // li poso una classe perque el CSS afecti a tots
+        })
+        
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{ count }} times</button>'
+        })
+        
+        Vue.component('list-element', {
+            props: ["user", "text"],
+            template: "<li> L'usuari {{ user }} ha dit <i>{{ text }}</i>. </li>"
+        })
+        
+        // inicialitzo l'objecte Vue
+        var app = new Vue({  
+            el: "#app",
+            data: {
+                text: "això és un text que li he passat via props",
+                
+                llista: [
+                { 
+                    id: 0,
+                    user: "Omar",
+                    text: "hoy he comido patatas fritas"
+                },
+                { 
+                    id: 1,
+                    user: "Manel",
+                    text: "avui he fet una cursa d'obstacles"
+                },
+                { 
+                    id: 2,
+                    user: "Pau",
+                    text: "today I learned how to loop over objects"
+                }
+                ]
+            }
+        })
+        
+        setTimeout(() => app.text = "el texto ha cambiado", 3000)
+    </script>
+</body>
+</html>
