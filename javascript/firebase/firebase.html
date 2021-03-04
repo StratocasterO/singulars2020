@@ -80,16 +80,20 @@
         
         button.addEventListener("click", sendImage);    // puja la imatge al clicar al botó
 
-        select.addEventListener("change", getImage);
+        select.addEventListener("change", getImage);    // canvia la imatge al canviar el select
 
         function getImage() {
+            // fixa el source de la imatge al valor del nom seleccionat
             img.src = select.value
         }
         
-        async function getImages() {
-            firebase.database().ref("/img").on("value", res => {
+        function getImages() {
+            // fa un get a la base de dades (es podria fer "on" en comptes de "once" per fer-ho dinàmic i que s'actualitzi sol)
+            firebase.database().ref("/img").once("value", res => {  
                 images = res.val();
                 select.innerHTML = ""
+
+                // afegeix una option al select per cada imatge de la base de dades
                 for (id in images){
                     select.innerHTML += `<option value="${images[id].url}">${images[id].name.slice(13)}</option>`
                 }
@@ -97,8 +101,11 @@
         }
         
         async function sendImage() {
-            var file = inputImg.files[0]
-            var nom = new Date().getTime() + (nameImg.value ? nameImg.value : file.name)
+            // agafa l'arxiu de l'input file
+            var file = inputImg.files[0]    
+
+            // li posa la data abans del nom i selecciona el nom per defecte si no hi ha cap escrit
+            var nom = new Date().getTime() + (nameImg.value ? nameImg.value : file.name)    
             var imgURL
             
             // envia la imatge al storage
