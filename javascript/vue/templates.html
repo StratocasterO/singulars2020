@@ -4,19 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VUE Templates</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+    <style>
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
+    <div id="app">
+        <div class="flex">
+            <card title="Card Title" text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non aperiam cum omnis, alias, repellat vitae illum corrupti eos illo labore consectetur ipsum! Dolorum aut aspernatur placeat, impedit optio atque quibusdam" link="http//google.com" link-text="Go to Google.com"></card>
+            
+            <card title="Card Title" text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non aperiam cum omnis, alias, repellat vitae illum corrupti eos illo labore consectetur ipsum! Dolorum aut aspernatur placeat, impedit optio atque quibusdam" link="http//google.com" link-text="Go to Google.com"></card>
+            
+            <card title="Card Title" text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non aperiam cum omnis, alias, repellat vitae illum corrupti eos illo labore consectetur ipsum! Dolorum aut aspernatur placeat, impedit optio atque quibusdam" link="http//google.com" link-text="Go to Google.com"></card>
+            
+            <card title="Card Title" text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non aperiam cum omnis, alias, repellat vitae illum corrupti eos illo labore consectetur ipsum! Dolorum aut aspernatur placeat, impedit optio atque quibusdam" link="http//google.com" link-text="Go to Google.com"></card>
+            
+            <card title="Card Title" text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non aperiam cum omnis, alias, repellat vitae illum corrupti eos illo labore consectetur ipsum! Dolorum aut aspernatur placeat, impedit optio atque quibusdam" link="http//google.com" link-text="Go to Google.com"></card>
+            
+            <card title="Card Title" text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non aperiam cum omnis, alias, repellat vitae illum corrupti eos illo labore consectetur ipsum! Dolorum aut aspernatur placeat, impedit optio atque quibusdam" link="http//google.com" link-text="Go to Google.com"></card>
+        </div>
+    </div>
     
-
+    <!-- Definició d'una template per un component -->
+    <script type="text/x-template" id="card">
+        <div class="card">
+            <img src="https://placehold.it/300x200?text=card%20image" alt="">
+            <h3> {{ title }} </h3>
+            <p> {{ text }} </p>
+            <a v-bind:href="link"> {{ linkText }}</a>
+        </div>
+    </script>
+    
     <script>
-        // templates
-
-        // estructura
-
-        // barreja JS + Vue.js
-
-        // ...
+        Vue.component('card', {
+            props: {    // manera alternativa d'especificar props. L'altra era ["prop1", "prop2", "prop3"]
+                title: String,  // en cada prop especifiques el tipus d'informació que s'ha de passar
+                text: String, 
+                link: String, 
+                linkText: String
+            },
+            template: "#card"   // crides a la ID del script on hi ha la template
+        })
+        
+        var app = new Vue({
+            el: "#app",
+            data: {
+                
+            },
+            methods: {
+                
+            }
+        })
     </script>
 </body>
 </html>
