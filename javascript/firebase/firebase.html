@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firebase</title>
-
+    
     <style>
         div {
             border: 1px solid black;
@@ -24,16 +24,18 @@
         <h3>Image upload</h3>
         <input type="text" id="name" placeholder="Image name"><br><br>
         <input type="file" name="" id="inputImg"><br><br>
-        <button>Enviar</button>
+        <button id="button">Enviar</button>
     </div><br>
-
+    
     <div class="cont">
         <h3>Image selection</h3>
         <select name="" id="select">
-
+            
         </select><br><br>
-        <img src="https://placehold.it/300x300?text=Placeholder%20image" alt="" id="img">
+        <img src="https://placehold.it/300x300?text=Placeholder%20image" width="300px" alt="" id="img">
     </div>
+    
+    <!-------------------------------------------------------------------------------->
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -43,8 +45,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
     
+    <!-- Add SDK for Google Analytics -->
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
     
+    <!-- Firebase API inicialization -->
     <script>
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -61,6 +65,57 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+    </script>
+    
+    <!-------------------------------------------------------------------------------->
+    
+    <script>
+        var nameImg = document.querySelector("#name")
+        var inputImg = document.querySelector("#inputImg")
+        var select = document.querySelector("#select")
+        var img = document.querySelector("#img")
+        var button = document.querySelector("#button")
+        
+        getImages();    // carregarà les imatges al carregar la pàgina
+        
+        button.addEventListener("click", sendImage);    // puja la imatge al clicar al botó
+
+        select.addEventListener("change", getImage);
+
+        function getImage() {
+            img.src = select.value
+        }
+        
+        async function getImages() {
+            firebase.database().ref("/img").on("value", res => {
+                images = res.val();
+                select.innerHTML = ""
+                for (id in images){
+                    select.innerHTML += `<option value="${images[id].url}">${images[id].name.slice(13)}</option>`
+                }
+            })
+        }
+        
+        async function sendImage() {
+            var file = inputImg.files[0]
+            var nom = new Date().getTime() + (nameImg.value ? nameImg.value : file.name)
+            var imgURL
+            
+            // envia la imatge al storage
+            await firebase.storage().ref("img/" + nom).put(file)
+            .then(() => console.log("File sent to storage!"))
+            
+            // demanem la url de descàrrega de la imatge
+            await firebase.storage().ref("img/" + nom).getDownloadURL()
+            .then(url => {
+                imgURL = url
+                console.log("Download URL obtained!")
+            })
+            
+            // guarda el nom de la imatge a la base de dades
+            firebase.database().ref("img/").push({name: nom, url: imgURL})
+            .then(() => console.log("File name saved to database!"))
+        }
     </script>
 </body>
 </html>
