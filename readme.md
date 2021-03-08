@@ -2,9 +2,9 @@
 
 ### Aquí trobareu tots els exercicis fets durant el curs de frontend del programa Singulars 2020 (BIT academy, nov/20 - mar/21). 
 
-A la carpeta HTML+CSS hi ha exercicis sobre HTML, CSS, SASS, Bootstrap i Tailwind. 
+A la carpeta **HTML+CSS** hi ha exercicis sobre HTML, CSS, SASS, *Bootstrap* i *Tailwind*. 
 
-A la carpeta Javascript hi ha exercicis sobre JavaScript, Vue.js i Firebase. 
+A la carpeta **JavaScript** hi ha exercicis sobre JavaScript, Vue.js i Firebase. 
 
 Cada carpeta té un document apunts.html on estàn enllaçats tots els exercicis de la carpeta.
 
